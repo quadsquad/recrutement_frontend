@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -88,10 +87,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LandingComponent,
     ProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorServiceService, multi:true
+
     }
   ],
   bootstrap: [AppComponent],

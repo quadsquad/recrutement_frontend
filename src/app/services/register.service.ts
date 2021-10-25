@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  user;
-  constructor(private httpClient: HttpClient) { }
 
+
+  constructor(private httpClient: HttpClient) {
+
+  }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>("http://localhost:8084/subscribe",userData);
+    return this.httpClient.post<any>(`${environment.apiUrl}subscribe`,userData, this.httpOptions);
   }
 
 }
