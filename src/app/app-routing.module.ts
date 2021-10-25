@@ -18,6 +18,7 @@ import { RegisterComponent } from './views/auth/register/register.component';
 // no layouts views
 import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import {JobsComponent} from "./views/admin/jobs/jobs.component";
 
 const routes: Routes = [
   // admin views
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: 'tables', component: TablesComponent },
       { path: 'maps', component: MapsComponent },
+      { path: 'jobs', component : JobsComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

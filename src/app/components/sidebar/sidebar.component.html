@@ -1,5 +1,6 @@
 <nav
   class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
+  *ngIf="getToken() !== null"
 >
   <div
     class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
@@ -72,17 +73,17 @@
             [routerLink]="['/admin/settings']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminSettings="routerLinkActive"
+            #adminInt="routerLinkActive"
             [ngClass]="
-              adminSettings.isActive
+              adminInt.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-tools mr-2 text-sm"
+              class="fas fa-user mr-2 text-sm"
               [ngClass]="
-                adminSettings.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminInt.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Internships
@@ -94,17 +95,17 @@
             [routerLink]="['/admin/tables']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminTables="routerLinkActive"
+            #adminEmp="routerLinkActive"
             [ngClass]="
-              adminTables.isActive
+              adminEmp.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-table mr-2 text-sm"
+              class="fas fa-shopping-bag mr-2 text-sm"
               [ngClass]="
-                adminTables.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminEmp.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Employees
@@ -116,17 +117,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminRec="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminRec.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-search mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminRec.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Recruiters
@@ -137,17 +138,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminTC="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminTC.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-home mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminTC.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Training Center
@@ -158,17 +159,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminEnterprises="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminEnterprises.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-users mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminEnterprises.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Enterprises
@@ -179,17 +180,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminTrainings="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminTrainings.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-calendar mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminTrainings.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Trainings
@@ -197,20 +198,20 @@
         </li>
         <li class="items-center">
           <a
-            [routerLink]="['/admin/maps']"
+            [routerLink]="['/admin/jobs']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminJobs="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminJobs.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-user-check mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminJobs.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Jobs
@@ -221,17 +222,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminServices="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminServices.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-archive mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminServices.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Services
@@ -242,17 +243,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminSK="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminSK.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-star-of-life mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminSK.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Soft Skills
@@ -263,17 +264,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminHK="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminHK.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-star-of-life mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminHK.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Hard Skills
@@ -284,17 +285,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminCandidatures="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminCandidatures.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-user-graduate mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminCandidatures.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Candidatures
@@ -305,17 +306,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminFB="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminFB.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-comment mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminFB.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Feedback
@@ -326,17 +327,17 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminMaps="routerLinkActive"
+            #adminContact="routerLinkActive"
             [ngClass]="
-              adminMaps.isActive
+              adminContact.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
           >
             <i
-              class="fas fa-map-marked mr-2 text-sm"
+              class="fas fa-plus mr-2 text-sm"
               [ngClass]="
-                adminMaps.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminContact.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
             Contact List

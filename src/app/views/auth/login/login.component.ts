@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
               alert("logged : "+this.loginUser.username);
               console.log(this.loginUser);
               if(response.r == 'admin'){
-                this.router.navigateByUrl('/admin/dashboard')
+                this.router.navigateByUrl('/admin/dashboard');
+                let token : string=response.response;
 
               } if(response.r =="stagiaire"){
                 this.router.navigateByUrl('')

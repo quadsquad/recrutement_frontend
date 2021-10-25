@@ -49,6 +49,7 @@ import { UserDropdownComponent } from './components/dropdowns/user-dropdown/user
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BasicAuthHtppInterceptorServiceService} from "./services/basic-auth-htpp-interceptor-service.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {JobsComponent} from "./views/admin/jobs/jobs.component";
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    JobsComponent,
   ],
   imports: [BrowserModule,
     AppRoutingModule,

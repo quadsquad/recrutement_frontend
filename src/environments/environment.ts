@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://zuul-server-qs.herokuapp.com/quadsquad/'
+  apiUrl: 'http://localhost:8084/'
 
 };
 

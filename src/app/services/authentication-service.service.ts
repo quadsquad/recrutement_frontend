@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from "@angular/common/http";
 import { map } from "rxjs/operators";
-import {BehaviorSubject, Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 
 
@@ -25,8 +24,7 @@ export class AuthenticationServiceService {
       .pipe(
          map(userData => {
             sessionStorage.setItem("data",JSON.stringify(userData));
-            let tokenStr = "Bearer " + userData.token;
-
+            sessionStorage.setItem("token", JSON.stringify(userData.response));
             return userData;
          })
       );
@@ -39,10 +37,6 @@ export class AuthenticationServiceService {
     return !(user == null);
   }
 
-  isLoggedIn(){
-
-    return this.httpClient.get(`${environment.apiUrl}/content`);
-  }
 
 
 

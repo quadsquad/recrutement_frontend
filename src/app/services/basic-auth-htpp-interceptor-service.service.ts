@@ -9,10 +9,10 @@ export class BasicAuthHtppInterceptorServiceService {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler){
-     if(sessionStorage.getItem('username') && sessionStorage.getItem('token')){
+     if(sessionStorage.getItem('data') && sessionStorage.getItem('response')){
        req = req.clone({
          setHeaders: {
-            Authorization : sessionStorage.getItem('token')
+            Authorization : sessionStorage.getItem('response')
          }
        })
      }
