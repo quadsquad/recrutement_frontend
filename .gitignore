@@ -2,7 +2,7 @@
 node_modules
 /dist
 /.github/workflows/main.yml
-
+README.md
 # local env files
 .env.local
 .env.*.local
