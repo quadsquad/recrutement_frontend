@@ -157,7 +157,7 @@ export class RegisterComponent implements OnInit {
             icon: 'success',
             title: 'Success',
             text: 'User Registered Successfully'
-          })
+          });
           this.router.navigateByUrl('/auth/login');
 
         }, error => {

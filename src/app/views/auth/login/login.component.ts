@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
       this.authentic.authenticate(this.loginUser.username,this.loginUser.password).pipe(first())
         .subscribe(
             response => {
-              alert("logged : "+this.loginUser.username);
-              console.log(this.loginUser);
+
               if(response.r == 'admin'){
                 this.router.navigateByUrl('/admin/dashboard');
-                let token : string=response.response;
+
+
 
               } if(response.r =="stagiaire"){
                 this.router.navigateByUrl('')

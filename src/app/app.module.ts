@@ -50,6 +50,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BasicAuthHtppInterceptorServiceService} from "./services/basic-auth-htpp-interceptor-service.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {JobsComponent} from "./views/admin/jobs/jobs.component";
+import { ServicesComponent } from './views/admin/services/services.component';
+import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import {JobsComponent} from "./views/admin/jobs/jobs.component";
     LandingComponent,
     ProfileComponent,
     JobsComponent,
+    ServicesComponent,
+    AddServiceComponent,
   ],
   imports: [BrowserModule,
     AppRoutingModule,

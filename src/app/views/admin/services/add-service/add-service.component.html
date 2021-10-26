@@ -1,0 +1,51 @@
+
+<div class="flex flex-wrap mt-4" >
+  <div class="w-full mb-12 px-4">
+    <div
+      class="relative flex flex-col min-w-0 break-words w-full mx-2 mb-6 shadow-lg rounded"
+
+      [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+    >
+<form style="align-content: center" class="form-group" [formGroup]="serviceGroup">
+    <h1 >Ajouter un Service</h1>
+
+    <br>
+    Service name:
+    <input
+      class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+           formControlName="service_name" name="service_name" placeholder="Service name"  type="text">
+
+  <div *ngIf="service_name.touched && service_name.invalid" class="alert alert-danger">
+    <div *ngIf="service_name.errors.required" class="text-blueGray-600">Service name is required.</div>
+
+  </div>
+    <br><br>
+
+    <label for="service_description">Service Description</label>
+    <textarea id="service_description" name="service_description" formControlName="service_description"
+              class="border-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+    >
+  <div *ngIf="service_description.touched && service_description.invalid" class="alert alert-danger">
+    <div *ngIf="service_description.errors.required" class="text-blueGray-600">Service description is required.</div>
+
+  </div>
+    </textarea><br>
+    <br>
+    <label for="service_description">Service picture</label>
+    <input
+      id="service_picture" type="file" name="service_picture" formControlName="service_picture"               class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+    /> <div *ngIf="service_picture.touched && service_picture.invalid" class="alert alert-danger">
+  <div *ngIf="service_picture.errors.required" class="text-white">Service picture is required.</div>
+
+</div>
+    <br><br> <div align="center">
+
+ <button
+      class="bg-emerald-500 text-center text-white active:bg-red-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+      type="button"
+      (click)="save()"
+    >
+      Save
+    </button></div>
+</form>
+    </div></div></div>

@@ -90,27 +90,6 @@
           </a>
         </li>
 
-        <li class="items-center">
-          <a
-            [routerLink]="['/admin/tables']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminEmp="routerLinkActive"
-            [ngClass]="
-              adminEmp.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            "
-          >
-            <i
-              class="fas fa-shopping-bag mr-2 text-sm"
-              [ngClass]="
-                adminEmp.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Employees
-          </a>
-        </li>
 
         <li class="items-center">
           <a
@@ -219,7 +198,7 @@
         </li>
         <li class="items-center">
           <a
-            [routerLink]="['/admin/maps']"
+            [routerLink]="['/admin/services']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
             #adminServices="routerLinkActive"
@@ -285,9 +264,9 @@
             [routerLink]="['/admin/maps']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
-            #adminCandidatures="routerLinkActive"
+            #adminApplication="routerLinkActive"
             [ngClass]="
-              adminCandidatures.isActive
+              adminApplication.isActive
                 ? 'text-red-600 hover:text-red-700'
                 : 'text-blueGray-700 hover:text-blueGray-500'
             "
@@ -295,10 +274,10 @@
             <i
               class="fas fa-user-graduate mr-2 text-sm"
               [ngClass]="
-                adminCandidatures.isActive ? 'opacity-75' : 'text-blueGray-300'
+                adminApplication.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
-            Candidatures
+            Applications
           </a>
         </li>
         <li class="items-center">

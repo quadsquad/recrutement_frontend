@@ -1,0 +1,43 @@
+.btn3d {
+  transition:all .08s linear;
+  position:relative;
+  outline:medium none;
+  -moz-outline-style:none;
+  border:0px;
+  margin-right:10px;
+  margin-top:15px;
+}
+.btn3d:focus {
+  outline:medium none;
+  -moz-outline-style:none;
+}
+.btn3d:active {
+  top:9px;
+}
+.btn-default {
+  box-shadow:0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #adadad, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+  background-color:#fff;
+}
+.btn-primary {
+  box-shadow:0 0 0 1px #428bca inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #357ebd, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+  background-color:#428bca;
+}
+.btn-danger,
+.btn-danger:focus {
+  background-color: #d73d32 !important;
+  border-color: #d73d32;
+  color: #fff
+}
+
+.btn-danger:hover {
+  color: #fff
+}
+
+.btn-danger.dropdown-toggle {
+  border-left-color: #e46f61 !important
+}
+
+.btn-danger.active {
+  background-color: #be3e2e !important;
+  border-color: #9a3323
+}

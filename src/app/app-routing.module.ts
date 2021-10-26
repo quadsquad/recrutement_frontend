@@ -19,6 +19,8 @@ import { RegisterComponent } from './views/auth/register/register.component';
 import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import {JobsComponent} from "./views/admin/jobs/jobs.component";
+import {ServicesComponent} from "./views/admin/services/services.component";
+import {AddServiceComponent} from "./views/admin/services/add-service/add-service.component";
 
 const routes: Routes = [
   // admin views
@@ -31,6 +33,10 @@ const routes: Routes = [
       { path: 'tables', component: TablesComponent },
       { path: 'maps', component: MapsComponent },
       { path: 'jobs', component : JobsComponent },
+      { path: 'services', component : ServicesComponent  },
+      { path: 'add-service', component : AddServiceComponent  },
+      { path: 'deleteS/:id', component: ServicesComponent },
+
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

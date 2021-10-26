@@ -29,12 +29,21 @@ export class AuthenticationServiceService {
          })
       );
   }
-
+  httpOptionsAuth = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': sessionStorage.getItem('token')
+    })
+  };
   isUserLoggedIn(){
-    let user = sessionStorage.getItem("data");
-    console.log(!(user == null));
 
-    return !(user == null);
+   return this.httpClient.get(`${environment.apiUrl}getuserconnected`, this.httpOptionsAuth).
+       pipe(
+     map(user=>{
+      sessionStorage.setItem("authUser", JSON.stringify(user));
+      return user;
+    })
+    );
   }
 
 
