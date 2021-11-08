@@ -18,20 +18,20 @@ export class ServiceServiceService {
   };
 
   getAllServices(): Observable<any>{
-    return this.httpClient.get<[]>(`${environment.apiUrl}services/findallServices`, this.httpOptions);
+    return this.httpClient.get<[]>(`http://localhost:8084/services/findallServices`, this.httpOptions);
   }
 
   addService(service){
-    return this.httpClient.post<any>(`${environment.apiUrl}services/create`,service,this.httpOptions);
+    return this.httpClient.post<any>(`http://localhost:8084/services/create`,service,this.httpOptions);
   }
 
   updateService(id: number,  service): Observable<any>{
-    return this.httpClient.put<any>(`${environment.apiUrl}`+ '/' + id , service , this.httpOptions);
+    return this.httpClient.put<any>(`http://localhost:8084`+ '/' + id , service , this.httpOptions);
   }
   servicedelete(id : number): Observable<any>{
 
 
-    const url = `${environment.apiUrl}` + 'services/delete/' + `${id}`;
+    const url = `http://localhost:8084/` + 'services/delete/' + `${id}`;
     console.log(url);
 
     return this.httpClient.delete(url);

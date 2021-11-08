@@ -19,6 +19,6 @@ export class JobServiceService {
   };
 
   getAllJobs(): Observable<any>{
-    return this.httpClient.get<[]>(`${environment.apiUrl}findAllEmplois`, this.httpOptions);
+    return this.httpClient.get<[]>(`https://jobrecruitement.herokuapp.com/findAllEmplois`, this.httpOptions);
   }
 }

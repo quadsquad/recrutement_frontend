@@ -14,7 +14,6 @@
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm start",
     "postinstall": "ng build --aot --prod"
-
   },
   "dependencies": {
     "@angular/animations": "11.2.5",
@@ -30,6 +29,7 @@
     "@tailwindcss/forms": "0.2.1",
     "angular-notification-alert": "^1.0.3",
     "angular9-notifications": "^1.0.1",
+    "bootstrap": "^5.1.3",
     "chart.js": "2.9.4",
     "moment": "^2.29.1",
     "rxjs": "6.6.6",

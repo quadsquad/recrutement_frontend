@@ -38,7 +38,7 @@ export class ServicesComponent implements OnInit {
           title: 'Success',
           text: 'Service deleted Successfully'
         });
-      
+
       }
     );
   }

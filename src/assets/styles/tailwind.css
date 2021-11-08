@@ -1214,6 +1214,10 @@ select {
   background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 
+.bg-orangem-500 {
+  --tw-bg-opacity: 1;
+  background-color: #FF8856;
+}
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgba(234, 179, 8, var(--tw-bg-opacity));
@@ -1340,7 +1344,7 @@ select {
 }
 
 .bg-center {
-  background-position: center;
+  background-position: right;
 }
 
 .bg-repeat {
@@ -1369,6 +1373,7 @@ select {
 
 .bg-cover {
   background-size: cover;
+
 }
 
 .bg-full {
@@ -3057,6 +3062,10 @@ select {
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
+.text-grey {
+  --tw-text-opacity: 1;
+  color: #646464;
+}
 
 .text-white {
   --tw-text-opacity: 1;
@@ -3182,7 +3191,11 @@ select {
   --tw-text-opacity: 1;
   color: rgba(203, 213, 225, var(--tw-text-opacity));
 }
-
+.hover\:bg-white-300:hover {
+  --tw-text-opacity: 1;
+  color: white;
+  background-color: white;
+}
 .hover\:text-blueGray-500:hover {
   --tw-text-opacity: 1;
   color: rgba(100, 116, 139, var(--tw-text-opacity));
@@ -3952,6 +3965,11 @@ select {
   .lg\:hover\:text-blueGray-200:hover {
     --tw-text-opacity: 1;
     color: rgba(226, 232, 240, var(--tw-text-opacity));
+  }
+
+  .lg\:hover\:text-grey-200:hover {
+    --tw-text-opacity: 1;
+    text-underline: #FF8856;
   }
 
   .lg\:w-auto {
