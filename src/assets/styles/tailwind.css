@@ -1956,9 +1956,14 @@ select {
   font-weight: 400;
 }
 
+.font-seminormal {
+  font-weight: 550;
+}
+
 .font-semibold {
   font-weight: 600;
 }
+
 
 .font-bold {
   font-weight: 700;
