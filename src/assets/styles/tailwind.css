@@ -71,6 +71,16 @@ small {
   font-size: 80%;
 }
 
+.myworld:hover{
+  background: white;
+  color: #FF8856;
+}
+
+.jobhover:hover{
+  background: #007bd4;
+  color: white;
+}
+
 /**
 Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 */
@@ -1455,6 +1465,10 @@ select {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.letterspace{
+  letter-spacing: 5px;
 }
 
 .rounded-md {

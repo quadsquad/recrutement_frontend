@@ -1,12 +1,15 @@
 <nav
-  style="oposition: relative"
-  class="top-0 absolute z-50  w-full flex  justify-between px-2 py-3 navbar-expand-lg"
+  style="oposition: relative;"
+  class="top-0 absolute z-50  w-full flex  justify-between px-2 py-3 navbar-expand-lg "
+
 >
+
   <div
-    class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-    align="center"
+
+    class="container px-4 mx-auto flex flex-wrap items-center justify-between "
   >
     <div
+
       class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
     >
       <a
@@ -24,62 +27,52 @@
       </button>
     </div>
     <div
-      class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none"
+      class="lg:flex justify-content-center bg-white  lg:bg-opacity-0 lg:shadow-none"
       [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }"
       id="example-navbar-warning"
     >
       <ul
-        class="flex flex-col lg:flex-row list-none lg:ml-auto">
+
+        class="flex flex-col lg:flex-row list-none place-items-center justify-content-between  lg:ml-auto">
 
 
         <li
-          class="flex items-center">
+        style="margin-right: 50px"
+
+          class="flex">
           <a
-            class="text-grey lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase "
             href="/home"
           >
             HOME
           </a>
         </li>
-<!--        <li class="flex items-center">
-          <a
-            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="/home#about"
-          >
-              About us
-          </a>
-        </li>
+                <li class="flex "
+                            style="margin-right: 50px"
 
-        <li class="flex items-center">
+                            >
           <a
-            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-            href="/home#services"
-          >
-              Services
-          </a>
-        </li>-->
-                <li class="flex items-center">
-          <a
-            class="text-grey lg:hover:text-grey-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase"
             href="/home#jobs"
           >
               JOBS
           </a>
         </li>
 
-                <li class="flex items-center">
+                <li class="flex "         style="margin-right: 350px">
           <a
-
-            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase"
             href="/home#partners"
           >
               CAREER TIPS
           </a>
         </li>
-                <li class="flex items-center">
+
+                <li class="flex "
+                >
           <button
 
-            class="border-2 rounded-full text-center text-black  font-bold uppercase text-xs px-4 py-2 rounded shadow focus:outline-none mr-1 ease-linear transition-all duration-150"
+            class="myworld border-2 rounded-full text-center text-white uppercase text-md-center text-xl  px-4 py-2 rounded letterspace shadow focus:outline-none mr-1 ease-linear transition-all duration-150"
             [routerLink]="['/auth/login']"
           >
               MY WORLD
