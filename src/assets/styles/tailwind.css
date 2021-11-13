@@ -76,11 +76,30 @@ small {
   color: #FF8856;
 }
 
+
+
 .jobhover:hover{
-  background: #007bd4;
+ background-image:  linear-gradient(#48bbf6, #587EFF);
+
   color: white;
 }
 
+.text_perso{
+  color: #587EFF
+}
+
+.text_perso:hover{
+  color: white;
+}
+
+.jobCreative{
+  background-image: url("../../assets/img/Creative.png") no-repeat;
+
+}
+
+.jobCreative:hover{
+  background-image: url("../../assets/img/Creative_white.png") no-repeat;
+}
 /**
 Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 */
