@@ -1,8 +1,12 @@
+// @ts-ignore
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {Observable} from "rxjs";
+// @ts-ignore
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+// @ts-ignore
+import {Observable} from 'rxjs';
 
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })

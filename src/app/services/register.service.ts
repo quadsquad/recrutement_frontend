@@ -1,8 +1,11 @@
+// @ts-ignore
 import { Injectable } from '@angular/core';
+// @ts-ignore
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+// @ts-ignore
 import { Observable} from "rxjs";
-import {environment} from "../../environments/environment";
 
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +21,7 @@ export class RegisterService {
     })
   };
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>(`${environment.apiUrl}subscribe`,userData, this.httpOptions);
+    return this.httpClient.post<any>('subscribe',userData, this.httpOptions);
   }
 
 }

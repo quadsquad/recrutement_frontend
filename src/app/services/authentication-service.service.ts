@@ -1,9 +1,13 @@
+// @ts-ignore
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from "@angular/common/http";
-import { map } from "rxjs/operators";
-import {environment} from "../../environments/environment";
+// @ts-ignore
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+// @ts-ignore
+import { map } from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
@@ -18,29 +22,29 @@ export class AuthenticationServiceService {
       'Content-Type': 'application/json'
     })
   };
+  httpOptionsAuth = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: sessionStorage.getItem('token')
+    })
+  };
   authenticate(username,password){
     return this.httpClient
-      .post<any>(`${environment.apiUrl}auth`,{username,password},this.httpOptions)
+      .post<any>('auth',{username,password},this.httpOptions)
       .pipe(
          map(userData => {
-            sessionStorage.setItem("data",JSON.stringify(userData));
-            sessionStorage.setItem("token", JSON.stringify(userData.response));
+            sessionStorage.setItem('data',JSON.stringify(userData));
+            sessionStorage.setItem('token', JSON.stringify(userData.response));
             return userData;
          })
       );
   }
-  httpOptionsAuth = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': sessionStorage.getItem('token')
-    })
-  };
   isUserLoggedIn(){
 
-   return this.httpClient.get(`${environment.apiUrl}getuserconnected`, this.httpOptionsAuth).
+   return this.httpClient.get(`getuserconnected`, this.httpOptionsAuth).
        pipe(
      map(user=>{
-      sessionStorage.setItem("authUser", JSON.stringify(user));
+      sessionStorage.setItem('authUser', JSON.stringify(user));
       return user;
     })
     );
@@ -50,7 +54,7 @@ export class AuthenticationServiceService {
 
 
   logout(){
-    sessionStorage.removeItem("data");
+    sessionStorage.removeItem('data');
 
   }
 }

@@ -1,6 +1,9 @@
+// @ts-ignore
 import { Injectable } from '@angular/core';
+// @ts-ignore
 import { HttpInterceptor , HttpRequest , HttpHandler} from "@angular/common/http";
 //import { AuthenticationService } from './authentication-service.service';
+// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
