@@ -92,13 +92,18 @@ small {
   color: white;
 }
 
-.jobCreative{
-  background-image: url("../../assets/img/Creative.png") no-repeat;
 
+
+.jobCreative .creative{
+ display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
 }
 
-.jobCreative:hover{
-  background-image: url("../../assets/img/Creative_white.png") no-repeat;
+.jobCreative:hover .creative{
+  display: inline;
 }
 /**
 Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
