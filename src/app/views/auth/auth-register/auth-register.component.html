@@ -1,0 +1,42 @@
+<div class="container mx-auto px-4 h-full">
+  <div class="flex content-center items-center justify-center h-full">
+    <div class="w-full lg:w-6/12 px-4">
+      <div
+        class="relative flex flex-col min-w-0 break-words">
+
+        <div style="margin-top: -92px;">
+
+            <img src="assets/img/logo_complet.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="">
+
+        </div>
+        <div class="container" style="display: inline-flex">
+          <div class="w-6/12">
+           <div class="text-center mt-32" style="position: static">
+              <button
+                [routerLink]="['/auth/login']"
+                style="border-radius: 25px; border: 1px solid  #ffffff;  letter-spacing: 5px; padding-left: 50px;padding-right: 50px"
+                class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                type="submit"
+              >
+                LOGIN
+              </button>
+            </div>
+          </div>
+          <div class="w-6/12">
+            <div class="text-center mt-32">
+              <button
+                [routerLink]="['/auth/register']"
+                style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
+                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                type="submit"
+              >
+                &nbsp;REGISTER
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
