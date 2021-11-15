@@ -3709,6 +3709,9 @@ select {
   .sm\:w-6\/12 {
     width: 50%;
   }
+  .w-full {
+  width: 100%;
+}
 }
 
 @media (min-width: 768px) {
@@ -3860,7 +3863,7 @@ select {
   }
 
   .md\:w-4\/12 {
-    width: 33.333333%;
+    width: 100%;
   }
 
   .md\:w-5\/12 {
@@ -4034,11 +4037,11 @@ select {
   }
 
   .lg\:w-4\/12 {
-    width: 33.333333%;
+    width: 100%;
   }
 
   .lg\:w-6\/12 {
-    width: 50%;
+    width: 100%;
   }
 
   .lg\:w-8\/12 {
@@ -4060,7 +4063,7 @@ select {
   }
 
   .xl\:w-4\/12 {
-    width: 33.333333%;
+    width: 100%;
   }
 
   .xl\:w-6\/12 {
@@ -4073,4 +4076,9 @@ select {
 }
 
 @media (min-width: 1536px) {
+}
+@media (max-width: 600px) {
+  .lg\:w-4\/12 {
+    width: 100%;
+  }
 }
