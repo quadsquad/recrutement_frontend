@@ -1,24 +1,24 @@
-import { Component, OnInit } from "@angular/core";
-import {FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
-import {RegisterService} from "../../../services/register.service";
-import Swal from "sweetalert2";
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import {RegisterService} from '../../../services/register.service';
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
+  selector: 'app-register',
+  templateUrl: './register.component.html',
   providers : [RegisterService]
 })
 export class RegisterComponent implements OnInit {
 
   formRegister : FormGroup ;
   registerUser;
-  public show:boolean = false;
+  public show = false;
   public buttonName:any = 'Show';
-  public showR:boolean = false;
+  public showR = false;
   public buttonNameR:any = 'Show';
-  public showE:boolean = false;
+  public showE = false;
   public buttonNameE:any = 'Show';
 
 
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   public employee:any='employee';
   public recruiteur:any='recruiteur';
 
-  public roleChoosed ="";
+  public roleChoosed ='';
 
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router
   ) {
@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
   }
 
   static validUsername(fc: FormControl) {
-    if (fc.value.toLowerCase() === "abc123" || fc.value.toLowerCase() === "123abc") {
+    if (fc.value.toLowerCase() === 'abc123' || fc.value.toLowerCase() === '123abc') {
       return ({validUsername: true});
     } else {
       return null;
@@ -86,26 +86,26 @@ export class RegisterComponent implements OnInit {
   toggle() {
     this.show = !this.show;
     if(this.show){
-      this.buttonName = "Hide";
-      this.roleChoosed="stagiaire";
+      this.buttonName = 'Hide';
+      this.roleChoosed='stagiaire';
     }
 
     else
-      this.buttonName = "Show";
-      this.buttonNameE="hide";
-      this.buttonNameR="hide";
+      this.buttonName = 'Show';
+      this.buttonNameE='hide';
+      this.buttonNameR='hide';
 
   }
   toggle1() {
     this.showE = !this.showE;
     if(this.showE) {
-      this.buttonNameE = "Hide";
-      this.roleChoosed = "employee";
+      this.buttonNameE = 'Hide';
+      this.roleChoosed = 'employee';
     }
   else
-      this.buttonNameE = "Show";
-      this.buttonName="hide";
-      this.buttonNameR="hide";
+      this.buttonNameE = 'Show';
+      this.buttonName='hide';
+      this.buttonNameR='hide';
 
 
   }
@@ -113,14 +113,14 @@ export class RegisterComponent implements OnInit {
   toggle2() {
     this.showR = !this.showR;
     if(this.showR) {
-      this.buttonNameR = "Hide";
-      this.roleChoosed="recruiteur";
+      this.buttonNameR = 'Hide';
+      this.roleChoosed='recruiteur';
 
     }
     else
-      this.buttonNameR = "Show";
-      this.buttonNameE="hide";
-      this.buttonName="hide";
+      this.buttonNameR = 'Show';
+      this.buttonNameE='hide';
+      this.buttonName='hide';
 
   }
 
