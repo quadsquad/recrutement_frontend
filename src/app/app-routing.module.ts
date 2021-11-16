@@ -18,9 +18,9 @@ import { RegisterComponent } from './views/auth/register/register.component';
 // no layouts views
 import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
-import {JobsComponent} from "./views/admin/jobs/jobs.component";
-import {ServicesComponent} from "./views/admin/services/services.component";
-import {AddServiceComponent} from "./views/admin/services/add-service/add-service.component";
+import {JobsComponent} from './views/admin/jobs/jobs.component';
+import {ServicesComponent} from './views/admin/services/services.component';
+import {AddServiceComponent} from './views/admin/services/add-service/add-service.component';
 
 const routes: Routes = [
   // admin views

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // @ts-ignore
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // @ts-ignore
-import { Observable} from "rxjs";
+import { Observable} from 'rxjs';
 
 // @ts-ignore
 @Injectable({
