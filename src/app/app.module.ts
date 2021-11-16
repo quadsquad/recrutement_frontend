@@ -46,14 +46,13 @@ import { PagesDropdownComponent } from './components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from './components/dropdowns/notification-dropdown/notification-dropdown.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { UserDropdownComponent } from './components/dropdowns/user-dropdown/user-dropdown.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {BasicAuthHtppInterceptorServiceService} from "./services/basic-auth-htpp-interceptor-service.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {JobsComponent} from "./views/admin/jobs/jobs.component";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {BasicAuthHtppInterceptorServiceService} from './services/basic-auth-htpp-interceptor-service.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {JobsComponent} from './views/admin/jobs/jobs.component';
 import { ServicesComponent } from './views/admin/services/services.component';
 import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +99,6 @@ import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
   ],
   providers: [
     {
