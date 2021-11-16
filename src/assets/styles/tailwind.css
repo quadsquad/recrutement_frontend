@@ -1357,7 +1357,7 @@ select {
 }
 
 .bg-orange{
-  background: linear-gradient(#FF8856,#FF6555);
+  background-image: url("../../assets/img/Artboard_29.png");
 }
 
 .focus\:bg-white:focus {
