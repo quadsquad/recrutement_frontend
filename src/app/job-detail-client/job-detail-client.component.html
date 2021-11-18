@@ -1,113 +1,119 @@
-<div *ngIf="job">
- <div class="lg:w-6/12 ml-3">
-            <div class="ps-lg-6  w-lg-90">
-                <div class="mb-4">
-                    <div class="main-title title-left font-seminormal text-4xl "
-                         style="color: #132A54">{{job.category}}
-                      <span class="line-left"> </span>
+<div *ngIf="job" class="shadow-lg w-full rounded px-4" s>
+  <div class=" ml-3 ">
+    <div class="ps-lg-6  w-lg-90">
+      <div class="mb-4">
+        <div class="main-title title-left font-seminormal text-4xl my-3"
+             style="color: #132A54">{{job.category}}
+          <span class="line-left"> </span>
 
-                    </div>
-                    <h2 class="w-90 ">
-                        <span>{{job.nom_entreprise}}</span>
-                      <i class="fa fa-building"></i> {{job.adresse}}
-                      <span class="line-left ml-3">{{job.nbr_candidatures}} candidats
+        </div>
+        <h2 class="w-90 my-3">
+          <span>{{job.nom_entreprise}}</span>
+          <i class="fa fa-building ml-3"></i> {{job.adresse}}
+          <span class="line-left ml-3">{{job.nbr_candidatures}} candidats
                       </span>
-                  </h2>
 
+        </h2>
+        <span class="">{{job.salaire}} DT</span>
+      </div>
+      <div>
+        <span><i class="fa fa-shopping-bag"></i> {{job.type_emploi}}</span><br> <br>
 
-                </div>
-                 <div><br>
-      <span ><i class="fa fa-shopping-bag"></i> {{job.type_emploi}}</span><br> <br>
-                   <br>
+        <h3 class="font-bold my-2">Skills : </h3>
+        <p class="message-text">{{job.skills_required}}</p> <br>
+        <h1 class="font-semibold text-base my-2">Description :</h1>
+        <p class="message-text">{{job.description}}</p>
+
+      </div>
+
     </div>
   </div>
-</div>
-         <!--  <div class="message-chat">
-                    <div class="chat-body">
-                        <div class="message info">
-                            <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+  <!--  <div class="message-chat">
+             <div class="chat-body">
+                 <div class="message info">
+                     <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
 
-                            <div class="message-body">
-                                <div class="message-info">
-                                    <h4> Elon Musk </h4>
-                                    <h5> <i class="fa fa-clock-o"></i> 2:25 PM </h5>
-                                </div>
-                                <hr>
-                                <div class="message-text">
+                     <div class="message-body">
+                         <div class="message-info">
+                             <h4> Elon Musk </h4>
+                             <h5> <i class="fa fa-clock-o"></i> 2:25 PM </h5>
+                         </div>
+                         <hr>
+                         <div class="message-text">
 
-                                </div>
-                            </div>
-                            <br>
-                        </div>
+                         </div>
+                     </div>
+                     <br>
+                 </div>
 
-                        <div class="message my-message">
-                            <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                 <div class="message my-message">
+                     <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
 
-                            <div class="message-body">
-                                <div class="message-body-inner">
-                                    <div class="message-info">
-                                        <h4> Dennis Novac </h4>
-                                        <h5> <i class="fa fa-clock-o"></i> 2:28 PM </h5>
-                                    </div>
-                                    <hr>
-                                    <div class="message-text">
-                                        Thanks, I think I will use this for my next dashboard system.
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
+                     <div class="message-body">
+                         <div class="message-body-inner">
+                             <div class="message-info">
+                                 <h4> Dennis Novac </h4>
+                                 <h5> <i class="fa fa-clock-o"></i> 2:28 PM </h5>
+                             </div>
+                             <hr>
+                             <div class="message-text">
+                                 Thanks, I think I will use this for my next dashboard system.
+                             </div>
+                         </div>
+                     </div>
+                     <br>
+                 </div>
 
-                        <div class="message info">
-                            <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                 <div class="message info">
+                     <img alt="" class="img-circle medium-image" src="https://bootdey.com/img/Content/avatar/avatar1.png">
 
-                            <div class="message-body">
-                                <div class="message-info">
-                                    <h4> Elon Musk </h4>
-                                    <h5> <i class="fa fa-clock-o"></i> 2:32 PM </h5>
-                                </div>
-                                <hr>
-                                <div class="message-text">
-                                    Hah, too late, I already bought it and my team is impleting the new design right now.
-                                </div>
-                            </div>
-                            <br>
-                        </div>
-                    </div>
+                     <div class="message-body">
+                         <div class="message-info">
+                             <h4> Elon Musk </h4>
+                             <h5> <i class="fa fa-clock-o"></i> 2:32 PM </h5>
+                         </div>
+                         <hr>
+                         <div class="message-text">
+                             Hah, too late, I already bought it and my team is impleting the new design right now.
+                         </div>
+                     </div>
+                     <br>
+                 </div>
+             </div>
 
-                    <div class="chat-footer">
-                        <textarea class="send-message-text"></textarea>
-                        <label class="upload-file">
-                            <input type="file" required="">
-                            <i class="fa fa-paperclip"></i>
-                        </label>
-                        <button type="button" class="send-message-button btn-info"> <i class="fa fa-send"></i> </button>
-                    </div>
-                </div>
+             <div class="chat-footer">
+                 <textarea class="send-message-text"></textarea>
+                 <label class="upload-file">
+                     <input type="file" required="">
+                     <i class="fa fa-paperclip"></i>
+                 </label>
+                 <button type="button" class="send-message-button btn-info"> <i class="fa fa-send"></i> </button>
+             </div>
+         </div>
 
 
-            <div class="tab-pane message-body" id="inbox-message-2">
-                <div class="message-top">
-                    <a class="btn btn btn-success new-message"> <i class="fa fa-envelope"></i> New Message </a>
+     <div class="tab-pane message-body" id="inbox-message-2">
+         <div class="message-top">
+             <a class="btn btn btn-success new-message"> <i class="fa fa-envelope"></i> New Message </a>
 
-                    <div class="new-message-wrapper">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Send message to...">
-                            <a class="btn btn-danger close-new-message" href="#"><i class="fa fa-times"></i></a>
-                        </div>
+             <div class="new-message-wrapper">
+                 <div class="form-group">
+                     <input type="text" class="form-control" placeholder="Send message to...">
+                     <a class="btn btn-danger close-new-message" href="#"><i class="fa fa-times"></i></a>
+                 </div>
 
-                        <div class="chat-footer new-message-textarea">
-                            <textarea class="send-message-text"></textarea>
-                            <label class="upload-file">
-                                <input type="file" required="">
-                                <i class="fa fa-paperclip"></i>
-                            </label>
-                            <button type="button" class="send-message-button btn-info"> <i class="fa fa-send"></i> </button>
-                        </div>
-                    </div>
-                </div>
+                 <div class="chat-footer new-message-textarea">
+                     <textarea class="send-message-text"></textarea>
+                     <label class="upload-file">
+                         <input type="file" required="">
+                         <i class="fa fa-paperclip"></i>
+                     </label>
+                     <button type="button" class="send-message-button btn-info"> <i class="fa fa-send"></i> </button>
+                 </div>
+             </div>
+         </div>
 
-            </div>-->
+     </div>-->
 
 </div>
 

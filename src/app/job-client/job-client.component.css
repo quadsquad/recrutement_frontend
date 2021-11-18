@@ -1,8 +1,5 @@
 
-body{
-    margin-top:20px;
-    background:#eee;
-}
+
 .contacts li > .info-combo > h3.name{
     font-size:17px;
 }
@@ -63,8 +60,7 @@ body{
 }
 .messages-panel {
   width: 100%;
-  height: calc(100vh - 150px);
-  min-height: 460px;
+
   background-color: #fbfcff;
   display: inline-block;
   border-top-left-radius: 5px;
@@ -110,7 +106,6 @@ body{
 .contacts-list .inbox-categories > div:nth-child(1) {
   color: #2da9e9;
   border-right-color: rgba(45,129,233,0.06);
-  border-bottom: 4px solid #2da9e9;
   border-top-left-radius: 5px;
 }
 
@@ -175,7 +170,6 @@ body{
   width: 100%;
   height: 5px;
   bottom: 0;
-  background-color: #2da9e9;
   border-bottom-left-radius: 4px;
 }
 
@@ -271,7 +265,7 @@ body{
 
 .contacts li > .info-combo > h3 {
   width: 167px;
-  height: 20px;
+  height: 30px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
