@@ -14,6 +14,7 @@ import { TablesComponent } from './views/admin/tables/tables.component';
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import {AuthRegisterComponent} from './views/auth/auth-register/auth-register.component';
 
 // no layouts views
 import { LandingComponent } from './views/landing/landing.component';
@@ -21,6 +22,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import {JobsComponent} from './views/admin/jobs/jobs.component';
 import {ServicesComponent} from './views/admin/services/services.component';
 import {AddServiceComponent} from './views/admin/services/add-service/add-service.component';
+import {JobClientComponent} from './job-client/job-client.component';
 
 const routes: Routes = [
   // admin views
@@ -45,6 +47,7 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     children: [
+      { path: 'myworldspace', component: AuthRegisterComponent},
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -53,6 +56,7 @@ const routes: Routes = [
   // no layout views
   { path: 'profile', component: ProfileComponent },
   { path: '', component: LandingComponent },
+  { path: 'myworldforjobs', component: JobClientComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
 ];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup,  Validators} from '@angular/forms';
 import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -8,10 +8,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+
+  styleUrls: ['./register.component.css'],
+
   providers : [RegisterService]
 })
 export class RegisterComponent implements OnInit {
 
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  isEditable = false;
   formRegister : FormGroup ;
   registerUser;
   public show = false;
@@ -77,8 +83,13 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-  ngOnInit(): void {
-
+  ngOnInit() {
+    this.firstFormGroup = this.formBuilder.group({
+      firstCtrl: ['', Validators.required],
+    });
+    this.secondFormGroup = this.formBuilder.group({
+      secondCtrl: ['', Validators.required],
+    });
   }
 
 

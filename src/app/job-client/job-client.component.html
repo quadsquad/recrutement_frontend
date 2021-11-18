@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jobs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+      height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body style="background-color: white">
+<app-auth-navbar></app-auth-navbar>
+<main>
+
+  <section class="relative py-10 my-5 mt-12 ml-3" style="background-color: white">
+<!--
+    <div class="row col" align="center">
+      <h1 class="text-5xl my-6 pt-8 py-5 text-black font-bold">Jobs</h1>
+
+    </div>
+    <div class="container ">
+
+      <ul class="list-group">
+
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="card ">
+          </div>
+        </div>
+        <div class="container mx-auto px-4">
+          <br>
+
+          <div class="items-center flex flex-wrap"
+               style="  -webkit-column-width: 150px;
+  -moz-column-width: 150px;
+  column-width: 150px;
+}">
+            <div class="w-full  ml-auto mr-auto px-4 shadow-lg rounded-lg" align="center"
+                 style="border-radius: 25px; border-spacing: 5px 1rem; height: 310px ;  -webkit-column-width: 150px;
+  -moz-column-width: 150px;
+  column-width: 150px;">
+              <li *ngFor="let job of dataJobs" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+                <h1 class="text-lg  font-bold  text-4xl  ">
+                  {{job.titre_emploi}} <br>
+                  <hr>
+                </h1>
+              </li>
+            </div>
+          </div>
+        </div>
+        <app-job-detail-client [job]="selectedJob"
+                               style="display: inline-flex; text-align: center"></app-job-detail-client>
+
+      </ul>
+    </div>-->
+
+
+
+<div class="container my-6">
+    <div class="panel messages-panel">
+            <h1 class="text-5xl my-6 pt-8 py-5 font-bold text-center" style="color: #132A54">Jobs</h1>
+
+        <div class="contacts-list">
+            <div class="tab-content">
+                <div id="inbox" class="contacts-outter-wrapper tab-pane active">
+
+                    <div class="contacts-outter ">
+                        <ul class="list-unstyled contacts">
+                            <li data-toggle="tab" data-target="#inbox-message-1 "
+                                class="jobhover"
+                                *ngFor="let job of dataJobs" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+
+                                <div class="vcentered info-combo active ">
+                                    <h3 class="no-margin-bottom name font-bold "  style="color: #132A54">  {{job.titre_emploi}}  </h3>
+                                    <span class="text-sm  "> <i class="fa fa-map-marker-alt"></i>  {{job.adresse}}  </span>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane message-body active" id="inbox-message-1">
+
+
+                <div class="message-chat">
+                    <div class="chat-body">
+
+                        <div class="message my-message">
+                        <app-job-detail-client [job]="selectedJob"
+                               style="display: inline-flex; margin-left: 25px"></app-job-detail-client>
+
+                            <br>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+      </section>
+</main>
+
+</body>
+</html>
