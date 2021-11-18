@@ -52,7 +52,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JobsComponent} from './views/admin/jobs/jobs.component';
 import { ServicesComponent } from './views/admin/services/services.component';
 import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
-
+import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
+import { JobClientComponent } from './job-client/job-client.component';
+import { JobDetailClientComponent } from './job-detail-client/job-detail-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,13 +94,16 @@ import { AddServiceComponent } from './views/admin/services/add-service/add-serv
     JobsComponent,
     ServicesComponent,
     AddServiceComponent,
+    AuthRegisterComponent,
+    JobClientComponent,
+    JobDetailClientComponent,
   ],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
   ],
   providers: [
     {

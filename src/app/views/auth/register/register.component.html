@@ -1,321 +1,92 @@
 <div class="container mx-auto px-4 h-full">
   <div class="flex content-center items-center justify-center h-full">
-    <div class="w-full lg:w-6/12 px-4">
+    <div class="w-full lg:w-4/12 px-4">
+
       <div
-        class="relative flex flex-col min-w-0 break-words w-full  shadow-lg rounded-lg border-0"
+        class="relative flex flex-col min-w-0 break-words "
       >
-        <div class="rounded-t mb-0 px-6">
-          <div class="text-center mb-3">
-            <h2 class="text-white font-bold">Sign up</h2>
 
+        <div class="rounded-t mb-0 px-6 py-6">
+
+        <div style="margin-top: -92px;">
+
+            <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="">
+
+        </div>
+        </div>
+        <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0" style="display: block; margin-right: auto;margin-left: auto">
+          <div class="">
+            <h1 style="letter-spacing: 5px;position: static;margin-right: auto; margin-left: auto" class="text-center text-white text-md font-semibold">REGISTER SPACE</h1>
+            <br><br>
           </div>
-          <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+          <div class="bs-stepper" style="margin-left: auto; margin-right: auto" align="center">
+  <div class="bs-stepper-header" role="tablist" style="width: 50%">
+    <!-- your steps here -->
+    <div class="step" data-target="#logins-part" style="display: block;">
+      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+        <span class="bs-stepper-circle" style="background: linear-gradient(#FF8856,#FF6555); border:3px solid white"></span>
+        <span class="bs-stepper-label text-white"></span>
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="step" data-target="#information-part">
+      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+        <span class="bs-stepper-circle" style="background: linear-gradient(#ffffff,#ffffff); border:3px solid white"></span>
+        <span class="bs-stepper-label"></span>
+      </button>
+    </div>
+    </div>
+
+
+  <div class="bs-stepper-content">
+
+    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger"></div>
+    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger"></div>
+
+  </div>
+</div>
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold">YOUR ROLE</h1>
+        <div class="container mx-4 mt-3" align="center" style="display: inline-flex;width:100%;margin-left: auto;margin-right: auto;">
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="w-6/12">
+           <div class="text-center mt-12" style="position: absolute; display: block">
+              <input
+                type="radio"
+                name="role"
+                style="border: 3px solid  #000000;height: 25px;width:25px;background-color: transparent;border-radius: 100%;  padding-left:auto;padding-right: auto"
+              /> <p class="mx-4 mt-3 text-white">BUSINESS</p>
+
+            </div>
+          </div>
+          <div>
+            <div  class="text-center mt-12" style="position: absolute; display: block">
+              <input
+                type="radio"
+                name="role"
+                class="text-black"
+                style="border: 3px solid  #000000;height: 25px;width:25px;background-color: transparent;border-radius: 100%;  padding-left:auto;padding-right: auto"
+              /> <p class="mx-4 mt-3 text-white">PARTICULAR</p>
+            </div>
+          </div>
+
+
         </div>
-        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <form [formGroup]="formRegister" >
-            <div class="relative w-full mb-3 my-4">
-              <label
-                class="text-white block uppercase text-xs font-bold mb-2 my-4"
-                htmlFor="grid-password"
-              >
-                C'est Quoi Votre Poste ?
-              </label>
-                <button class="h-70-px" style="border-radius: 15px; width: 160px; background-color: burlywood"
 
-                        (click)="toggle()" id="bt">
-                  Internship
-                </button>
-               &nbsp;
-              <button class="bg-blueGray-200 h-70-px" style="border-radius: 15px;width: 160px" (click)="toggle1()" id="bt1">
-                Employee
-              </button>
-              &nbsp;
-              <button class="h-70-px" style="border-radius: 15px;width: 160px; padding-left: 10px; background-color: darkgoldenrod" (click)="toggle2()" id="bt2">
-                Recruiter
-              </button>
-            </div>
-            <div class="relative w-full mb-3">
-              <label
-                class="text-white block uppercase text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Fullname
-              </label>
-              <input
-                [ngClass]="{ 'is-invalid': fullname.errors }"
-                formControlName="fullname"
-                type="text"
-                name="fullname"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="fullname"
-
-              />
-              <div *ngIf="fullname.touched && fullname.invalid" class="alert alert-danger">
-                <div *ngIf="fullname.errors.required" class="text-white">Fullname is required.</div>
-                <div *ngIf="fullname.errors.minlength" class="text-white">Fullname must be at least 3 characters</div>
-
-              </div>
-            </div>
-            <div class="relative w-full mb-3">
-              <label
-                class="text-white block uppercase text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Email Address
-              </label>
-              <input
-                name="email"
-
-                formControlName="email"
-                type="email"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="email address"
-                [ngClass]="{ 'is-invalid': email.errors }" />
-              <div *ngIf="email.touched && email.errors " class="invalid-feedback">
-                <div *ngIf="email.errors.required" class="text-white">Email is required</div>
-                <div *ngIf="email.errors.email" class="text-white">Email must be a valid email address</div>
-              </div>
-            </div>
-            <div class="relative w-full mb-3">
-              <label
-                class="text-white block uppercase text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Username
-              </label>
-              <input
-                name="username"
-                formControlName="username"
-                type="text"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="username"
-              />
-              <div *ngIf="username.touched && username.invalid" class="text-white">
-                Error while typing username
-              <div *ngIf="username.status === 'VALID'" class="text-white">
-                 Username is available!
-              </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password"
-                     class="text-white block uppercase text-xs font-bold mb-2"
-
-              >Password</label>
-              <input
-                formControlName="password"
-                id="password"
-                type="password"
-                name="password"
-                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              >
-              <div *ngIf="password.touched && password.invalid" class="alert alert-danger ">
-                <div *ngIf="password.errors.required" class="text-white">Password is required.</div>
-                <div *ngIf="password.errors.minlength" class="text-white">Password must be at least 6 characters</div>
-
-              </div>
-            </div>
-            <div class="form-group col">
-              <label class="text-white block uppercase text-xs font-bold mb-2">Confirm Password</label>
-              <input type="password" formControlName="confirmPassword"
-                     class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                     [ngClass]="{ 'is-invalid': confirmPassword.errors }" />
-              <div *ngIf=" confirmPassword.touched && confirmPassword.errors" class="invalid-feedback">
-                <div *ngIf="confirmPassword.errors.required" class="text-white">Confirm Password is required</div>
-                <div *ngIf="confirmPassword.errors.mustMatch" class="text-white">Passwords must match</div>
-              </div>
-            </div>
-            <div id="internship_content" *ngIf="show">
-              <div class="relative w-full mb-3">
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Age
-                </label>
-                <input
-                  type="text"
-                  formControlName="age"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="age"
-                  name="age"
-
-                />
-
-                <div *ngIf=" age.touched && age.errors" class="invalid-feedback">
-                  <div *ngIf="age.errors.required" class="text-white">Age is required</div>
-                  <div *ngIf="age.errors.pattern" class="text-white">Age is not valid</div>
-                </div>
-              </div>
-              <div class="relative w-full mb-3">
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Speciality
-                </label>
-                <input
-                  name="speciality"
-                  formControlName="speciality"
-                  type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="speciality"
-                />
-              </div>
-              <div class="relative w-full mb-3" hidden >
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Role
-                </label>
-
-                  <input
-                      class="text-white block uppercase text-xs font-bold mb-2"
-                      [defaultValue]="internship"
-                 />
-
-              </div>
-            </div>
-              <div id="employee_content" *ngIf="showE">
-                <div class="relative w-full mb-3">
-                  <label
-                    class="text-white block uppercase text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Age
-                  </label>
-                  <input
-                    name="age"
-                    formControlName="age"
-                    type="text"
-                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="age"
-                  />
-                </div>
-                <div class="relative w-full mb-3">
-                  <label
-                    class="text-white block uppercase text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Speciality
-                  </label>
-                  <input
-                    name="speciality"
-
-                    formControlName="speciality"
-                    type="text"
-                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="speciality"
-                  />
-                </div>
-                <div class="relative w-full mb-3">
-                  <label
-                    class="text-white block uppercase text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Diploma
-                  </label>
-                  <input
-                    name="diploma"
-
-                    formControlName="diploma"
-                    type="text"
-                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="diploma"
-                  />
-                </div>
-                <div class="relative w-full mb-3" hidden>
-                  <label
-                    class="text-white block uppercase text-xs font-bold mb-2"
-                    htmlFor="grid-password"
-                  >
-                    Role
-                  </label>
-                  <input
-                    name="employee"
-                    value="employee"
-                    [disabled]
-                    class="text-white block uppercase text-xs font-bold mb-2"
-                    formControlName="role"
-                  />
-                </div>
-              </div>
-            <div id="recruiter_content" *ngIf="showR">
-              <div class="relative w-full mb-3">
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Nom Entreprise
-                </label>
-                <input
-                  name="entreprise_name"
-
-                  formControlName="entreprise_name"
-                  type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="Entreprise name"
-                />
-              </div>
-              <div class="relative w-full mb-3">
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Domaine Entreprise
-                </label>
-                <input
-                  name="entreprise_domaine"
-
-                  formControlName="entreprise_domaine"
-                  type="text"
-                  class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  placeholder="entreprise domaine"
-                />
-              </div>
-              <div class="relative w-full mb-3" hidden>
-                <label
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Role
-                </label>
-                <input
-                  name="role"
-                  value="recruiter"
-                  [disabled]
-                  class="text-white block uppercase text-xs font-bold mb-2"
-                  formControlName="role"
-                />
-
-              </div>
-            </div>
-            <div class="form-group form-check">
-
-              <div class="form-group form-check">
-                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid':  f.acceptTerms.errors }" />
-                <label for="acceptTerms" class="form-check-label text-white">Accept Terms & Conditions</label>
-                <div *ngIf="f.acceptTerms.touched" class="invalid-feedback text-white">Accept Ts & Cs is required</div>
-              </div>
-            </div>
-            <div class="text-center mt-6">
+            <div class="mt-32" align="center" style="margin-left: auto; margin-right: auto; display: block">
               <button
-
-                class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                (click)="signup()"
+                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                type="submit"
               >
-                Create Account
+
+                <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
+
               </button>
+
             </div>
-            <div class="w-1/2 text-right">
-              <a [routerLink]="['/auth/login']" class="text-white font-bold">
-                You have an account ? Sign In
-              </a>
-            </div>
-          </form>
 
         </div>
+
       </div>
     </div>
   </div>
