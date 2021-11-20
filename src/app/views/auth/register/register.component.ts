@@ -39,6 +39,9 @@ export class RegisterComponent implements OnInit {
   secondStepColorOne: String="#ffffff";
   secondStepColorTwo: String="#ffffff";
 
+  thirdStepColorOne: String="#ffffff";
+  thirdStepColorTwo: String="#ffffff";
+
   applyStyles() {
     const styles = {
       'background': `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
@@ -47,13 +50,27 @@ export class RegisterComponent implements OnInit {
     return styles;
   }
 
+  applyStylesThree() {
+    const styles = {
+      'background': `linear-gradient(${this.thirdStepColorOne}, ${this.thirdStepColorTwo})`,
+      'border': '3px solid white'
+    };
+    return styles;
+  }
   getBack() {
     this.role = "";
     this.secondStepColorOne = "#ffffff";
     this.secondStepColorTwo = "#ffffff";
+    window.scroll(0,0);
     var x=window.scrollX;
-      var y=window.scrollY;
-      window.onscroll=function(){window.scrollTo(x, y);};
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+  }
+
+  getBackThree() {
+    this.thirdStepColorOne = "#ffffff";
+    this.thirdStepColorTwo = "#ffffff";
+    window.scroll(0,0);
   }
 
   public roleChoosed ='';
@@ -74,6 +91,12 @@ export class RegisterComponent implements OnInit {
       this.secondStepColorTwo = "#FF6555";
       window.onscroll=function(){};
     }
+  }
+
+  confirmRegisterP(): void {
+    this.thirdStepColorOne = "#FF8856";
+    this.thirdStepColorTwo = "#FF6555";
+    window.scroll(0,0);
   }
  
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router,
@@ -133,9 +156,14 @@ export class RegisterComponent implements OnInit {
     this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
-      var x=window.scrollX;
-      var y=window.scrollY;
-      window.onscroll=function(){window.scrollTo(x, y);};
+      
+    if (this.secondStepColorOne === '#ffffff') {
+      window.scrollTo(0,0);
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+    }
+    
   }
 
 

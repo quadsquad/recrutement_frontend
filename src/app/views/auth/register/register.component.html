@@ -5,7 +5,8 @@
       <div
         class="relative flex flex-col min-w-0 break-words "
       >
-            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "secondStepColorOne === '#FF8856'" (click) = "getBack()">
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne !== '#FF8856'" (click) = "getBack()">
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "thirdStepColorOne === '#FF8856'" (click) = "getBackThree()">
         <div class="rounded-t mb-0 px-6 py-6">
 
         <div style="margin-top: -92px;">
@@ -36,6 +37,13 @@
         <span class="bs-stepper-label"></span>
       </button>
     </div>
+    <div class="line" *ngIf = "role === 'Particular'"></div>
+    <div class="step" data-target="#information-part" *ngIf = "role === 'Particular'">
+      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+        <span class="bs-stepper-circle" [ngStyle]="applyStylesThree()"></span>
+        <span class="bs-stepper-label"></span>
+      </button>
+    </div>
     </div>
 
 
@@ -48,7 +56,8 @@
 </div>
             <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#ffffff'">YOUR ROLE</h1>
             <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">BUSINESS ACCOUNT</h1>
-            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">PARTICULAR ACCOUNT</h1>
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular' && thirdStepColorOne === '#ffffff'">PARTICULAR ACCOUNT</h1>
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "thirdStepColorOne === '#FF8856' && role === 'Particular'">CV CREATOR</h1>
             <form class="login-box mt-48" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div align =  "center">
@@ -159,6 +168,130 @@
               </div>
 
             </form>
+
+
+
+            <form class="login-box mt-48" *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne === '#ffffff' && role === 'Particular'">
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <div align =  "center">
+              <label class = "plusSign" title = "Upload your picture">+
+              <input type="file" class="plusFile"/></label><br><br><br>
+              <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">PICTURE</h5>
+              </div>
+              <style>
+                .plusFile {
+                  display: none;
+                }
+                .plusSign {
+                  cursor: pointer;
+                  padding: 28px 28px;
+                  color: #FF6555;
+                  background: #ffffff;
+                  border-radius: 50%;
+                }
+              </style><br><br><br>
+      <div class="container" style="display: inline-flex;width:100%; margin-bottom: 150px;">
+                 <div class="w-6/12">
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                    <input type="text" name="" required="" style="width: 320px;">
+                    <label>FIRST NAME</label>
+                   </div>
+                 </div>
+                 <div>
+                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;" 
+                   *ngIf = "secondStepColorOne !== '#ffffff'">
+                    <input type="text" name="" required="" style="width: 320px;">
+                    <label>LAST NAME</label>
+                   </div>
+                 </div>
+               </div>
+  
+               <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>COUNTRY</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>CITY</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>EMAIL</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>PASSWORD</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>CONFIRM PASSWORD</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <button
+                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                type="submit" (click) = "confirmRegisterP()"
+              >
+
+                <img align="center" style="margin-left: 100px; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
+
+              </button>
+                  </div>
+                </div>
+              </div>
+
+              
+
+            </form>
+
+
+            <form class="login-box mt-48" *ngIf = "thirdStepColorOne === '#FF8856' && role === 'Particular'">
+              <br><br><br><br><br>
+              <div align =  "center">
+              <label class = "plusSign" title = "Upload your cv">+
+              <input type="file" class="plusFile"/></label><br><br><br>
+              <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">IMPORT YOUR CV (PDF)</h5>
+              </div>
+              <style>
+                .plusFile {
+                  display: none;
+                }
+                .plusSign {
+                  cursor: pointer;
+                  padding: 28px 28px;
+                  color: #FF6555;
+                  background: #ffffff;
+                  border-radius: 50%;
+                }
+              </style><br><br><br>
+            </form>
+
+
+
             <div class="container mx-4 mt-3" align="center" style="display: inline-flex;width:100%;margin-left: auto;margin-right: auto;">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           <div class="w-6/12">
