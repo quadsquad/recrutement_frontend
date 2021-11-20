@@ -5,7 +5,7 @@
       <div
         class="relative flex flex-col min-w-0 break-words "
       >
-
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "secondStepColorOne === '#FF8856'" (click) = "getBack()">
         <div class="rounded-t mb-0 px-6 py-6">
 
         <div style="margin-top: -92px;">
@@ -32,7 +32,7 @@
     <div class="line"></div>
     <div class="step" data-target="#information-part">
       <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-        <span class="bs-stepper-circle" style="background: linear-gradient(#ffffff,#ffffff); border:3px solid white"></span>
+        <span class="bs-stepper-circle" [ngStyle]="applyStyles()"></span>
         <span class="bs-stepper-label"></span>
       </button>
     </div>
@@ -46,25 +46,139 @@
 
   </div>
 </div>
-            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold">YOUR ROLE</h1>
-        <div class="container mx-4 mt-3" align="center" style="display: inline-flex;width:100%;margin-left: auto;margin-right: auto;">
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#ffffff'">YOUR ROLE</h1>
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">BUSINESS ACCOUNT</h1>
+            <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">PARTICULAR ACCOUNT</h1>
+            <form class="login-box mt-48" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <div align =  "center">
+              <label class = "plusSign" title = "Upload logo enterprise">+
+              <input type="file" class="plusFile"/></label><br><br><br>
+              <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">BUSINESS LOGO</h5>
+              </div>
+              <style>
+                .plusFile {
+                  display: none;
+                }
+                .plusSign {
+                  cursor: pointer;
+                  padding: 28px 28px;
+                  color: #FF6555;
+                  background: #ffffff;
+                  border-radius: 50%;
+                }
+              </style><br><br><br>
+      <div class="container" style="display: inline-flex;width:100%; margin-bottom: 150px;">
+                 <div class="w-6/12">
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                    <input type="text" name="" required="" style="width: 320px;">
+                    <label>BUSINESS NAME</label>
+                   </div>
+                 </div>
+                 <div>
+                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;" 
+                   *ngIf = "secondStepColorOne !== '#ffffff'">
+                    <input type="text" name="" required="" style="width: 320px;">
+                    <label>ADDRESS</label>
+                   </div>
+                 </div>
+               </div>
+  
+               <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>COUNTRY</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>CITY</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>EMAIL</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>PASSWORD</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>CONFIRM PASSWORD</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>PHONE NUMBER</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" style="display: inline-flex;width:100%;">
+                <div class="w-6/12">
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 140px;" 
+                 *ngIf = "secondStepColorOne !== '#ffffff'">
+                   <input type="text" name="" required="" style="width: 320px;">
+                   <label>BUSINESS WEBSITE</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 140px;" 
+                  *ngIf = "secondStepColorOne !== '#ffffff'">
+                  <button
+                style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
+                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                type="submit"
+              >
+                <nobr>CREATE ACCOUNT</nobr>
+              </button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div class="container mx-4 mt-3" align="center" style="display: inline-flex;width:100%;margin-left: auto;margin-right: auto;">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
           <div class="w-6/12">
-           <div class="text-center mt-12" style="position: absolute; display: block">
+           <div class="text-center mt-12" style="position: absolute; display: block" *ngIf = "secondStepColorOne === '#ffffff'">
               <input
                 type="radio"
                 name="role"
+                (click)="changeValueBuisness()"
                 style="border: 3px solid  #000000;height: 25px;width:25px;background-color: transparent;border-radius: 100%;  padding-left:auto;padding-right: auto"
               /> <p class="mx-4 mt-3 text-white">BUSINESS</p>
 
             </div>
           </div>
           <div>
-            <div  class="text-center mt-12" style="position: absolute; display: block">
+            <div  class="text-center mt-12" style="position: absolute; display: block" *ngIf = "secondStepColorOne === '#ffffff'">
               <input
                 type="radio"
                 name="role"
                 class="text-black"
+                (click)="changeValueParticular()"
                 style="border: 3px solid  #000000;height: 25px;width:25px;background-color: transparent;border-radius: 100%;  padding-left:auto;padding-right: auto"
               /> <p class="mx-4 mt-3 text-white">PARTICULAR</p>
             </div>
@@ -73,10 +187,11 @@
 
         </div>
 
-            <div class="mt-32" align="center" style="margin-left: auto; margin-right: auto; display: block">
+            <div class="mt-32" align="center" style="margin-left: auto; margin-right: auto; display: block"
+            *ngIf = "secondStepColorOne === '#ffffff'">
               <button
                 class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                type="submit"
+                type="submit" (click) = "confirmRole()"
               >
 
                 <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>

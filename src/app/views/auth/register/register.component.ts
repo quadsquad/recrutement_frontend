@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup,  Validators} from '@angular/forms';
 import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -32,9 +33,51 @@ export class RegisterComponent implements OnInit {
   public employee:any='employee';
   public recruiteur:any='recruiteur';
 
+  role: any="";
+  style: any;
+
+  secondStepColorOne: String="#ffffff";
+  secondStepColorTwo: String="#ffffff";
+
+  applyStyles() {
+    const styles = {
+      'background': `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
+      'border': '3px solid white'
+    };
+    return styles;
+  }
+
+  getBack() {
+    this.role = "";
+    this.secondStepColorOne = "#ffffff";
+    this.secondStepColorTwo = "#ffffff";
+    var x=window.scrollX;
+      var y=window.scrollY;
+      window.onscroll=function(){window.scrollTo(x, y);};
+  }
+
   public roleChoosed ='';
 
-  constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router
+  changeValueBuisness(): void {
+    this.role = "Business";
+  }
+
+  changeValueParticular(): void {
+    this.role = "Particular";
+  }
+
+  confirmRole(): void {
+    if (this.role === "") {
+      this.toastr.error("Please choose a role before you proceed");
+    } else {
+      this.secondStepColorOne = "#FF8856";
+      this.secondStepColorTwo = "#FF6555";
+      window.onscroll=function(){};
+    }
+  }
+ 
+  constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router,
+    private toastr: ToastrService
   ) {
     this.formRegister = formBuilder.group({
       role: ['', Validators.required],
@@ -90,6 +133,9 @@ export class RegisterComponent implements OnInit {
     this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
+      var x=window.scrollX;
+      var y=window.scrollY;
+      window.onscroll=function(){window.scrollTo(x, y);};
   }
 
 

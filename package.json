@@ -16,7 +16,7 @@
     "postinstall": "ng build --aot --prod"
   },
   "dependencies": {
-    "@angular/animations": "11.2.5",
+    "@angular/animations": "^8.2.14",
     "@angular/cdk": "^13.0.1",
     "@angular/common": "11.2.5",
     "@angular/compiler": "11.2.5",
@@ -36,6 +36,7 @@
     "chart.js": "2.9.4",
     "moment": "^2.29.1",
     "ngx-stepper": "^1.1.6",
+    "ngx-toastr": "^10.0.4",
     "rxjs": "6.6.6",
     "sweetalert2": "^11.1.9",
     "tailwindcss": "2.0.4",
