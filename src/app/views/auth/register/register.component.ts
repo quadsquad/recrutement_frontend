@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   isEditable = false;
   formRegister : FormGroup ;
   registerUser;
+  step_styles;
   public show = false;
   public buttonName:any = 'Show';
   public showR = false;
@@ -42,10 +43,27 @@ export class RegisterComponent implements OnInit {
   thirdStepColorOne: String="#ffffff";
   thirdStepColorTwo: String="#ffffff";
 
+  applyStepStyles() {
+    if (this.role === 'Particular') {
+      this.step_styles = {
+        'margin-left': 'auto',
+        'margin-right': '30px'
+      }
+    } else {
+      this.step_styles = {
+        'margin-left': 'auto',
+        'margin-right': '0px'
+      }
+    }
+    return this.step_styles;
+  }
+
   applyStyles() {
     const styles = {
       'background': `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
-      'border': '3px solid white'
+      'border': '3px solid white',
+      'width': '22px',
+      'height': '22px'
     };
     return styles;
   }
@@ -53,7 +71,9 @@ export class RegisterComponent implements OnInit {
   applyStylesThree() {
     const styles = {
       'background': `linear-gradient(${this.thirdStepColorOne}, ${this.thirdStepColorTwo})`,
-      'border': '3px solid white'
+      'border': '3px solid white',
+      'width': '22px',
+      'height': '22px'
     };
     return styles;
   }
