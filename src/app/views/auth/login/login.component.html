@@ -12,6 +12,11 @@
 
         </div>
         </div>
+        <style>
+          .login-box .user-box input:focus {
+            box-shadow: 0 0 3px white;
+          }
+        </style>
         <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0" style="display: block; margin-right: auto;margin-left: auto">
           <div class="">
             <h1 style="letter-spacing: 5px" class="text-center text-white text-md font-semibold">LOGIN SPACE</h1>
@@ -19,11 +24,11 @@
           <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-box mt-48">
             <div class="user-box">
       <input type="text" name="" required="">
-      <label>Username</label>
+      <label style="color: #ffffff">Username</label>
     </div>
     <div class="user-box">
       <input type="password" name="" required="">
-      <label>Password</label>
+      <label style="color: #ffffff">Password</label>
     </div>
 
             <div align="center" style="margin-left: auto; margin-right: auto; display: block">
