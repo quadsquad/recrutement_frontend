@@ -61,6 +61,8 @@ export class RegisterComponent implements OnInit {
   isEditable = false;
   formRegister : FormGroup ;
   registerUser;
+  // tslint:disable-next-line:variable-name
+  step_styles;
   public show = false;
   public buttonName:any = 'Show';
   public showR = false;
@@ -107,10 +109,27 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  applyStepStyles() {
+    if (this.role === 'Particular') {
+      this.step_styles = {
+        'margin-left': 'auto',
+        'margin-right': '30px'
+      }
+    } else {
+      this.step_styles = {
+        'margin-left': 'auto',
+        'margin-right': '0px'
+      }
+    }
+    return this.step_styles;
+  }
+
   applyStyles() {
     const styles = {
       background: `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
-      border: '3px solid white'
+      border: '3px solid white',
+      width: '22px',
+      height: '22px'
     };
     return styles;
   }
@@ -118,7 +137,9 @@ export class RegisterComponent implements OnInit {
   applyStylesThree() {
     const styles = {
       background: `linear-gradient(${this.thirdStepColorOne}, ${this.thirdStepColorTwo})`,
-      border: '3px solid white'
+      border: '3px solid white',
+      width: '22px',
+      height: '22px'
     };
     return styles;
   }
@@ -127,8 +148,9 @@ export class RegisterComponent implements OnInit {
     this.secondStepColorOne = '#ffffff';
     this.secondStepColorTwo = '#ffffff';
     window.scroll(0,0);
-    let x=window.scrollX;
-    let y=window.scrollY;
+    const x=window.scrollX;
+    const y=window.scrollY;
+    // tslint:disable-next-line:only-arrow-functions
     window.onscroll=function(){window.scrollTo(x, y);};
   }
 
@@ -152,6 +174,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.secondStepColorOne = '#FF8856';
       this.secondStepColorTwo = '#FF6555';
+      // tslint:disable-next-line:only-arrow-functions
       window.onscroll=function(){};
     }
   }
@@ -171,8 +194,9 @@ export class RegisterComponent implements OnInit {
 
     if (this.secondStepColorOne === '#ffffff') {
       window.scrollTo(0,0);
-    let x=window.scrollX;
-    let y=window.scrollY;
+    const x=window.scrollX;
+    const y=window.scrollY;
+      // tslint:disable-next-line:only-arrow-functions
     window.onscroll=function(){window.scrollTo(x, y);};
     }
 
