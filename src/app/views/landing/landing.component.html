@@ -1,7 +1,4 @@
-<app-auth-navbar>
-
-
-</app-auth-navbar>
+<app-auth-navbar></app-auth-navbar>
 
 <main>
   <div class="items-center flex flex-wrap min-h-screen">
@@ -12,11 +9,8 @@
         background-size: contain;
         background-repeat: no-repeat;
         height: 100%;">
-
-
       <div
         class="static flex content-center items-center  min-h-screen">
-
         <div class="container relative mx-auto my-6 ">
           <div class=" flex flex-wrap my-6">
             <div class="px-2 m-lg-4 my-6">
@@ -72,12 +66,19 @@
         <div class="w-full lg:w-4/12 ml-auto mr-auto px-4 shadow-lg rounded-lg jobhover jobimghover" align="center"
              style="border-radius: 25px; width: 20%; border-spacing: 5px 1rem; height: 310px ;  -webkit-column-width: 150px;
   -moz-column-width: 150px;
-  column-width: 150px;">
-          <img
-            alt="..."
-            class="column"
-            src="assets/img/Finance.png"
-          />
+  column-width: 150px;"
+        >
+          <div class="relative">
+            <img
+              alt="..."
+              class="column absolute top-0 left-0 duration-1000 "
+              src="assets/img/Finance_white.png"
+            />
+            <img class=" column"
+                 src="assets/img/Finance.png"
+                 alt="Photo of the desert color"
+            />
+          </div>
           <h1 class="text-lg text-center font-bold text-perso">Finance</h1>
           <p class="text-sm text-center "> 55 open position</p> <br>
         </div>

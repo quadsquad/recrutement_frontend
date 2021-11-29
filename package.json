@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "build-serve": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -36,7 +37,7 @@
     "chart.js": "2.9.4",
     "moment": "^2.29.1",
     "ngx-stepper": "^1.1.6",
-    "ngx-toastr": "^10.0.4",
+    "ngx-toastr": "^10.2.0",
     "rxjs": "6.6.6",
     "sweetalert2": "^11.1.9",
     "tailwindcss": "2.0.4",

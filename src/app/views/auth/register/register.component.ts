@@ -16,89 +16,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent implements OnInit {
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isEditable = false;
-  formRegister : FormGroup ;
-  registerUser;
-  public show = false;
-  public buttonName:any = 'Show';
-  public showR = false;
-  public buttonNameR:any = 'Show';
-  public showE = false;
-  public buttonNameE:any = 'Show';
-
-
-  public internship:any='stagiaire';
-  public employee:any='employee';
-  public recruiteur:any='recruiteur';
-
-  role: any="";
-  style: any;
-
-  secondStepColorOne: String="#ffffff";
-  secondStepColorTwo: String="#ffffff";
-
-  thirdStepColorOne: String="#ffffff";
-  thirdStepColorTwo: String="#ffffff";
-
-  applyStyles() {
-    const styles = {
-      'background': `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
-      'border': '3px solid white'
-    };
-    return styles;
-  }
-
-  applyStylesThree() {
-    const styles = {
-      'background': `linear-gradient(${this.thirdStepColorOne}, ${this.thirdStepColorTwo})`,
-      'border': '3px solid white'
-    };
-    return styles;
-  }
-  getBack() {
-    this.role = "";
-    this.secondStepColorOne = "#ffffff";
-    this.secondStepColorTwo = "#ffffff";
-    window.scroll(0,0);
-    var x=window.scrollX;
-    var y=window.scrollY;
-    window.onscroll=function(){window.scrollTo(x, y);};
-  }
-
-  getBackThree() {
-    this.thirdStepColorOne = "#ffffff";
-    this.thirdStepColorTwo = "#ffffff";
-    window.scroll(0,0);
-  }
-
-  public roleChoosed ='';
-
-  changeValueBuisness(): void {
-    this.role = "Business";
-  }
-
-  changeValueParticular(): void {
-    this.role = "Particular";
-  }
-
-  confirmRole(): void {
-    if (this.role === "") {
-      this.toastr.error("Please choose a role before you proceed");
-    } else {
-      this.secondStepColorOne = "#FF8856";
-      this.secondStepColorTwo = "#FF6555";
-      window.onscroll=function(){};
-    }
-  }
-
-  confirmRegisterP(): void {
-    this.thirdStepColorOne = "#FF8856";
-    this.thirdStepColorTwo = "#FF6555";
-    window.scroll(0,0);
-  }
- 
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router,
     private toastr: ToastrService
   ) {
@@ -127,6 +44,46 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  get password() { return this.formRegister.get('password'); }
+  get fullname() { return this.formRegister.get('fullname'); }
+  get age() { return this.formRegister.get('age'); }
+  get email() { return this.formRegister.get('email'); }
+  get speciality() { return this.formRegister.get('speciality'); }
+  get entreprise_name() { return this.formRegister.get('entreprise_name'); }
+  get entreprise_domaine() { return this.formRegister.get('entreprise_domaine'); }
+  get username() { return this.formRegister.get('username'); }
+  get diploma() { return this.formRegister.get('diploma'); }
+  get confirmPassword(){ return this.formRegister.get('confirmPassword'); }
+  get f() { return this.formRegister.controls; }
+
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  isEditable = false;
+  formRegister : FormGroup ;
+  registerUser;
+  public show = false;
+  public buttonName:any = 'Show';
+  public showR = false;
+  public buttonNameR:any = 'Show';
+  public showE = false;
+  public buttonNameE:any = 'Show';
+
+
+  public internship:any='stagiaire';
+  public employee:any='employee';
+  public recruiteur:any='recruiteur';
+
+  role: any='';
+  style: any;
+
+  secondStepColorOne: String='#ffffff';
+  secondStepColorTwo: String='#ffffff';
+
+  thirdStepColorOne: String='#ffffff';
+  thirdStepColorTwo: String='#ffffff';
+
+  public roleChoosed ='';
+
   static validUsername(fc: FormControl) {
     if (fc.value.toLowerCase() === 'abc123' || fc.value.toLowerCase() === '123abc') {
       return ({validUsername: true});
@@ -149,6 +106,61 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
+
+  applyStyles() {
+    const styles = {
+      background: `linear-gradient(${this.secondStepColorOne}, ${this.secondStepColorTwo})`,
+      border: '3px solid white'
+    };
+    return styles;
+  }
+
+  applyStylesThree() {
+    const styles = {
+      background: `linear-gradient(${this.thirdStepColorOne}, ${this.thirdStepColorTwo})`,
+      border: '3px solid white'
+    };
+    return styles;
+  }
+  getBack() {
+    this.role = '';
+    this.secondStepColorOne = '#ffffff';
+    this.secondStepColorTwo = '#ffffff';
+    window.scroll(0,0);
+    let x=window.scrollX;
+    let y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+  }
+
+  getBackThree() {
+    this.thirdStepColorOne = '#ffffff';
+    this.thirdStepColorTwo = '#ffffff';
+    window.scroll(0,0);
+  }
+
+  changeValueBuisness(): void {
+    this.role = 'Business';
+  }
+
+  changeValueParticular(): void {
+    this.role = 'Particular';
+  }
+
+  confirmRole(): void {
+    if (this.role === '') {
+      this.toastr.error('Please choose a role before you proceed');
+    } else {
+      this.secondStepColorOne = '#FF8856';
+      this.secondStepColorTwo = '#FF6555';
+      window.onscroll=function(){};
+    }
+  }
+
+  confirmRegisterP(): void {
+    this.thirdStepColorOne = '#FF8856';
+    this.thirdStepColorTwo = '#FF6555';
+    window.scroll(0,0);
+  }
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required],
@@ -156,14 +168,14 @@ export class RegisterComponent implements OnInit {
     this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
-      
+
     if (this.secondStepColorOne === '#ffffff') {
       window.scrollTo(0,0);
-    var x=window.scrollX;
-    var y=window.scrollY;
+    let x=window.scrollX;
+    let y=window.scrollY;
     window.onscroll=function(){window.scrollTo(x, y);};
     }
-    
+
   }
 
 
@@ -208,18 +220,6 @@ export class RegisterComponent implements OnInit {
       this.buttonName='hide';
 
   }
-
-  get password() { return this.formRegister.get('password'); }
-  get fullname() { return this.formRegister.get('fullname'); }
-  get age() { return this.formRegister.get('age'); }
-  get email() { return this.formRegister.get('email'); }
-  get speciality() { return this.formRegister.get('speciality'); }
-  get entreprise_name() { return this.formRegister.get('entreprise_name'); }
-  get entreprise_domaine() { return this.formRegister.get('entreprise_domaine'); }
-  get username() { return this.formRegister.get('username'); }
-  get diploma() { return this.formRegister.get('diploma'); }
-  get confirmPassword(){ return this.formRegister.get('confirmPassword'); }
-  get f() { return this.formRegister.controls; }
 
 
   signup()  : void {
