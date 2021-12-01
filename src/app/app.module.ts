@@ -54,6 +54,7 @@ import { ServicesComponent } from './views/admin/services/services.component';
 import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
 import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
