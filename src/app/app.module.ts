@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 import { AppComponent } from './app.component';
 
 // layouts
@@ -107,6 +108,7 @@ import { JobDetailClientComponent } from './job-detail-client/job-detail-client.
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    Ng2TelInputModule,
     ToastrModule.forRoot()
   ],
   providers: [

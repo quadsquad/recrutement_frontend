@@ -25,7 +25,22 @@ export class LoginComponent implements OnInit {
 
   }
 
+  goToHomepage() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    })
+  }
+
+  getBackToAuthenticate() {
+    this.router.navigate(['/auth/myworldspace']).then(() => {
+      window.location.reload();
+    })
+  }
+
   ngOnInit(): void {
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
   }
 
   login() : void {

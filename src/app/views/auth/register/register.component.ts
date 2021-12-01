@@ -4,6 +4,7 @@ import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { countries } from "country-flags-svg";
 
 
 @Component({
@@ -43,16 +44,36 @@ export class RegisterComponent implements OnInit {
   thirdStepColorOne: String="#ffffff";
   thirdStepColorTwo: String="#ffffff";
 
+  allCountries:any = countries;
+
+  selected:any = false;
+
+  cell1TelInput: any = {
+    initialCountry: 'tn', 
+    autoPlaceholder: 'polite',
+    nationalMode :true,
+    customPlaceholder: function(selectedCountryPlaceholder) {
+      return selectedCountryPlaceholder;
+    }
+  }
+
+  select_country(deviceValue) {
+    console.log(deviceValue);
+    this.selected = true;
+  }
+
   applyStepStyles() {
     if (this.role === 'Particular') {
       this.step_styles = {
         'margin-left': 'auto',
-        'margin-right': '30px'
+        'margin-right': '30px',
+        'margin-top': '-35px'
       }
     } else {
       this.step_styles = {
         'margin-left': 'auto',
-        'margin-right': '0px'
+        'margin-right': '0px',
+        'margin-top': '-35px'
       }
     }
     return this.step_styles;
@@ -77,6 +98,11 @@ export class RegisterComponent implements OnInit {
     };
     return styles;
   }
+  goToHomepage() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    })
+  }
   getBack() {
     this.role = "";
     this.secondStepColorOne = "#ffffff";
@@ -91,6 +117,12 @@ export class RegisterComponent implements OnInit {
     this.thirdStepColorOne = "#ffffff";
     this.thirdStepColorTwo = "#ffffff";
     window.scroll(0,0);
+  }
+
+  getBackToAuthenticate() {
+    this.router.navigate(['/auth/myworldspace']).then(() => {
+      window.location.reload();
+    })
   }
 
   public roleChoosed ='';

@@ -5,13 +5,18 @@
       <div
         class="relative flex flex-col min-w-0 break-words "
       >
-            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne !== '#FF8856'" (click) = "getBack()">
-            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "thirdStepColorOne === '#FF8856'" (click) = "getBackThree()">
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" 
+            *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne !== '#FF8856'" (click) = "getBack()" style="cursor: pointer;">
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" 
+            *ngIf = "thirdStepColorOne === '#FF8856'" (click) = "getBackThree()" style="cursor: pointer;">
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "thirdStepColorOne !== '#FF8856' && secondStepColorOne !== '#FF8856'" (click) = "getBackToAuthenticate()"
+            style="cursor: pointer;" title="BACK TO MY WORLD SPACE">
         <div class="rounded-t mb-0 px-6 py-6">
 
         <div style="margin-top: -92px;">
 
-            <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="">
+            <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="MY_WORLD_JOB_LOGO"
+            (click)="goToHomepage()">
 
         </div>
         </div>
@@ -25,7 +30,8 @@
   <div class="bs-stepper-header" role="tablist" style="width: 50%">
     <!-- your steps here -->
     <div class="step" data-target="#logins-part" style="display: block;">
-      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger"
+      style="pointer-events: none;">
         <span class="bs-stepper-circle" 
         style="background: linear-gradient(#FF8856,#FF6555); border:3px solid white; width: 22px; height: 22px;"></span>
         <span class="bs-stepper-label text-white"></span>
@@ -33,7 +39,8 @@
     </div>
     <div class="line"></div>
     <div class="step" data-target="#information-part">
-      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger"
+      style="pointer-events: none;">
         <span class="bs-stepper-circle" [ngStyle]="applyStyles()"></span>
         <span class="bs-stepper-label"></span>
       </button>
@@ -95,13 +102,34 @@
                    </div>
                  </div>
                </div>
-  
+               
+
+               <style>
+                 .login-box .user-box select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+               </style>
+
                <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
-                   <label style="color: #ffffff">COUNTRY</label>
+                   <!--<input type="text" name="" required="" style="width: 320px;">-->
+                   <select name = "countries" (change)="select_country($event.target.value)" style="cursor: pointer;">
+                    <option disabled selected value></option>
+                    <option *ngFor="let country of allCountries" class = "allCountries"
+                    style="color: #fff; background-color: #FF8856;" [value]="country.name">{{country.name}}</option>
+                    
+                  </select>
+                  <label style="color: #ffffff" *ngIf = "selected === false">SELECT COUNTRY</label>
                   </div>
                 </div>
                 <div>
@@ -139,11 +167,34 @@
                   </div>
                 </div>
                 <div>
+                  <style>
+                    .login-box .user-box input.phoneNumber {
+    width: 100%;
+    padding: 10px 50px;
+    font-size: 16px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+
+  .login-box .user-box input.phoneNumber::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+                  </style>
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;" 
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
-                   <label style="color: #ffffff">PHONE NUMBER</label>
-                  </div>
+                  <input type="number" name="" required="" style="width: 320px;color: #fff" ng2TelInput title="PHONE NUMBER"
+                  class = "phoneNumber" [ng2TelInputOptions]="cell1TelInput"/>
+                  <!-- <label style="color: #ffffff">PHONE NUMBER</label> -->
+                </div>
                 </div>
               </div>
 
@@ -160,7 +211,7 @@
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                   <button
                 style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
-                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                class=" text-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
                 type="submit"
               >
                 <nobr>CREATE ACCOUNT</nobr>
@@ -214,8 +265,13 @@
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
-                   <label style="color: #ffffff">COUNTRY</label>
+                 <select name = "countries" (change)="select_country($event.target.value)" style="cursor: pointer;">
+                  <option disabled selected value></option>
+                  <option *ngFor="let country of allCountries" class = "allCountries"
+                  style="color: #fff; background-color: #FF8856;" [value]="country.name">{{country.name}}</option>
+                  
+                </select>
+                <label style="color: #ffffff" *ngIf = "selected === false">SELECT COUNTRY</label>
                   </div>
                 </div>
                 <div>
@@ -247,6 +303,10 @@
                 .login-box .user-box input:focus {
                   box-shadow: 0 0 3px white;
                 }
+
+                .login-box .user-box select:focus {
+                  box-shadow: 0 0 3px white;
+                }
               </style>
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
@@ -261,7 +321,7 @@
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                    <button
                 class=" text-white text-sm font-bold uppercase rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all"
-                type="submit" (click) = "confirmRegisterP()"
+                type="submit" (click) = "confirmRegisterP()" title="NEXT"
               >
 
                 <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
@@ -279,7 +339,7 @@
             <form class="login-box mt-48" *ngIf = "thirdStepColorOne === '#FF8856' && role === 'Particular'">
               <br><br><br><br><br>
               <div align =  "center">
-              <label class = "plusSign" title = "Upload your cv">
+              <label class = "plusSign">
                 <i class = "fa fa-plus w-50 text-xl"></i>
               <input type="file" class="plusFile"/></label><br><br><br>
               <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">UPLOAD YOUR CV (PDF)</h5>
@@ -296,6 +356,16 @@
                   border-radius: 50%;
                 }
               </style><br><br><br>
+              <div align = "center">
+                <button
+              style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
+              class=" text-white text-center text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
+              type="submit"
+            >
+              <nobr>FINISH</nobr>
+            </button>
+              </div>
+              
             </form>
 
 
@@ -332,7 +402,7 @@
             *ngIf = "secondStepColorOne === '#ffffff'">
               <button
                 class=" text-white text-sm font-bold uppercase rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all"
-                type="submit" (click) = "confirmRole()"
+                type="submit" (click) = "confirmRole()" title="NEXT"
               >
 
                 <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
