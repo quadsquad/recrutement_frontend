@@ -10,9 +10,24 @@
     <link rel="shortcut icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" sizes="76x76" href="./apple-icon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   </head>
   <body class="text-blueGray-700 antialiased">
     <app-root></app-root>
+
+
+
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script type="text/javascript">
+      const {$} = require("protractor");
+      $('.main-carousel').flickity({
+      // options
+      cellAlign: 'left',
+        wrapAround:true,
+      freeScroll: true
+    });
+    </script>
   </body>
 </html>

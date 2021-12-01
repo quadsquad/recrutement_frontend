@@ -53,6 +53,7 @@ import {JobsComponent} from './views/admin/jobs/jobs.component';
 import { ServicesComponent } from './views/admin/services/services.component';
 import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
+import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.
     ServicesComponent,
     AddServiceComponent,
     AuthRegisterComponent,
+    UserNavbarComponent,
   ],
   imports: [BrowserModule,
     AppRoutingModule,
