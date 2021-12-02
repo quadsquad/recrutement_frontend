@@ -58,6 +58,7 @@ import { AddServiceComponent } from './views/admin/services/add-service/add-serv
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
 import { JobClientComponent } from './job-client/job-client.component';
 import { JobDetailClientComponent } from './job-detail-client/job-detail-client.component';
+import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +101,7 @@ import { JobDetailClientComponent } from './job-detail-client/job-detail-client.
     AuthRegisterComponent,
     JobClientComponent,
     JobDetailClientComponent,
+    UserNavbarComponent
   ],
   imports: [
     BrowserModule,
