@@ -1,4 +1,6 @@
+/* tslint:disable:use-lifecycle-interface */
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+// @ts-ignore
 import Chart from 'chart.js';
 
 @Component({
@@ -10,7 +12,7 @@ export class CardLineChartComponent implements OnInit {
 
   ngOnInit() {}
   ngAfterViewInit() {
-    let config = {
+    const config = {
       type: 'line',
       data: {
         labels: [
@@ -21,21 +23,33 @@ export class CardLineChartComponent implements OnInit {
           'May',
           'June',
           'July',
+           'August',
+          'September',
+          'October',
+          'November',
+          'December'
         ],
         datasets: [
           {
-            label: new Date().getFullYear(),
+            label: 'Accepted',
             backgroundColor: '#4c51bf',
             borderColor: '#4c51bf',
-            data: [65, 78, 66, 44, 56, 67, 75],
+            data: [65, 78, 66, 44, 56, 67, 75,65, 78, 66, 44, 56, 67],
             fill: false,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: 'Shared',
             fill: false,
             backgroundColor: '#fff',
             borderColor: '#fff',
-            data: [40, 68, 86, 74, 56, 60, 87],
+            data: [40, 68, 86, 74, 56, 60, 87,65, 78, 66, 44, 56, 67],
+          },
+           {
+            label: 'Reported',
+            fill: false,
+            backgroundColor: '#eb6d51',
+            borderColor: '#eb6d51',
+            data: [30, 12, 22, 40, 12, 12, 22,45, 58, 44, 55, 45, 55],
           },
         ],
       },
@@ -44,7 +58,7 @@ export class CardLineChartComponent implements OnInit {
         responsive: true,
         title: {
           display: false,
-          text: 'Sales Charts',
+          text: 'Jobs Accepted | Shared | Reported',
           fontColor: 'white',
         },
         legend: {

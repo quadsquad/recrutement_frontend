@@ -31,7 +31,8 @@
               "src/styles.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/intl-tel-input/build/css/intlTelInput.css",
-              "src/assets/styles/tailwind.css"
+              "src/assets/styles/tailwind.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "node_modules/intl-tel-input/build/js/intlTelInput.min.js"

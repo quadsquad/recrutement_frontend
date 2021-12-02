@@ -59,6 +59,7 @@ import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.
 import { JobClientComponent } from './job-client/job-client.component';
 import { JobDetailClientComponent } from './job-detail-client/job-detail-client.component';
 import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
