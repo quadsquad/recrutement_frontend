@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+=======
+/* tslint:disable:use-lifecycle-interface */
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+// @ts-ignore
+>>>>>>> origin/amine
 import Chart from 'chart.js';
 
 @Component({
@@ -10,7 +16,11 @@ export class CardLineChartComponent implements OnInit {
 
   ngOnInit() {}
   ngAfterViewInit() {
+<<<<<<< HEAD
     let config = {
+=======
+    const config = {
+>>>>>>> origin/amine
       type: 'line',
       data: {
         labels: [
@@ -21,6 +31,7 @@ export class CardLineChartComponent implements OnInit {
           'May',
           'June',
           'July',
+<<<<<<< HEAD
         ],
         datasets: [
           {
@@ -28,14 +39,39 @@ export class CardLineChartComponent implements OnInit {
             backgroundColor: '#4c51bf',
             borderColor: '#4c51bf',
             data: [65, 78, 66, 44, 56, 67, 75],
+=======
+           'August',
+          'September',
+          'October',
+          'November',
+          'December'
+        ],
+        datasets: [
+          {
+            label: 'Accepted',
+            backgroundColor: '#4c51bf',
+            borderColor: '#4c51bf',
+            data: [65, 78, 66, 44, 56, 67, 75,65, 78, 66, 44, 56, 67],
+>>>>>>> origin/amine
             fill: false,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: 'Shared',
             fill: false,
             backgroundColor: '#fff',
             borderColor: '#fff',
+<<<<<<< HEAD
             data: [40, 68, 86, 74, 56, 60, 87],
+=======
+            data: [40, 68, 86, 74, 56, 60, 87,65, 78, 66, 44, 56, 67],
+          },
+           {
+            label: 'Reported',
+            fill: false,
+            backgroundColor: '#eb6d51',
+            borderColor: '#eb6d51',
+            data: [30, 12, 22, 40, 12, 12, 22,45, 58, 44, 55, 45, 55],
+>>>>>>> origin/amine
           },
         ],
       },
@@ -44,7 +80,11 @@ export class CardLineChartComponent implements OnInit {
         responsive: true,
         title: {
           display: false,
+<<<<<<< HEAD
           text: 'Sales Charts',
+=======
+          text: 'Jobs Accepted | Shared | Reported',
+>>>>>>> origin/amine
           fontColor: 'white',
         },
         legend: {

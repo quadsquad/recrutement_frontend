@@ -1,4 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+<<<<<<< HEAD
+=======
+// @ts-ignore
+>>>>>>> origin/amine
 import Chart from 'chart.js';
 
 @Component({
@@ -21,10 +25,19 @@ export class CardBarChartComponent implements OnInit, AfterViewInit {
           'May',
           'June',
           'July',
+<<<<<<< HEAD
+=======
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+>>>>>>> origin/amine
         ],
         datasets: [
           {
             label: new Date().getFullYear(),
+<<<<<<< HEAD
             backgroundColor: '#ed64a6',
             borderColor: '#ed64a6',
             data: [30, 78, 56, 34, 100, 45, 13],
@@ -38,6 +51,14 @@ export class CardBarChartComponent implements OnInit, AfterViewInit {
             borderColor: '#4c51bf',
             data: [27, 68, 86, 74, 10, 4, 87],
             barThickness: 8,
+=======
+            backgroundColor: '#132A54',
+            opacity:0.9,
+            borderColor: '#587EFF',
+            data: [30, 78, 56, 34, 100, 45, 13, 120, 50, 68 , 12, 55],
+            fill: true,
+            barThickness: 50,
+>>>>>>> origin/amine
           },
         ],
       },

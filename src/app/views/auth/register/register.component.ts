@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup,  Validators} from '@angular/forms';
+
+import {FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -9,15 +10,13 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-
   styleUrls: ['./register.component.css'],
-
   providers : [RegisterService]
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,private router: Router,
-    private toastr: ToastrService
+  constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,
+              private router: Router, private toastr: ToastrService
   ) {
     this.formRegister = formBuilder.group({
       role: ['', Validators.required],
@@ -69,7 +68,6 @@ export class RegisterComponent implements OnInit {
   public buttonNameR:any = 'Show';
   public showE = false;
   public buttonNameE:any = 'Show';
-
 
   public internship:any='stagiaire';
   public employee:any='employee';
@@ -184,6 +182,7 @@ export class RegisterComponent implements OnInit {
     this.thirdStepColorTwo = '#FF6555';
     window.scroll(0,0);
   }
+
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required],
@@ -199,7 +198,6 @@ export class RegisterComponent implements OnInit {
       // tslint:disable-next-line:only-arrow-functions
     window.onscroll=function(){window.scrollTo(x, y);};
     }
-
   }
 
 
