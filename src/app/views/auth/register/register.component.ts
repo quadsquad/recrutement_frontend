@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup,  Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
 
   styleUrls: ['./register.component.css'],
-
   providers : [RegisterService]
 })
 export class RegisterComponent implements OnInit {

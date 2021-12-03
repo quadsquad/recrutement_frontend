@@ -1,0 +1,93 @@
+<nav
+  style="oposition: relative;"
+  class="top-0 absolute z-50  w-full flex  justify-between px-2 py-3 navbar-expand-lg "
+
+>
+
+  <div
+
+    class="container px-4 mx-auto flex flex-wrap items-center justify-between justify-content-center"
+  >
+    <div
+
+      class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+    >
+      <a
+        [routerLink]="['/home']"
+        class="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+      >
+        <img src="assets/img/logo.png" style="height: 65px; width: 120px" alt=""/>
+      </a>
+      <button
+        class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+        type="button"
+        (click)="setNavbarOpen()"
+      >
+        <i class="text-white fas fa-bars"></i>
+      </button>
+    </div>
+    <div
+      class="lg:flex justify-content-center bg-white  lg:bg-opacity-0 lg:shadow-none"
+      [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }"
+      id="example-navbar-warning"
+    >
+      <ul
+
+        class="flex flex-col lg:flex-row list-none place-items-center justify-content-between  lg:ml-auto">
+
+
+        <li
+        style="margin-right: 50px"
+
+          class="flex">
+          <a
+            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-seminormal "
+            href="/home"
+          >
+            HOME
+          </a>
+        </li>
+                <li class="flex "
+                            style="margin-right: 50px"
+
+                            >
+          <a
+            class="text-grey lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-seminormal"
+            href="/home#browsejobs"
+          >
+              JOBS
+          </a>
+        </li>
+
+                <li class="flex ">
+          <a
+            class="text-grey text-center lg:hover:text-grey-200 px-3 py-4 lg:py-2 flex items-center text-xl uppercase font-seminormal"
+            href="/home#partners"
+          >
+              CAREER TIPS
+          </a>
+        </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="flex "
+                >
+                <i class="fa fa-comment text-white text-xl"></i>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  <i class="fa fa-bell text-white text-xl"></i>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+        </li>
+        <li class="flex">
+          <img src="assets/img/avatar.png" style="border-radius: 50%; margin-bottom: 5px; width: 30px; height: 30px"  alt=""/>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

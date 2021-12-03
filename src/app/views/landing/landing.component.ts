@@ -8,4 +8,6 @@ export class LandingComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+
 }

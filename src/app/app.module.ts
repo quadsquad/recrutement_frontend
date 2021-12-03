@@ -55,6 +55,12 @@ import { AddServiceComponent } from './views/admin/services/add-service/add-serv
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
 import { JobClientComponent } from './job-client/job-client.component';
 import { JobDetailClientComponent } from './job-detail-client/job-detail-client.component';
+import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
+import { RecruiterJobsComponent } from './views/admin/recruiter-jobs/recruiter-jobs.component';
+import { ParticularSkillsComponent } from './views/admin/particular-skills/particular-skills.component';
+import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
+import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
+import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +103,12 @@ import { JobDetailClientComponent } from './job-detail-client/job-detail-client.
     AuthRegisterComponent,
     JobClientComponent,
     JobDetailClientComponent,
+    UserNavbarComponent,
+    RecruiterJobsComponent,
+    ParticularSkillsComponent,
+    ProfileAdminComponent,
+    CandidaciesComponent,
+    ContactListComponent,
   ],
   imports: [
     BrowserModule,

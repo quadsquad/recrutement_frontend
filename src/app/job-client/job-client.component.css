@@ -1,4 +1,4 @@
-
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
 
 .contacts li > .info-combo > h3.name{
     font-size:17px;
@@ -187,7 +187,6 @@
 
 .contacts-outter {
   position: relative;
-  height: calc(100vh - 278px);
   width: 325px;
   direction: rtl;
   overflow-y: scroll;
@@ -342,7 +341,7 @@
 
 .message-body {
   background-color: #fbfcff;
-  height: 100%;
+
   width: calc(100% - 305px);
   float: right;
 }
@@ -452,7 +451,6 @@
 .chat-body {
   width: calc(100% + 17px);
   min-height: 290px;
-  height: calc(100vh - 320px);
   background-color: #fbfcff;
   margin-bottom: 30px;
   padding: 30px 5px 5px 5px;
@@ -564,9 +562,7 @@
   right: 63px;
   float: left;
   z-index: 100;
-  border-top: 10px solid transparent;
-  border-left: 13px solid #fff;
-  border-bottom: 10px solid transparent;
+
   border-right: none;
 }
 
@@ -579,7 +575,7 @@
   float: left;
   z-index: 99;
   border-top: 11px solid transparent;
-  border-left: 13px solid #dbe3e8;
+  border-left: 13px solid ;
   border-bottom: 11px solid transparent;
   border-right: none;
 }
@@ -864,4 +860,27 @@
 
 .contacts li > .info-combo {
    display:inline-block;
+}
+
+
+#firstInput {
+  border-top-left-radius: 35px ;
+  border-bottom-left-radius: 35px ;
+  border-right: 0;
+  font-family: Poppins, sans-serif;
+}
+
+#secondInput {
+  border-left: 0;
+  border-top-right-radius: 35px ;
+  border-bottom-right-radius: 35px ;
+}
+
+
+#firstInput:focus{
+  outline: none;
+}
+
+#secondInput:focus{
+  outline: none;
 }

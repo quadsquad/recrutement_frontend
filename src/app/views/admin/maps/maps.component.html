@@ -1,9 +1,93 @@
-<div class="flex flex-wrap">
-  <div class="w-full px-4">
-    <div
-      class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
-    >
-      <app-map-example></app-map-example>
+<style>
+  .text-white-50 { color: rgba(255, 255, 255, .5); }
+.bg-blue { background-color:#00b5ec; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.itembusiness:hover{
+  border:1px solid #00aeef;
+  border-radius: 15px;
+  position: relative;
+}
+</style>
+
+
+
+<div
+  class="relative flex flex-row min-w-0 break-words w-full mb-6 mt-32"
+  style="background-color: transparent;"
+>
+
+   <main role="main" class="container w-1/2">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-blue rounded box-shadow">
+
+    <div class="lh-100">
+      <h1 class="mb-0 text-white text-xl lh-100">Particulars List</h1>
+      <small class="text-white text-sm">view Particulars list ...</small>
     </div>
   </div>
+
+  <div class="my-3 p-3 bg-white rounded box-shadow">
+    <div class="media text-muted pt-3 flex flex-wrap itembusiness">
+      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
+      <p class="media-body pb-3 mb-0 small lh-125  ">
+        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
+        <span>Particular Email</span> <br>
+        <span>Particular Country</span> <br>
+        <span>Particular City</span>
+        <br>
+              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
+              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
+
+      </p>
+
+    </div>
+    <br>
+    <hr>
+    <br>
+            <div class="media text-muted pt-3 flex flex-wrap itembusiness">
+      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
+      <p class="media-body pb-3 mb-0 small lh-125  ">
+        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
+        <span>Particular Email</span> <br>
+        <span>Particular Country</span> <br>
+        <span>Particular City</span>
+        <br>
+              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
+              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
+
+      </p>
+
+    </div>
+    <br>
+    <hr>
+    <br>
+            <div class="media text-muted pt-3 flex flex-wrap itembusiness">
+      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
+      <p class="media-body pb-3 mb-0 small lh-125  ">
+        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
+        <span>Particular Email</span> <br>
+        <span>Particular Country</span> <br>
+        <span>Particular City</span>
+        <br>
+              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
+              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
+
+      </p>
+
+    </div>
+    <br>
+    <hr>
+
+    <small class="d-block text-right mt-3">
+      <a href="#" style="color: #1b2b59" class="font-bold">All particulars</a>
+    </small>
+  </div>
+
+</main>
+  <div class="px-3 h-500-px">
+     <app-particular-skills></app-particular-skills>
+  </div>
+
+
 </div>
