@@ -79,9 +79,8 @@ small {
 
 
 .jobhover:hover{
- background-image:  linear-gradient(#48bbf6, #5098db);
-
-  color: white;
+ border:3px solid #5098db;
+   box-shadow: 0 0 6px #587EFF;
 }
 
 .jobimghover{
@@ -90,7 +89,11 @@ small {
 }
 
 
-
+.joinbtn:hover{
+  background: white;
+  box-shadow: 0 0 6px white;
+  color: #FF8856;
+}
 
 
 .text_perso{
