@@ -23,6 +23,9 @@ import {JobsComponent} from './views/admin/jobs/jobs.component';
 import {ServicesComponent} from './views/admin/services/services.component';
 import {AddServiceComponent} from './views/admin/services/add-service/add-service.component';
 import {JobClientComponent} from './job-client/job-client.component';
+import {ProfileAdminComponent} from "./views/admin/profile-admin/profile-admin.component";
+import {CandidaciesComponent} from "./views/admin/candidacies/candidacies.component";
+import {ContactListComponent} from "./views/admin/contact-list/contact-list.component";
 
 const routes: Routes = [
   // admin views
@@ -31,13 +34,15 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'settings', component: SettingsComponent },
-      { path: 'tables', component: TablesComponent },
+      { path: 'recruiters', component: SettingsComponent },
       { path: 'maps', component: MapsComponent },
       { path: 'jobs', component : JobsComponent },
+      { path: 'candidacies', component : CandidaciesComponent},
       { path: 'services', component : ServicesComponent  },
       { path: 'add-service', component : AddServiceComponent  },
       { path: 'deleteS/:id', component: ServicesComponent },
+      { path: 'profile', component: ProfileAdminComponent },
+      { path: 'contacts', component: ContactListComponent },
 
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],

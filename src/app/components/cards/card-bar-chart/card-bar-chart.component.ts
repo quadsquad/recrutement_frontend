@@ -107,4 +107,9 @@ export class CardBarChartComponent implements OnInit, AfterViewInit {
     // @ts-ignore
     new Chart(ctx, config as any);
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> origin/amine
