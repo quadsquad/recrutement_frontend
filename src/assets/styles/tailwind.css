@@ -92,7 +92,6 @@ small {
 .jobhover:hover{
  border:3px solid #5098db;
    box-shadow: 0 0 6px #587EFF;
-
 }
 
 .imgF {
@@ -129,7 +128,11 @@ small {
 /* END TESTOMINIAL DESIGN*/
 
 
-
+.joinbtn:hover{
+  background: white;
+  box-shadow: 0 0 6px white;
+  color: #FF8856;
+}
 
 
 .text_perso{
@@ -3061,6 +3064,23 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.hover\:img-hover-finance:hover {
+
+  background-image: url("../img/Finance_white.png");
+}
+
+.img-hover-finance{
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+  background-image: url("../img/Finance.png");
+
+}
+
 * {
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
@@ -4067,7 +4087,7 @@ select {
 
   .lg\:hover\:text-grey-200:hover {
     --tw-text-opacity: 1;
-    text-underline: #FF8856;
+    letter-spacing: #FF8856;
     text-decoration: underline #FF8856;
   }
 
