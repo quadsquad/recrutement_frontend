@@ -210,8 +210,9 @@ export class RegisterComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: 'User Registered Successfully'
+            text: 'Please Check Out Your Mail Box To Complete Registration'
           }).then(() => {
+            window.location.reload();
             this.router.navigateByUrl('/auth/login');
           });
           
