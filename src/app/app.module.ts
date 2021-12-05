@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { OwlModule } from 'ngx-owl-carousel';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -59,6 +64,7 @@ import { ParticularSkillsComponent } from './views/admin/particular-skills/parti
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
+import {SkillsUserComponent} from "./views/skills-user/skills-user.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,12 +111,14 @@ import { ContactListComponent } from './views/admin/contact-list/contact-list.co
     ProfileAdminComponent,
     CandidaciesComponent,
     ContactListComponent,
+    SkillsUserComponent,
   ],
   imports: [BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    OwlModule
   ],
   providers: [
     {

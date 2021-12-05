@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'add-service', component : AddServiceComponent  },
       { path: 'deleteS/:id', component: ServicesComponent },
       { path: 'profile', component: ProfileAdminComponent },
-      { path: 'contacts', component: ContactListComponent },
+      { path: 'feedback', component: ContactListComponent },
 
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
