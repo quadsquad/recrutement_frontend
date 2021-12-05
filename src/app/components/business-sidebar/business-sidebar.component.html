@@ -1,0 +1,321 @@
+<!--
+<nav
+  style="background-color: #1b2b59"
+  class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"
+>
+  <div
+    class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
+  >
+    <button
+      class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+      type="button"
+      (click)="toggleCollapseShow('bg-white m-2 py-3 px-6')"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <br><br><br>
+    <a
+      [routerLink]="['/business/dashboard']"
+      class="md:block text-center md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
+    >
+      <img src="assets/img/entrepriseLogo.jpg" class="mx-4" style="width: 150px; height: 90px; border-radius: 15px" alt=""/>
+    </a>
+    &lt;!&ndash; User &ndash;&gt;
+    <ul class="md:hidden items-center flex flex-wrap list-none">
+      <li class="inline-block relative">
+        <app-notification-dropdown class="block"></app-notification-dropdown>
+      </li>
+      <li class="inline-block relative">
+        <app-user-dropdown class="block"></app-user-dropdown>
+      </li>
+    </ul>
+    &lt;!&ndash; Collapse &ndash;&gt;
+    <div
+      class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded"
+      [ngClass]="collapseShow"
+    >
+      &lt;!&ndash; Collapse header &ndash;&gt;
+      <div
+        class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200"
+      >
+      </div>
+
+      <h6
+        class="md:min-w-full text-white text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+      >
+       Manage Your Business
+      </h6>
+      &lt;!&ndash; Navigation &ndash;&gt;
+
+      <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        <li class="items-center">
+          <a
+            style="color: white"
+            [routerLink]="['/business/dashboard']"
+            class="text-xs  uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminDashboard="routerLinkActive"
+            [ngClass]="
+              adminDashboard.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            "
+          >
+            <i
+              class="fas fa-tv mr-1 text-sm"
+              [ngClass]="
+                adminDashboard.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li class="items-center">
+          <a
+            style="color: white"
+            [routerLink]="['/business/particulars']"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminPersonals="routerLinkActive"
+            [ngClass]="
+              adminPersonals.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            "
+          >
+            <i
+              class="fas fa-users mr-1 text-sm"
+              [ngClass]="
+                adminPersonals.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Particulars
+          </a>
+        </li>
+
+        <li class="items-center">
+          <a
+            style="color: white"
+            [routerLink]="['/business/jobs']"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminJobs="routerLinkActive"
+            [ngClass]="
+              adminJobs.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            "
+          >
+            <i
+              class="fas fa-briefcase mr-1 text-sm"
+              [ngClass]="
+                adminJobs.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Jobs
+          </a>
+        </li>
+                <li class="items-center">
+          <a
+            style="color: white"
+            [routerLink]="['/admin/candidacies']"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminOppJobs="routerLinkActive"
+            [ngClass]="
+              adminOppJobs.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            "
+          >
+            <i
+              class="fas fa-user-check  text-sm"
+              [ngClass]="
+                adminOppJobs.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Applications
+          </a>
+        </li>
+        <li class="items-center">
+          <a
+            style="color: white"
+            [routerLink]="['/admin/feedback']"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminContact="routerLinkActive"
+            [ngClass]="
+              adminContact.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            ">
+            <i
+              class="fas fa-comment mr-1 text-sm"
+              [ngClass]="
+                adminContact.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Feedback
+          </a>
+        </li>
+      </ul>
+            <h6
+        class="md:min-w-full text-white text-xs uppercase font-bold block pt-6 pb-4 no-underline"
+      >
+       Manage Account
+      </h6>
+       <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        <li class="items-center">
+           <a
+             style="color: white"
+            [routerLink]="['/admin/profile']"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminAccount="routerLinkActive"
+            [ngClass]="
+              adminAccount.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            ">
+            <i
+              class="fas fa-user mr-1 text-sm"
+              [ngClass]="
+                adminAccount.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+           Account
+          </a>
+        </li>
+       </ul>
+      <hr>
+      <ul class="md:flex-col md:min-w-full flex flex-col list-none pt-6">
+         <li class="items-center">
+           <a
+                          style="color: white"
+
+            href="/auth/login"
+            class="text-xs uppercase py-3 font-bold block"
+            routerLinkActive
+            #adminLogout="routerLinkActive"
+            [ngClass]="
+              adminLogout.isActive
+                ? 'text-red-600 hover:text-red-700'
+                : 'text-blueGray-700 hover:text-blueGray-500'
+            ">
+            <i
+              class="fas fa-arrow-left mr-1 text-sm"
+              [ngClass]="
+                adminLogout.isActive ? 'opacity-75' : 'text-blueGray-300'
+              "
+            ></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!--Top menu -->
+
+        <div class="sidebar">
+          <br><br><br>
+           <div class="profile" >
+                <img style="border-radius: 15px; height: 100px;width: 150px; margin-top: -30px" src="assets/img/entrepriseLogo.jpg" alt="profile_picture">
+            </div>
+          <br><br>
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span class="item">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-briefcase"></i></span>
+                        <span class="item">Jobs</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-check"></i></span>
+                        <span class="item">Applications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="item">Account</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-arrow-left"></i></span>
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+<!--      <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>-->
+
+    </div>
+  <script>
+    var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function(){
+            document.querySelector("body").classList.toggle("active");
+        })
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
