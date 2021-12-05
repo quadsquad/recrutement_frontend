@@ -64,6 +64,7 @@ import { ParticularSkillsComponent } from './views/admin/particular-skills/parti
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
+import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +112,8 @@ import { ContactListComponent } from './views/admin/contact-list/contact-list.co
     ParticularSkillsComponent,
     ProfileAdminComponent,
     CandidaciesComponent,
-    ContactListComponent
+    ContactListComponent,
+    VerifiedAccountComponent
   ],
   imports: [
     BrowserModule,

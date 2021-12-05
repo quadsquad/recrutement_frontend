@@ -66,7 +66,8 @@
             <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">BUSINESS ACCOUNT</h1>
             <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular' && thirdStepColorOne === '#ffffff'">PARTICULAR ACCOUNT</h1>
             <h1 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold" *ngIf = "thirdStepColorOne === '#FF8856' && role === 'Particular'">CV CREATOR</h1>
-            <form class="login-box mt-48" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">
+            <form class="login-box mt-48" [formGroup] = "rb_form" (ngSubmit) = "registerB_Form()"
+            *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div align =  "center">
               <label class = "plusSign" title = "Upload logo enterprise">
@@ -90,14 +91,14 @@
                  <div class="w-6/12">
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;" 
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                    <input type="text" name="" required="" style="width: 320px;">
+                    <input type="text" name="business_name" required="" style="width: 320px;" formControlName="business_name">
                     <label style="color: #ffffff">BUSINESS NAME</label>
                    </div>
                  </div>
                  <div>
                    <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;" 
                    *ngIf = "secondStepColorOne !== '#ffffff'">
-                    <input type="text" name="" required="" style="width: 320px;">
+                    <input type="text" name="address" required="" style="width: 320px;" formControlName="address">
                     <label style="color: #ffffff">ADDRESS</label>
                    </div>
                  </div>
@@ -123,7 +124,8 @@
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <!--<input type="text" name="" required="" style="width: 320px;">-->
-                   <select name = "countries" (change)="select_country($event.target.value)" style="cursor: pointer;">
+                   <select name="country" (change)="select_country($event.target.value)" style="cursor: pointer;"
+                   formControlName="country">
                     <option disabled selected value></option>
                     <option *ngFor="let country of allCountries" class = "allCountries"
                     style="color: #fff; background-color: #FF8856;" [value]="country.name">{{country.name}}</option>
@@ -135,7 +137,7 @@
                 <div>
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;" 
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="text" name="city" required="" style="width: 320px;" formControlName="city">
                    <label style="color: #ffffff">CITY</label>
                   </div>
                 </div>
@@ -145,14 +147,14 @@
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="text" name="email" required="" style="width: 320px;" formControlName="email">
                    <label style="color: #ffffff">EMAIL</label>
                   </div>
                 </div>
                 <div>
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;" 
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="password" name="password" required="" style="width: 320px;" formControlName="password">
                    <label style="color: #ffffff">PASSWORD</label>
                   </div>
                 </div>
@@ -162,7 +164,7 @@
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="password" name="confirmPassword" required="" style="width: 320px;" formControlName="confirmPassword">
                    <label style="color: #ffffff">CONFIRM PASSWORD</label>
                   </div>
                 </div>
@@ -191,7 +193,7 @@
                   </style>
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;" 
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                  <input type="number" name="" required="" style="width: 320px;color: #fff" ng2TelInput title="PHONE NUMBER"
+                  <input type="number" formControlName="phonenumber" name="phonenumber" required="" style="width: 320px;color: #fff" ng2TelInput title="PHONE NUMBER"
                   class = "phoneNumber" [ng2TelInputOptions]="cell1TelInput"/>
                   <!-- <label style="color: #ffffff">PHONE NUMBER</label> -->
                 </div>
@@ -202,7 +204,7 @@
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 140px;" 
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="text" name="" required="" name="business_website" style="width: 320px;" formControlName = "business_website">
                    <label style="color: #ffffff">BUSINESS WEBSITE</label>
                   </div>
                 </div>
@@ -212,7 +214,7 @@
                   <button
                 style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
                 class=" text-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
-                type="submit"
+                type="submit" [disabled]="rb_form.invalid"
               >
                 <nobr>CREATE ACCOUNT</nobr>
               </button>

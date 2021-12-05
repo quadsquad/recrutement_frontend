@@ -15,62 +15,29 @@ import { countries } from "country-flags-svg";
 })
 export class RegisterComponent implements OnInit {
 
+  rb_form: FormGroup;
+
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,
               private router: Router, private toastr: ToastrService
   ) {
-    this.formRegister = formBuilder.group({
-      role: ['', Validators.required],
-      fullname:['',[Validators.required, Validators.minLength(3)]],
-      age:['',[Validators.required, Validators.pattern(/^(?:1[8-9]|[2-5][0-9]|70)$/)]],
-      email:['',[Validators.required,Validators.email]],
-      speciality:['',[Validators.required]],
-      diploma:['',[Validators.required]],
-      entreprise_name:['',[Validators.required,Validators.minLength(3)]],
-      entreprise_domaine:['',[Validators.required,Validators.minLength(3)]],
-      username : ['',Validators.compose([
-        Validators.maxLength(25),
-        Validators.minLength(4),
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-        Validators.required,
-        RegisterComponent.validUsername
-      ])],
-      password : ['',[Validators.required,Validators.minLength(8)]],
+    this.rb_form = formBuilder.group({
+      business_name: ['', Validators.required],
+      address:['', Validators.required],
+      country:['',Validators.required],
+      city:['', Validators.required],
+      email:['',[Validators.required]],
+      password : ['',[Validators.required,Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue]
+      phonenumber: ['', Validators.required],
+      business_website: ['', Validators.required]
 
     }, {
       validator: RegisterComponent.MustMatch('password', 'confirmPassword')
     });
   }
-
-  get password() { return this.formRegister.get('password'); }
-  get fullname() { return this.formRegister.get('fullname'); }
-  get age() { return this.formRegister.get('age'); }
-  get email() { return this.formRegister.get('email'); }
-  get speciality() { return this.formRegister.get('speciality'); }
-  get entreprise_name() { return this.formRegister.get('entreprise_name'); }
-  get entreprise_domaine() { return this.formRegister.get('entreprise_domaine'); }
-  get username() { return this.formRegister.get('username'); }
-  get diploma() { return this.formRegister.get('diploma'); }
-  get confirmPassword(){ return this.formRegister.get('confirmPassword'); }
-  get f() { return this.formRegister.controls; }
-
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isEditable = false;
-  formRegister : FormGroup ;
-  registerUser;
+  
+  registerBusiness;
   step_styles;
-  public show = false;
-  public buttonName:any = 'Show';
-  public showR = false;
-  public buttonNameR:any = 'Show';
-  public showE = false;
-  public buttonNameE:any = 'Show';
-
-  public internship:any='stagiaire';
-  public employee:any='employee';
-  public recruiteur:any='recruiteur';
 
   role: any='';
   style: any;
@@ -213,12 +180,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstFormGroup = this.formBuilder.group({
-      firstCtrl: ['', Validators.required],
-    });
-    this.secondFormGroup = this.formBuilder.group({
-      secondCtrl: ['', Validators.required],
-    });
 
     if (this.secondStepColorOne === '#ffffff') {
       window.scrollTo(0,0);
@@ -231,72 +192,29 @@ export class RegisterComponent implements OnInit {
   }
 
 
-
-  toggle() {
-    this.show = !this.show;
-    if(this.show){
-      this.buttonName = 'Hide';
-      this.roleChoosed='stagiaire';
-    }
-
-    else
-      this.buttonName = 'Show';
-      this.buttonNameE='hide';
-      this.buttonNameR='hide';
-
-  }
-  toggle1() {
-    this.showE = !this.showE;
-    if(this.showE) {
-      this.buttonNameE = 'Hide';
-      this.roleChoosed = 'employee';
-    }
-  else
-      this.buttonNameE = 'Show';
-      this.buttonName='hide';
-      this.buttonNameR='hide';
-
-
-  }
-
-  toggle2() {
-    this.showR = !this.showR;
-    if(this.showR) {
-      this.buttonNameR = 'Hide';
-      this.roleChoosed='recruiteur';
-
-    }
-    else
-      this.buttonNameR = 'Show';
-      this.buttonNameE='hide';
-      this.buttonName='hide';
-
-  }
-
-
-  signup()  : void {
-    this.registerUser = {
-      role : this.roleChoosed,
-      fullname : this.formRegister.value.fullname,
-      age : this.formRegister.value.age,
-      email : this.formRegister.value.email,
-      speciality : this.formRegister.value.speciality,
-      diploma : this.formRegister.value.diploma,
-      entreprise_name : this.formRegister.value.entreprise_name,
-      entreprise_domaine : this.formRegister.value.entreprise_domaine,
-      username : this.formRegister.value.username,
-      password : this.formRegister.value.password
+  registerB_Form(): void {
+    this.registerBusiness = {
+      role : "Business",
+      business_name : this.rb_form.value.business_name,
+      business_website : this.rb_form.value.business_website,
+      email : this.rb_form.value.email,
+      address : this.rb_form.value.address,
+      country : this.rb_form.value.country,
+      city : this.rb_form.value.city,
+      phonenumber : this.rb_form.value.phonenumber,
+      password : this.rb_form.value.password
     };
-    this.registerService.register(this.registerUser)
+    this.registerService.register(this.registerBusiness)
       .subscribe(
         response => {
           Swal.fire({
             icon: 'success',
             title: 'Success',
             text: 'User Registered Successfully'
+          }).then(() => {
+            this.router.navigateByUrl('/auth/login');
           });
-          this.router.navigateByUrl('/auth/login');
-
+          
         }, error => {
           console.log(error);
         }

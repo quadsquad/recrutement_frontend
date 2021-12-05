@@ -1,3 +1,4 @@
+import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -55,13 +56,14 @@ const routes: Routes = [
       { path: 'myworldspace', component: AuthRegisterComponent},
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' }
     ],
   },
   // no layout views
   { path: 'profile', component: ProfileComponent },
   { path: '', component: LandingComponent },
   { path: 'myworldforjobs', component: JobClientComponent },
+  { path: 'verified', component: VerifiedAccountComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
 ];
