@@ -27,8 +27,20 @@ import {JobClientComponent} from './job-client/job-client.component';
 import {ProfileAdminComponent} from "./views/admin/profile-admin/profile-admin.component";
 import {CandidaciesComponent} from "./views/admin/candidacies/candidacies.component";
 import {ContactListComponent} from "./views/admin/contact-list/contact-list.component";
+import {BusinessComponent} from "./layouts/business/business.component";
+import {BusinessDashboardComponent} from "./views/business/business-dashboard/business-dashboard.component";
 
 const routes: Routes = [
+
+  //business views
+  {
+    path : 'business',
+    component: BusinessComponent,
+    children : [
+      { path: 'dashboard', component: BusinessDashboardComponent}
+    ]
+  },
+
   // admin views
   {
     path: 'admin',
@@ -43,7 +55,7 @@ const routes: Routes = [
       { path: 'add-service', component : AddServiceComponent  },
       { path: 'deleteS/:id', component: ServicesComponent },
       { path: 'profile', component: ProfileAdminComponent },
-      { path: 'contacts', component: ContactListComponent },
+      { path: 'feedback', component: ContactListComponent },
 
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
