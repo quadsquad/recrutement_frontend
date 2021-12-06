@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import {AuthenticationServiceService} from "../../../services/authentication-service.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import {AuthenticationServiceService} from '../../../services/authentication-service.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router} from '@angular/router';
 
-import {first} from "rxjs/operators";
+import {first} from 'rxjs/operators';
 
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls : ["./login.component.css"],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls : ['./login.component.css'],
   providers : [AuthenticationServiceService]
 })
 export class LoginComponent implements OnInit {
@@ -25,7 +25,22 @@ export class LoginComponent implements OnInit {
 
   }
 
+  goToHomepage() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    })
+  }
+
+  getBackToAuthenticate() {
+    this.router.navigate(['/auth/myworldspace']).then(() => {
+      window.location.reload();
+    })
+  }
+
   ngOnInit(): void {
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
   }
 
   login() : void {
@@ -42,10 +57,10 @@ export class LoginComponent implements OnInit {
 
 
 
-              } if(response.r =="stagiaire"){
+              } if(response.r =='stagiaire'){
                 this.router.navigateByUrl('')
 
-              }if (response.r == "employee"){
+              }if (response.r == 'employee'){
                 this.router.navigateByUrl('/profile');
               }
 

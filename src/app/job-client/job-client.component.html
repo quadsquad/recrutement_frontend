@@ -1,0 +1,93 @@
+<app-auth-navbar></app-auth-navbar>
+<main>
+  <div class="items-center flex flex-wrap min-h-screen">
+    <div
+      class="  w-full  bg-center"
+      style="
+        background-image: url('../../assets/img/JobsCon.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;">
+      <div
+        class="static flex content-center items-center  min-h-screen">
+        <div class="container relative mx-auto my-6 ">
+          <div class=" flex flex-wrap my-6">
+            <div class="px-2 m-lg-4 my-6">
+              <div class="pr-12 my-6" style="font-weight:normal">
+                <h1 class=" text-lg  text-blueGray-200">
+                  <h1 class="text-grey font-seminormal"
+                      style="letter-spacing: 1px; line-height: 80px; font-size: 90px; border-bottom: 6px solid #FF8856; width: 110px ; ">
+                    Jobs</h1>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="relative py-10" style="background-color: white">
+    <div align="center">
+      <form class="py-6 w-10/12 ">
+        <div class="row ">
+          <div class="">
+            <input
+              type="text" id="firstInput" name="firstInput" placeholder="Job title or key word"
+              class="form-control md:w-5/12 shadow-lg border-none"/>
+            <input type="text" id="secondInput" name="secondInput" placeholder="| City"
+                   class="form-control md:w-5/12 shadow-lg border-none focus:outline-none"/>
+            <button class="rounded"><img
+              style="top: 10px;margin-left: -45px;position: relative;overflow: visible"
+              src="assets/img/recherche.png" width="80" height="80" alt=""></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container mx-auto px-4 ">
+      <div class="container my-6">
+        <div class="panel messages-panel ">
+          <div class="contacts-list shadow-lg w-full rounded ">
+            <div class="tab-content ">
+              <div id="inbox" class="contacts-outter-wrapper tab-pane active">
+
+                <div class="contacts-outter shadow-lg">
+                  <ul class="list-unstyled contacts">
+                    <li data-toggle="tab" data-target="#inbox-message-1 "
+                        class="jobhover"
+                        *ngFor="let job of dataJobs" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+                      <img alt="" class="img-circle medium-image"
+                           src={{job.logo_entreprise}}>
+
+                      <div class="vcentered info-combo active ">
+                        <h3 class="no-margin-bottom name font-bold "
+                            style="color: #132A54">  {{job.titre_emploi}}  </h3>
+                        <span class="text-sm  "> <i class="fa fa-map-marker-alt"></i>  {{job.adresse}}  </span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane message-body active" id="inbox-message-1">
+              <div class="message-chat">
+                <div class="chat-body">
+                  <div class="">
+                    <app-job-detail-client [job]="selectedJob"
+                                           style="display: inline-flex; margin-left: 25px;">
+                    </app-job-detail-client>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

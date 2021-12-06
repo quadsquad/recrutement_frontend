@@ -107,4 +107,3 @@ export class CardBarChartComponent implements OnInit {
     new Chart(ctx, config as any);
   }
 }
-

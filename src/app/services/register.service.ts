@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 // @ts-ignore
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // @ts-ignore
-import { Observable} from "rxjs";
+import { Observable} from 'rxjs';
 
 // @ts-ignore
 @Injectable({
@@ -21,7 +21,7 @@ export class RegisterService {
     })
   };
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>('subscribe',userData, this.httpOptions);
+    return this.httpClient.post<any>('http://localhost:8088/subscribe', userData, this.httpOptions);
   }
 
 }

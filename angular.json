@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "2546cc17-26e5-4862-a49d-443f72471add"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -33,7 +36,12 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/owl.carousel/dist/owl.carousel.min.js"
+              "./node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "src/assets/styles/tailwind.css"
+            ],
+            "scripts": [
+              "node_modules/intl-tel-input/build/js/intlTelInput.min.js"
             ]
           },
           "configurations": {
@@ -97,7 +105,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           }

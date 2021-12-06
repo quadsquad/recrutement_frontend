@@ -18,11 +18,11 @@ export class JobServiceService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': sessionStorage.getItem('token')
+      Authorization: sessionStorage.getItem('token')
     })
   };
 
   getAllJobs(): Observable<any>{
-    return this.httpClient.get<[]>(`https://jobrecruitement.herokuapp.com/findAllEmplois`, this.httpOptions);
+    return this.httpClient.get<[]>(`${environment.jobUrlapi}/findAllEmplois`);
   }
 }

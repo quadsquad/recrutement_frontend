@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {JobServiceService} from "../../../services/jobs/job-service.service";
-import {AuthenticationServiceService} from "../../../services/authentication-service.service";
+import {JobServiceService} from '../../../services/jobs/job-service.service';
+import {AuthenticationServiceService} from '../../../services/authentication-service.service';
 
 @Component({
   selector: 'app-jobs',

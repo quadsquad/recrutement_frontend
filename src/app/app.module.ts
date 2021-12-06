@@ -5,6 +5,9 @@ import { OwlModule } from 'ngx-owl-carousel';
 
 
 import { AppRoutingModule } from './app-routing.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 import { AppComponent } from './app.component';
 
 
@@ -58,17 +61,23 @@ import {JobsComponent} from './views/admin/jobs/jobs.component';
 import { ServicesComponent } from './views/admin/services/services.component';
 import { AddServiceComponent } from './views/admin/services/add-service/add-service.component';
 import { AuthRegisterComponent } from './views/auth/auth-register/auth-register.component';
+import { JobClientComponent } from './job-client/job-client.component';
+import { JobDetailClientComponent } from './job-detail-client/job-detail-client.component';
 import { UserNavbarComponent } from './components/navbars/user-navbar/user-navbar.component';
 import { RecruiterJobsComponent } from './views/admin/recruiter-jobs/recruiter-jobs.component';
 import { ParticularSkillsComponent } from './views/admin/particular-skills/particular-skills.component';
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
-import {SkillsUserComponent} from "./views/skills-user/skills-user.component";
+
+import { SkillsUserComponent} from "./views/skills-user/skills-user.component";
 import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
+
+import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +118,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     ServicesComponent,
     AddServiceComponent,
     AuthRegisterComponent,
+    JobClientComponent,
+    JobDetailClientComponent,
     UserNavbarComponent,
     RecruiterJobsComponent,
     ParticularSkillsComponent,
@@ -120,13 +131,20 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     BusinessNavbarComponent,
     BusinessSidebarComponent,
     BusinessDashboardComponent,
+    VerifiedAccountComponent
+
   ],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    OwlModule
+    OwlModule,
+    Ng2TelInputModule,
+    ToastrModule.forRoot()
+
   ],
   providers: [
     {

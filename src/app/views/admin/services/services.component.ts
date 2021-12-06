@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ServiceServiceService} from "../../../services/serviceoffred/service-service.service";
-import Swal from "sweetalert2";
-import {Router} from "@angular/router";
+import {ServiceServiceService} from '../../../services/serviceoffred/service-service.service';
+import Swal from 'sweetalert2';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -14,9 +14,9 @@ export class ServicesComponent implements OnInit {
     return this._color;
   }
   set color(color: string) {
-    this._color = color !== "light" && color !== "dark" ? "light" : color;
+    this._color = color !== 'light' && color !== 'dark' ? 'light' : color;
   }
-  private _color = "light";
+  private _color = 'light';
 
   dataServices: any=[];
   constructor(private ser: ServiceServiceService, private router : Router) { }
