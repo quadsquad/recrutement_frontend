@@ -69,14 +69,12 @@ import { ParticularSkillsComponent } from './views/admin/particular-skills/parti
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
-
 import { SkillsUserComponent} from "./views/skills-user/skills-user.component";
+import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
-
-import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 
 @NgModule({
   declarations: [
@@ -126,13 +124,12 @@ import { VerifiedAccountComponent } from './views/auth/verified-account/verified
     ProfileAdminComponent,
     CandidaciesComponent,
     ContactListComponent,
+    VerifiedAccountComponent,
     SkillsUserComponent,
     BusinessComponent,
     BusinessNavbarComponent,
     BusinessSidebarComponent,
-    BusinessDashboardComponent,
-    VerifiedAccountComponent
-
+    BusinessDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -144,7 +141,6 @@ import { VerifiedAccountComponent } from './views/auth/verified-account/verified
     OwlModule,
     Ng2TelInputModule,
     ToastrModule.forRoot()
-
   ],
   providers: [
     {
