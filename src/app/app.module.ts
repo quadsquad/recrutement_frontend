@@ -75,6 +75,7 @@ import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -137,9 +138,9 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    OwlModule,
     Ng2TelInputModule,
-    ToastrModule.forRoot(),
-    OwlModule
+    ToastrModule.forRoot()
   ],
   providers: [
     {
