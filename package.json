@@ -7,13 +7,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm start",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng build --aot --prod"
+  },
+  "resolutions": {
+    "webpack": "5.5.0"
   },
   "dependencies": {
     "@angular/animations": "11.2.5",
