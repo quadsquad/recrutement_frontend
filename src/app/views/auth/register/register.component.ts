@@ -148,7 +148,7 @@ export class RegisterComponent implements OnInit {
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
-      localStorage.removeItem("role");
+      localStorage.setItem('role', null);
       window.scroll(0,0);
     })
   }
