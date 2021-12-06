@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -140,7 +140,9 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     FormsModule,
     OwlModule,
     Ng2TelInputModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    OwlModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {

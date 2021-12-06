@@ -2,6 +2,7 @@ const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+
   purge: {
     enabled: true,
     content: [
@@ -21,9 +22,15 @@ module.exports = {
       ...colors,
     },
     extend: {
+      backgroundImage: {
+         'hero-pattern': "url('/assets/img/JobsCon.png')",
+      },
       minHeight: {
         "screen-75": "75vh",
+        'screen-85': '85vh',
+        'screen-90': '90vh'
       },
+
       fontSize: {
         55: "55rem",
       },
