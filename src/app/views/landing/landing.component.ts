@@ -40,6 +40,7 @@ export class LandingComponent implements OnInit {
   ];
 
 
+
   ngOnInit(): void {
     this.js.getAllJobs().subscribe((res : [])=>{
       this.dataJobs=res

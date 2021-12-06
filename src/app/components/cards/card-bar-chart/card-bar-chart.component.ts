@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 
-
 @Component({
   selector: 'app-card-bar-chart',
   templateUrl: './card-bar-chart.component.html',
@@ -103,7 +102,7 @@ export class CardBarChartComponent implements OnInit {
     };
     let ctx: any = document.getElementById('bar-chart');
     ctx = ctx.getContext('2d');
-
     // new Chart(ctx, config as any);
+
   }
 }

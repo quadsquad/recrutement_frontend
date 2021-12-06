@@ -53,5 +53,8 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.applyStyle();
     this.applyBgStyle();
+    if (this.router.url === '/auth/register') {
+      localStorage.setItem("role", null);
+    }
   }
 }

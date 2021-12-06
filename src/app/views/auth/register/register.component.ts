@@ -130,6 +130,7 @@ export class RegisterComponent implements OnInit {
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
       localStorage.removeItem('role');
+
     })
   }
   getBack() {
@@ -211,6 +212,7 @@ export class RegisterComponent implements OnInit {
           }).then(() => {
             this.router.navigateByUrl('/auth/login');
             localStorage.removeItem('role');
+
           });
         }, error => {
           console.log(error);
