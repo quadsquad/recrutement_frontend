@@ -17,7 +17,7 @@ to install :
 
 3rd step : npm run build && npm run dev
 
-4th step : ng serve or npm run start
+4th step : node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve or npm run start
 
 
 

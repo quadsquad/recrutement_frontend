@@ -1,20 +1,22 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
+<<<<<<< HEAD
 // @ts-ignore
+=======
+>>>>>>> origin/sofien
 import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-card-bar-chart',
   templateUrl: './card-bar-chart.component.html',
 })
-export class CardBarChartComponent implements OnInit, AfterViewInit {
+export class CardBarChartComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
-  ngAfterViewInit() {
+  ngOnInit() {
     const config = {
-      type: 'bar',
+      type: 'bar-chart',
       data: {
         labels: [
           'January',
@@ -105,7 +107,11 @@ export class CardBarChartComponent implements OnInit, AfterViewInit {
     };
     let ctx: any = document.getElementById('bar-chart');
     ctx = ctx.getContext('2d');
+<<<<<<< HEAD
 //    new Chart(ctx, config as any);
+=======
+
+    new Chart(ctx, config as any);
+>>>>>>> origin/sofien
   }
 }
-

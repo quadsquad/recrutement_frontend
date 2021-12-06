@@ -1,7 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { OwlModule } from 'ngx-owl-carousel';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 import { AppComponent } from './app.component';
+
 
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -61,6 +69,13 @@ import { ParticularSkillsComponent } from './views/admin/particular-skills/parti
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
+
+import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
+import {SkillsUserComponent} from './views/skills-user/skills-user.component';
+import { BusinessComponent } from './layouts/business/business.component';
+import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
+import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
+import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,13 +124,23 @@ import { ContactListComponent } from './views/admin/contact-list/contact-list.co
     ProfileAdminComponent,
     CandidaciesComponent,
     ContactListComponent,
+    VerifiedAccountComponent,
+    SkillsUserComponent,
+    BusinessComponent,
+    BusinessNavbarComponent,
+    BusinessSidebarComponent,
+    BusinessDashboardComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    Ng2TelInputModule,
+    ToastrModule.forRoot(),
+    OwlModule
   ],
   providers: [
     {

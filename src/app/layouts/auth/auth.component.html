@@ -1,8 +1,9 @@
-<div>
+<div [ngStyle]="applyStyle()">
   <main>
-    <section class="relative w-full h-full py-40 min-h-screen">
+    <section>
       <div
-        class="absolute top-0 w-full h-full bg-orange bg-no-repeat bg-full "
+        class="absolute top-0 w-full h-full bg-full" style="background-image: url('assets/img/Artboard 29.png');"
+        [ngStyle]="applyBgStyle()"
       ></div>
       <router-outlet></router-outlet>
     </section>

@@ -1,12 +1,13 @@
-<div class="container mx-auto px-4 h-full">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="container mx-auto px-4 h-full">
   <div class="flex content-center items-center justify-center h-full">
     <div class="w-full lg:w-6/12 px-4">
       <div
         class="relative flex flex-col min-w-0 break-words">
-
+      
         <div style="margin-top: -92px;">
-
-            <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="">
+            
+            <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto; cursor: pointer;" width="200" height="200" alt="MY_WORLD_JOB_LOGO"
+            (click)="goToHomepage()">
 
         </div>
         <div class="container mt-24" style="display: inline-flex">
@@ -15,7 +16,7 @@
               <button
                 [routerLink]="['/auth/login']"
                 style="border-radius: 25px; border: 1px solid  #ffffff;  letter-spacing: 5px; padding-left: 50px;padding-right: 50px"
-                class="text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                class="text-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
                 type="submit"
               >
                 LOGIN
@@ -27,7 +28,7 @@
               <button
                 [routerLink]="['/auth/register']"
                 style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
-                class=" text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
+                class=" text-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
                 type="submit"
               >
                 &nbsp;REGISTER
