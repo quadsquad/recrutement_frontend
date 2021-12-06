@@ -95,7 +95,7 @@ export class RegisterComponent implements OnInit {
     if (this.role === 'Particular') {
       this.step_styles = {
         'margin-left': 'auto',
-        'margin-right': '30px',
+        'margin-right': '14px',
         'margin-top': '-35px'
       }
     } else {
@@ -130,6 +130,7 @@ export class RegisterComponent implements OnInit {
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
       window.location.reload();
+      localStorage.setItem('role', null);
     })
   }
   getBack() {
@@ -137,20 +138,19 @@ export class RegisterComponent implements OnInit {
     this.secondStepColorOne = '#ffffff';
     this.secondStepColorTwo = '#ffffff';
     window.scroll(0,0);
-    const x=window.scrollX;
-    const y=window.scrollY;
-    // tslint:disable-next-line:only-arrow-functions
-    window.onscroll=function(){window.scrollTo(x, y);};
+    localStorage.setItem('role', null);
   }
 
   getBackThree() {
     this.thirdStepColorOne = '#ffffff';
     this.thirdStepColorTwo = '#ffffff';
     window.scroll(0,0);
+    localStorage.setItem('role', null);
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
       window.location.reload();
+      window.scroll(0,0);
     })
   }
 
@@ -169,7 +169,7 @@ export class RegisterComponent implements OnInit {
       this.secondStepColorOne = '#FF8856';
       this.secondStepColorTwo = '#FF6555';
       // tslint:disable-next-line:only-arrow-functions
-      window.onscroll=function(){};
+      localStorage.setItem("role", this.role);
     }
   }
 
@@ -181,12 +181,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
+    localStorage.setItem("role", null);
+
     if (this.secondStepColorOne === '#ffffff') {
       window.scrollTo(0,0);
-    const x=window.scrollX;
-    const y=window.scrollY;
-      // tslint:disable-next-line:only-arrow-functions
-    window.onscroll=function(){window.scrollTo(x, y);};
     }
 
   }
