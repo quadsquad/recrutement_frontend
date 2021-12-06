@@ -36,9 +36,9 @@
           <div class="">
             <input
               type="text" id="firstInput" name="firstInput" placeholder="Job title or key word"
-              class="form-control md:w-5/12 shadow-lg border-none"/>
+              class="form-control md:w-5/12 shadow-lg border-none" [(ngModel)]="term"/>
             <input type="text" id="secondInput" name="secondInput" placeholder="| City"
-                   class="form-control md:w-5/12 shadow-lg border-none focus:outline-none"/>
+                   class="form-control md:w-5/12 shadow-lg border-none focus:outline-none" [(ngModel)]="city"/>
             <button class="rounded"><img
               style="top: 10px;margin-left: -45px;position: relative;overflow: visible"
               src="assets/img/recherche.png" width="80" height="80" alt=""></button>
@@ -57,7 +57,7 @@
                   <ul class="list-unstyled contacts">
                     <li data-toggle="tab" data-target="#inbox-message-1 "
                         class="jobhover"
-                        *ngFor="let job of dataJobs" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+                        *ngFor="let job of dataJobs | filter: term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
                       <img alt="" class="img-circle medium-image"
                            src={{job.logo_entreprise}}>
 

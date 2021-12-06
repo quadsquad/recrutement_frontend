@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./business-sidebar.component.css']
 })
 export class BusinessSidebarComponent implements OnInit {
+  collapseShow = 'hidden';
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+toggleCollapseShow(classes) {
+    this.collapseShow = classes;
+  }
 }

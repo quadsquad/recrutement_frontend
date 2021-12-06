@@ -9,7 +9,8 @@ import {JobServiceService} from '../services/jobs/job-service.service';
 export class JobClientComponent implements OnInit {
   dataJobs: any =[];
   @Input() job: string;
-
+  term: string;
+  city: string;
   constructor(private js: JobServiceService) { }
   selectedJob:any;
  onSelect(job):void{
