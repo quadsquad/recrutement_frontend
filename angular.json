@@ -75,7 +75,6 @@
               "sourceMap": true,
               "namedChunks": true
             }
-
           },
           "defaultConfiguration": "development"
         },

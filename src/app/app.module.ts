@@ -71,6 +71,7 @@ import { CandidaciesComponent } from './views/admin/candidacies/candidacies.comp
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
 
 import { SkillsUserComponent} from './views/skills-user/skills-user.component';
+
 import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';

@@ -13,7 +13,6 @@ export class CardLineChartComponent implements OnInit {
 
   ngOnInit() {}
   ngAfterViewInit() {
-
     const config = {
       type: 'line',
       data: {

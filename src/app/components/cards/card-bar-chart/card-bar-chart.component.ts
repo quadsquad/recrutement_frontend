@@ -103,6 +103,5 @@ export class CardBarChartComponent implements OnInit {
     let ctx: any = document.getElementById('bar-chart');
     ctx = ctx.getContext('2d');
     // new Chart(ctx, config as any);
-
   }
 }
