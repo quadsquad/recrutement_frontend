@@ -129,8 +129,7 @@ export class RegisterComponent implements OnInit {
   }
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
-      window.location.reload();
-      localStorage.setItem('role', null);
+      localStorage.removeItem("role");
     })
   }
   getBack() {
@@ -149,7 +148,7 @@ export class RegisterComponent implements OnInit {
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
-      window.location.reload();
+      localStorage.removeItem("role");
       window.scroll(0,0);
     })
   }
@@ -210,8 +209,8 @@ export class RegisterComponent implements OnInit {
             title: 'Success',
             text: 'Please Check Out Your Mail Box To Complete Registration'
           }).then(() => {
-            window.location.reload();
             this.router.navigateByUrl('/auth/login');
+            localStorage.removeItem("role");
           });
           
         }, error => {
