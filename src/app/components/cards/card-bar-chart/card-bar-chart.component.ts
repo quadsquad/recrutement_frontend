@@ -1,10 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-<<<<<<< HEAD
-// @ts-ignore
-=======
->>>>>>> origin/sofien
-import { Chart } from 'chart.js';
+
 
 @Component({
   selector: 'app-card-bar-chart',
@@ -107,11 +103,7 @@ export class CardBarChartComponent implements OnInit {
     };
     let ctx: any = document.getElementById('bar-chart');
     ctx = ctx.getContext('2d');
-<<<<<<< HEAD
-//    new Chart(ctx, config as any);
-=======
 
-    new Chart(ctx, config as any);
->>>>>>> origin/sofien
+    // new Chart(ctx, config as any);
   }
 }

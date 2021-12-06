@@ -878,9 +878,10 @@
 
 
 #firstInput:focus{
-  outline: none;
+  box-shadow: 0 0 3px white;
 }
 
-#secondInput:focus{
-  outline: none;
+#secondInput:focus {
+  box-shadow: 0 0 3px white;
 }
+

@@ -13,10 +13,7 @@ export class CardLineChartComponent implements OnInit {
 
   ngOnInit() {}
   ngAfterViewInit() {
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/sofien
     const config = {
       type: 'line',
       data: {
@@ -52,10 +49,7 @@ export class CardLineChartComponent implements OnInit {
            {
             label: 'Reported',
             fill: false,
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/sofien
             backgroundColor: '#eb6d51',
             borderColor: '#eb6d51',
             data: [30, 12, 22, 40, 12, 12, 22,45, 58, 44, 55, 45, 55],

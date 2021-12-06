@@ -6,10 +6,8 @@ import {JobServiceService} from '../../services/jobs/job-service.service';
   templateUrl: './landing.component.html',
 })
 export class LandingComponent implements OnInit {
-<<<<<<< HEAD
   constructor(private js: JobServiceService) {}
   dataJobs:any =[];
-=======
 
     slideOptions = {
     nav: true,
@@ -41,8 +39,6 @@ export class LandingComponent implements OnInit {
       'assets/img/team-4-470x470.png',
   ];
 
-  constructor() {}
->>>>>>> origin/sofien
 
   ngOnInit(): void {
     this.js.getAllJobs().subscribe((res : [])=>{
