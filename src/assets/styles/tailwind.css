@@ -4097,8 +4097,8 @@ select {
 
   .lg\:hover\:text-grey-200:hover {
     --tw-text-opacity: 1;
-    letter-spacing: #FF8856;
-    text-decoration: underline #FF8856;
+    border-bottom: 2px solid #FF8856;
+    width: 50%;
   }
 
   .lg\:w-auto {
