@@ -1,293 +1,96 @@
 
-
-.job-item {
-  background-color: #fff;
+.shadow-sm,
+.shadow-sm--on-hover:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(132, 138, 163, 0.1) !important
+}
+.gradient-light--lean-left {
+    background-image: -webkit-linear-gradient(110deg, #f2f3fa 0%, #fcfdff 100%);
+    background-image: -ms-linear-gradient(110deg, #f2f3fa 0%, #fcfdff 100%)
 }
 
-.job-tab .nav-tabs {
-  margin-bottom: 60px;
-  border-bottom: 0;
+.color--heading {
+    color: #101f41 !important
 }
 
-.job-tab .nav-tabs>li {
-  float: none;
-  display: inline;
-}
-
-.job-tab .nav-tabs li {
-  margin-right: 15px;
-}
-
-.job-tab .nav-tabs li:last-child {
-  margin-right: 0;
-}
-
-.job-tab .nav-tabs {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-}
-
-.job-tab .nav-tabs:after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #fff;
-  z-index: -1;
+.color--text {
+    color: #4f5464 !important
 }
 
 
-
-.job-tab .nav-tabs>li a {
-  display: inline-block;
-  background-color: #fff;
-  border: none;
-  border-radius: 30px;
-  font-size: 14px;
-  color: #000;
-  padding: 5px 30px;
+.badge-circle {
+    border-radius: 50%;
+    height: 6.5rem;
+    width: 6.5rem;
+    font-size: 1rem;
+    line-height: 3.5rem;
+    padding: 0;
+    margin-left: 40px;
 }
 
-.job-tab .nav-tabs>li>a.active,
-.job-tab .nav-tabs>li a.active>:focus,
-.job-tab .nav-tabs>li>a.active:hover,
-.job-tab .nav-tabs>li>a:hover {
-  border: none;
-  background-color: #008def;
-  color: #fff;
+.text-white {
+    color: #fff!important;
 }
 
-.job-item {
-  border-radius: 3px;
-  position: relative;
-  margin-bottom: 30px;
-  z-index: 1;
+
+.background--white,
+.bg-white {
+    background-color: #fff !important
 }
 
-.job-item .btn.btn-primary {
-  text-transform: capitalize;
+.background--brand,
+.background--primary,
+.bg-brand,
+.bg-primary {
+    background-color: #4d5bed !important;
+    color: #fff
 }
 
-.job-item .job-info {
-  font-size: 14px;
-  color: #000;
-  overflow: hidden;
-  padding: 40px 25px 20px;
+.background--dark,
+.bg-dark {
+    background: #0c2050 !important;
+    color: #939eb8
 }
 
-.job-info .company-logo {
-  margin-bottom: 30px;
+.background--secondary,
+.bg-secondary {
+    background-color: #939eb8 !important
 }
 
-.job-info .tr-title {
-  margin-bottom: 15px;
+.background--tertiary,
+.bg-tertiary {
+    background-color: #9779e3 !important
 }
 
-.job-info .tr-title span {
-  font-size: 14px;
-  display: block;
+.background--danger,
+.bg-danger {
+    background-color: #f53d55 !important
 }
 
-.job-info .tr-title a {
-  color: #000;
+.background--success,
+.bg-success {
+    background-color: #66df7c !important
 }
 
-.job-info .tr-title a:hover {
-  color: #008def;
+.background--warning,
+.bg-warning {
+    background-color: #f6c460 !important
 }
 
-.job-info ul {
-  margin-bottom: 30px;
+.background--warning2,
+.bg-warning2 {
+    background-color: #f89c59 !important
 }
 
-.job-meta li,
-.job-meta li a {
-  color: #646464;
+.background--info,
+.bg-info {
+    background-color: #52bbd3 !important
 }
 
-.job-meta li a:hover {
-  color: #008def;
+.background--light,
+.bg-light {
+    background-color: #f6f8fb !important
 }
 
-.job-meta li {
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.job-meta li span i {
-  color: #000;
-}
-
-.job-meta li i {
-  margin-right: 15px;
-}
-
-.job-item .time {
-  position: relative;
-}
-
-.job-item .time:after {
-  position: absolute;
-  content: "";
-  bottom: 35px;
-  left: -50px;
-  width: 150%;
-  height: 1px;
-  background-color: #f5f4f5;
-  z-index: -1;
-}
-
-.job-item:hover .time,
-.job-item:hover .time:after {
-  opacity: 0;
-}
-
-.job-item .time span {
-  font-size: 12px;
-  color: #bebebe;
-  line-height: 25px;
-}
-
-.job-item .btn.btn-primary,
-.role .btn.btn-primary,
-.job-item .time a span {
-  padding: 5px 10px;
-  border-radius: 4px;
-  line-height: 10px;
-  font-size: 12px;
-}
-
-.job-item .time a span {
-  color: #fff;
-  background-color: #f1592a;
-  border-color: #f1592a;
-}
-
-.job-item .time a span.part-time {
-  background-color: #00aeef;
-  border-color: #00aeef;
-}
-
-.job-item .time a span.freelance {
-  background-color: #92278f;
-  border-color: #92278f;
-}
-
-.job-item .item-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  background-color: #008def;
-  color: #fff;
-  opacity: 0;
-  -webkit-transition: all 800ms;
-  -moz-transition: all 800ms;
-  -ms-transition: all 800ms;
-  -o-transition: all 800ms;
-  transition: all 800ms;
-}
-
-.job-item:hover .item-overlay {
-  opacity: 1;
-}
-
-.item-overlay .job-info {
-  padding: 45px 25px 40px;
-  overflow: hidden;
-}
-
-.item-overlay .btn.btn-primary {
-  background-color: #007bd4;
-  border-color: #007bd4;
-  margin-bottom: 10px;
-}
-
-.item-overlay .job-info,
-.item-overlay .job-info ul li,
-.item-overlay .job-info ul li i,
-.item-overlay .job-info .tr-title a {
-  color: #fff;
-}
-
-.job-social {
-  margin-top: 35px;
-}
-
-.job-social li {
-  float: left;
-}
-
-.job-social li + li {
-  margin-left: 15px;
-}
-
-.job-social li a i {
-  margin-right: 0;
-  font-size: 14px;
-}
-
-.job-social li a {
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  display: block;
-  background-color: #007bd4;
-  line-height: 35px;
-  border-radius: 100%;
-  border: 1px solid #007bd4;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.job-social li:last-child a {
-  background-color: #fff;
-}
-
-.job-social li:last-child a i {
-  color: #008def;
-}
-
-.job-social li a:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 100%;
-  background-color:#008def;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-}
-
-.job-social li a:hover:before {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  padding: 5px;
-}
-
-.job-social li a:hover {
-  border-color: #fff;
-}
-
-.job-social li a:hover i {
-  color: #fff;
-}
-
-.tr-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+a {
+    text-decoration: none !important;
 }

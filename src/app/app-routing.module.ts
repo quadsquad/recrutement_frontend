@@ -10,7 +10,6 @@ import { AuthComponent } from './layouts/auth/auth.component';
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { MapsComponent } from './views/admin/maps/maps.component';
 import { SettingsComponent } from './views/admin/settings/settings.component';
-import { TablesComponent } from './views/admin/tables/tables.component';
 
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
@@ -24,15 +23,15 @@ import {JobsComponent} from './views/admin/jobs/jobs.component';
 import {ServicesComponent} from './views/admin/services/services.component';
 import {AddServiceComponent} from './views/admin/services/add-service/add-service.component';
 import {JobClientComponent} from './job-client/job-client.component';
-import {ProfileAdminComponent} from "./views/admin/profile-admin/profile-admin.component";
-import {CandidaciesComponent} from "./views/admin/candidacies/candidacies.component";
-import {ContactListComponent} from "./views/admin/contact-list/contact-list.component";
-import {BusinessComponent} from "./layouts/business/business.component";
-import {BusinessDashboardComponent} from "./views/business/business-dashboard/business-dashboard.component";
+import {ProfileAdminComponent} from './views/admin/profile-admin/profile-admin.component';
+import {CandidaciesComponent} from './views/admin/candidacies/candidacies.component';
+import {ContactListComponent} from './views/admin/contact-list/contact-list.component';
+import {BusinessComponent} from './layouts/business/business.component';
+import {BusinessDashboardComponent} from './views/business/business-dashboard/business-dashboard.component';
 
 const routes: Routes = [
 
-  //business views
+  // business views
   {
     path : 'business',
     component: BusinessComponent,

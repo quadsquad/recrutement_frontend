@@ -4,7 +4,7 @@ import {RegisterService} from '../../../services/register.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { countries } from "country-flags-svg";
+import { countries } from 'country-flags-svg';
 
 
 @Component({
@@ -14,8 +14,6 @@ import { countries } from "country-flags-svg";
   providers : [RegisterService]
 })
 export class RegisterComponent implements OnInit {
-
-  rb_form: FormGroup;
 
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,
               private router: Router, private toastr: ToastrService
@@ -35,7 +33,9 @@ export class RegisterComponent implements OnInit {
       validator: RegisterComponent.MustMatch('password', 'confirmPassword')
     });
   }
-  
+
+  rb_form: FormGroup;
+
   registerBusiness;
   step_styles;
 
@@ -49,6 +49,19 @@ export class RegisterComponent implements OnInit {
   thirdStepColorTwo: String='#ffffff';
 
   public roleChoosed ='';
+
+  allCountries:any = countries;
+
+  selected:any = false;
+
+  cell1TelInput: any = {
+    initialCountry: 'tn',
+    autoPlaceholder: 'polite',
+    nationalMode :true,
+    customPlaceholder(selectedCountryPlaceholder) {
+      return selectedCountryPlaceholder;
+    }
+  }
 
   static validUsername(fc: FormControl) {
     if (fc.value.toLowerCase() === 'abc123' || fc.value.toLowerCase() === '123abc') {
@@ -70,19 +83,6 @@ export class RegisterComponent implements OnInit {
       } else {
         matchingControl.setErrors(null);
       }
-    }
-  }
-
-  allCountries:any = countries;
-
-  selected:any = false;
-
-  cell1TelInput: any = {
-    initialCountry: 'tn', 
-    autoPlaceholder: 'polite',
-    nationalMode :true,
-    customPlaceholder: function(selectedCountryPlaceholder) {
-      return selectedCountryPlaceholder;
     }
   }
 
@@ -129,7 +129,7 @@ export class RegisterComponent implements OnInit {
   }
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
-      localStorage.removeItem("role");
+      localStorage.removeItem('role');
     })
   }
   getBack() {
@@ -148,7 +148,7 @@ export class RegisterComponent implements OnInit {
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
-      localStorage.setItem('role', null);
+      localStorage.removeItem('role');
       window.scroll(0,0);
     })
   }
@@ -168,7 +168,7 @@ export class RegisterComponent implements OnInit {
       this.secondStepColorOne = '#FF8856';
       this.secondStepColorTwo = '#FF6555';
       // tslint:disable-next-line:only-arrow-functions
-      localStorage.setItem("role", this.role);
+      localStorage.setItem('role', this.role);
     }
   }
 
@@ -180,7 +180,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    localStorage.setItem("role", null);
+    localStorage.setItem('role', null);
 
     if (this.secondStepColorOne === '#ffffff') {
       window.scrollTo(0,0);
@@ -191,7 +191,7 @@ export class RegisterComponent implements OnInit {
 
   registerB_Form(): void {
     this.registerBusiness = {
-      role : "Business",
+      role : 'Business',
       business_name : this.rb_form.value.business_name,
       business_website : this.rb_form.value.business_website,
       email : this.rb_form.value.email,
@@ -210,9 +210,10 @@ export class RegisterComponent implements OnInit {
             text: 'Please Check Out Your Mail Box To Complete Registration'
           }).then(() => {
             this.router.navigateByUrl('/auth/login');
-            localStorage.removeItem("role");
+
+            localStorage.removeItem('role');
+
           });
-          
         }, error => {
           console.log(error);
         }

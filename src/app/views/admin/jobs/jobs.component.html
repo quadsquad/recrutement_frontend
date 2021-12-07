@@ -1,73 +1,197 @@
-<div class="tr-job-posted section-padding"  *ngIf="getToken() !== null">
-  <div class="container">
-    <div class="job-tab text-center" *ngFor="let j of dataJobs">
-      <div class="tab-content text-left">
-        <div role="tabpanel" class="tab-pane fade active show" id="hot-jobs">
-          <div class="row">
-            <div class="col-md-6 col-lg-3">
-              <div class="job-item">
-                <div class="item-overlay">
-                  <div class="job-info">
-                    <h1  class="btn btn-primary">{{j.titre_emploi}}</h1>
+<section id="sectionJobList" class="section section-job-list gradient-light--lean-left">
+      <div class="container">
+        <div class="row row-grid justify-content-center pt-32">
+          <div class="col-md-10">
 
-                    <ul class="tr-list job-meta">
-                      <li><i class="fa fa-map-signs" aria-hidden="true"></i>{{j.adresse}}</li>
-                      <li><i class="fa fa-briefcase" aria-hidden="true"></i>{{j.nom_entreprise}}</li>
-                      <li><i class="fa fa-money" aria-hidden="true"></i>Nombre de candidatures: {{j.nbr_candidatures}}</li>
-                    </ul>
-                    <ul class="job-social tr-list">
-                      <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="fa fa-expand" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                      <li><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
-                    </ul>
+            <form class="filter-form mt-5 mb-4" style="background-position: center">
+              <div class="flex flex-row" style="background-position: center; margin-left: 270px; margin-right: auto" align="center">
+
+                <div class=" mb-3">
+                  <div class="form-group">
+                    <label for="jobPosition">Position : &nbsp;</label>
+                    <select id="jobPosition" class="custom-select" style="border-radius: 8px">
+                      <option value="position1">Business</option>
+                      <option value="position2">Design</option>
+                      <option value="position3">Development</option>
+                      <option value="position4">Engineering</option>
+                      <option value="position5">Finance</option>
+                      <option value="position6">Marketing</option>
+                    </select>
                   </div>
                 </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md-4 mb-3">
+                  <div class="form-group">
+                    <label for="jobType">Type : &nbsp;</label>
+                    <select id="jobType" class="custom-select" style="border-radius: 8px">
+                      <option value="type1">Full-time</option>
+                      <option value="type3">Part-time</option>
+                      <option value="type4">Remote</option>
+                    </select>
+                  </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md-4 mb-3">
+                  <div class="form-group">
+                    <label for="jobLocation">Location :&nbsp; </label>
+                    <select id="jobLocation" class="custom-select" style="border-radius: 8px">
+                      <option value="location1">Chicago, US</option>
+                      <option value="location3">Michigan, US</option>
+                      <option value="location2">New York, US</option>
+                      <option value="location4">Los Angles, US</option>
+                      <option value="location5">Moscow, Russia</option>
+                      <option value="location6">Sydney, Australia</option>
+                      <option value="location7">Birmingham, UK</option>
+                      <option value="location8">Manchester, UK</option>
+                      <option value="location9">Beijing, China</option>
+                    </select>
+                  </div>
+                </div>
+
               </div>
+            </form>
+
+            <div class="job-list__wrapper mb-6 pt-8 w-10/12">
+              <h3 class="mb-4 text-3xl font-bold">Design</h3>
+
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading text-lg">
+                      <span  class="badge badge-circle background--danger text-white mr-3">GD</span> Senior Graphic Designer
+                    </span>
+
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text text-lg">
+                      <i class="fas fa-clock mr-1"></i> Full time
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text text-lg">
+                      <i class="fas fa-map-marker-alt mr-1"></i> San Fransisco, US
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
+                </div>
+              </div> <!-- Job Card -->
+
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading">
+                      <span class="badge badge-circle background--tertiary text-white mr-3">UX</span> UI/UX Designer
+                    </span>
+
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-clock mr-1"></i> Remote
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-map-marker-alt mr-1"></i> Anywhere
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
+                </div>
+              </div> <!-- Job Card -->
+
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading">
+                      <span class="badge badge-circle background--warning text-white mr-3">AN</span> Multimedia Artist &amp; Animator
+                    </span>
+
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-clock mr-1"></i> Full time
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-map-marker-alt mr-1"></i> Birmingham, UK
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
+                </div>
+              </div> <!-- Job Card -->
             </div>
 
-          </div><!-- /.row -->
-        </div><!-- /.tab-pane -->
-        <div role="tabpanel" class="tab-pane fade in" id="popular-jobs">
-          <div class="row">
-            <div class="col-md-6 col-lg-3">
-              <div class="job-item">
-                <div class="item-overlay">
-                  <div class="job-info">
-                    <h1 class="btn btn-primary">{{j.type_emploi}}</h1>
-                    <span class="tr-title">
-											<a href="#">{{j.titre_emploi}}</a>
-											<span><a href="#">Fox</a></span>
-										</span>
-                    <ul class="tr-list job-meta">
-                      <li><i class="fa fa-map-signs" aria-hidden="true"></i>{{j.adresse}}</li>
-                      <li><i class="fa fa-briefcase" aria-hidden="true"></i>{{j.nom_entreprise}}</li>
-                      <li><i class="fa fa-money" aria-hidden="true"></i>Nombre de candidatures:{{j.nbr_candidatures}}</li>
-                    </ul>
+            <div class="job-list__wrapper mb-6 w-10/12">
+              <h3 class="mb-4 text-3xl font-bold">Development</h3>
 
-                  </div>
-                </div>
-                <div class="job-info">
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading">
+                      <span class="badge badge-circle background--success text-white mr-3">FE</span> Front End Developer
+                    </span>
 
-                  <span class="tr-title">
-                    <h1 class="btn btn-primary">{{j.type_emploi}}</h1>
-										<span><a href="#">Fox</a></span>
-									</span>
-                  <ul class="tr-list job-meta">
-                    <li><span><i class="fa fa-map-signs" aria-hidden="true"></i></span>{{j.adresse}}</li>
-                    <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span>{{j.nom_entreprise}}</li>
-                    <li><span><i class="fa fa-money" aria-hidden="true"></i></span>Nombre de candidatures: {{j.nbr_candidatures}}</li>
-                  </ul>
-                  <div class="time">
-                    <a href="#"><span>{{j.type_emploi}}</span></a>
-<!--                    <span class="pull-right">Posted Oct 09, 2017</span>-->
-                  </div>
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-clock mr-1"></i> Part time
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-map-marker-alt mr-1"></i> Sydney, AU
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
                 </div>
-              </div>
+              </div> <!-- Job Card -->
+
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading">
+                      <span class="badge badge-circle background--warning2 text-white mr-3">MD</span> Mobile Developer
+                    </span>
+
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-clock mr-1"></i> Full-time
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-map-marker-alt mr-1"></i> San Fransisco, US
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
+                </div>
+              </div> <!-- Job Card -->
+
+              <div style="height: 50px; border-radius: 5px"  class="bg-white card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+                <div class="card-body">
+                  <span class="row justify-content-between align-items-center">
+                    <span class="col-md-5 color--heading">
+                      <span class="badge badge-circle background--info text-white mr-3">NT</span> .NET Developer
+                    </span>
+
+                    <span class="col-5 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-clock mr-1"></i> Full time
+                    </span>
+
+                    <span class="col-7 col-md-3 my-3 my-sm-0 color--text">
+                      <i class="fas fa-map-marker-alt mr-1"></i> Manchester, UK
+                    </span>
+
+                    <span class="d-none d-md-block col-1 text-center color--text">
+                      <small><i class="fas fa-chevron-right"></i></small>
+                    </span>
+                  </span>
+                </div>
+              </div> <!-- Job Card -->
             </div>
-          </div><!-- /.row -->
-        </div><!-- /.tab-pane -->
+          </div>
+
+        </div>
       </div>
-    </div><!-- /.job-tab -->
-  </div><!-- /.container -->
-</div>
+    </section>

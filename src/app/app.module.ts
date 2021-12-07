@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 
@@ -75,7 +76,7 @@ import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
-
+import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -129,7 +130,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     BusinessComponent,
     BusinessNavbarComponent,
     BusinessSidebarComponent,
-    BusinessDashboardComponent
+    BusinessDashboardComponent,
+    ExperienceUserComponent
   ],
   imports: [
     BrowserModule,
@@ -140,7 +142,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     FormsModule,
     OwlModule,
     Ng2TelInputModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgApexchartsModule
   ],
   providers: [
     {
