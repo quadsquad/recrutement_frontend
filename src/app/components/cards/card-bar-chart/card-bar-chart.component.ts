@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
@@ -140,7 +139,6 @@ export class CardBarChartComponent implements OnInit {
         }
       }
     };
-
 
   }
 
