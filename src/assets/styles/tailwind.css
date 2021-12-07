@@ -4101,9 +4101,11 @@ select {
 
   .lg\:hover\:text-grey-200:hover {
     --tw-text-opacity: 1;
-    border-bottom: 2px solid #FF8856;
-    width: 50%;
+
+    text-decoration: underline #FF8856;
   }
+
+
 
   .lg\:w-auto {
     width: auto;

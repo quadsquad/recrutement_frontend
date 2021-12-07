@@ -131,7 +131,6 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['/']).then(() => {
       localStorage.removeItem('role');
 
-
     })
   }
   getBack() {
@@ -151,7 +150,7 @@ export class RegisterComponent implements OnInit {
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
 
-      localStorage.setItem('role', null);
+      localStorage.removeItem('role');
       window.scroll(0,0);
     })
   }
@@ -213,6 +212,7 @@ export class RegisterComponent implements OnInit {
             text: 'Please Check Out Your Mail Box To Complete Registration'
           }).then(() => {
             this.router.navigateByUrl('/auth/login');
+
             localStorage.removeItem('role');
 
           });

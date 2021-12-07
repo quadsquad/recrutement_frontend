@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -71,13 +73,12 @@ import { CandidaciesComponent } from './views/admin/candidacies/candidacies.comp
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
 
 import { SkillsUserComponent} from './views/skills-user/skills-user.component';
-
 import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
-
+import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +132,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     BusinessComponent,
     BusinessNavbarComponent,
     BusinessSidebarComponent,
-    BusinessDashboardComponent
+    BusinessDashboardComponent,
+    ExperienceUserComponent
   ],
   imports: [
     BrowserModule,
@@ -144,8 +146,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     Ng2TelInputModule,
     ToastrModule.forRoot(),
     OwlModule,
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    NgApexchartsModule
   ],
   providers: [
     {

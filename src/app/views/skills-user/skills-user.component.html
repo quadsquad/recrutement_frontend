@@ -1,9 +1,11 @@
-<div style="display: block;">
-<canvas baseChart
-        [datasets]="radarChartData"
-        [options]="radarChartOptions"
-        [labels]="radarChartLabels"
-        [chartType]="radarChartType">
-
-</canvas>
+<div id="chart" class="pt-16" style="margin-right: auto; margin-left: 200px;">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [stroke]="chartOptions.stroke"
+    [markers]="chartOptions.markers"
+    [fill]="chartOptions.fill"
+    [title]="chartOptions.title"
+  ></apx-chart>
 </div>

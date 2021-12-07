@@ -39,6 +39,9 @@ export class LandingComponent implements OnInit {
       'assets/img/team-4-470x470.png',
   ];
 
+
+
+
   ngOnInit(): void {
     this.js.getAllJobs().subscribe((res : [])=>{
       this.dataJobs=res

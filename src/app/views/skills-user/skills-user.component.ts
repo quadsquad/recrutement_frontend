@@ -1,4 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {
+  ApexAxisChartSeries,
+  ApexTitleSubtitle,
+  ApexChart,
+  ApexXAxis,
+  ApexFill,
+  ChartComponent,
+  ApexStroke,
+  ApexMarkers
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  title: ApexTitleSubtitle;
+  stroke: ApexStroke;
+  fill: ApexFill;
+  markers: ApexMarkers;
+  xaxis: ApexXAxis;
+};
 
 @Component({
   selector: 'app-skills-user',
@@ -7,29 +28,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsUserComponent implements OnInit {
 
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
 
-/*  public radarChartLabels: Label[]= ['Eating','Drinking','Sleeping','Designing','Coding','Cycling','Running'];
 
-  public radarChartData: ChartDataset[] = [
-    {data: [65, 59, 90, 81, 56,55,40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 96,27,100], label: 'Series B'}
-  ];*/
+  constructor() {
+    this.chartOptions = {
+      series: [
+        {
+          name: "Series 1",
+          data: [80, 50, 80, 40, 100, 30]
+        }
+      ],
+      chart: {
+        height: 600,
+        type: "radar"
+      },
 
- // public radarChartType: ChartType = 'radar';
+      xaxis: {
+        categories: ["Skill 1", "Skill 2", "Skill 3", "Skill 4", "Skill 5", "Skill 6"]
+      }
+    };
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
 
-/*  //events
-  public chartClicked( {event, active}: {event: MouseEvent, active: {}[]}): void {
-    console.log(event, active);
-  }
 
-  public chartHovered( {event, active}: {event: MouseEvent, active: {}[]}): void {
-    console.log(event, active);
-  }*/
 
 
 }
