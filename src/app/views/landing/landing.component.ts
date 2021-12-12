@@ -4,6 +4,8 @@ import {JobServiceService} from '../../services/jobs/job-service.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.css']
+
 })
 export class LandingComponent implements OnInit {
   constructor(private js: JobServiceService) {}
