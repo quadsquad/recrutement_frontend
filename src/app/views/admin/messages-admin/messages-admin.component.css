@@ -14,7 +14,9 @@
     left: 0;
     top: 0;
     padding: 20px;
-    z-index: 7
+    z-index: 7;
+    height: calc(100vh - 150px);
+    min-height: 460px;
 }
 
 .chat-app .chat {
@@ -26,13 +28,14 @@
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
-    transition: .5s
+    transition: .5s;
 }
 
 .people-list .chat-list li {
     padding: 10px 15px;
     list-style: none;
-    border-radius: 3px
+    border-radius: 3px;
+
 }
 
 .people-list .chat-list li:hover {

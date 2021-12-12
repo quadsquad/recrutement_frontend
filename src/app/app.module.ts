@@ -5,7 +5,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -86,6 +85,7 @@ import { BusinessCandidatesComponent } from './views/business/business-candidate
 import { BusinessReportsComponent } from './views/business/business-reports/business-reports.component';
 import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
 import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
+import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
 
 @NgModule({
   declarations: [
@@ -148,7 +148,8 @@ import { MessagesBusinessComponent } from './views/business/messages-business/me
     BusinessCandidatesComponent,
     BusinessReportsComponent,
     ProfileBusinessComponent,
-    MessagesBusinessComponent
+    MessagesBusinessComponent,
+    MessagesAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -162,7 +163,8 @@ import { MessagesBusinessComponent } from './views/business/messages-business/me
     ToastrModule.forRoot(),
     OwlModule,
     Ng2SearchPipeModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+
 
   ],
   providers: [

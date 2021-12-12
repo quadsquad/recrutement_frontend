@@ -34,6 +34,7 @@ import {BusinessCandidatesComponent} from "./views/business/business-candidates/
 import {BusinessReportsComponent} from "./views/business/business-reports/business-reports.component";
 import {ProfileBusinessComponent} from "./views/business/profile-business/profile-business.component";
 import {MessagesBusinessComponent} from "./views/business/messages-business/messages-business.component";
+import {MessagesAdminComponent} from "./views/admin/messages-admin/messages-admin.component";
 
 
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
       { path: 'deleteS/:id', component: ServicesComponent },
       { path: 'profile', component: ProfileAdminComponent },
       { path: 'feedback', component: ContactListComponent },
+      { path: 'messages', component: MessagesAdminComponent },
 
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],

@@ -27,6 +27,8 @@ export class CarLineChartBusinessJobsComponent implements OnInit {
 
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  public chartOptions1: Partial<ChartOptions>;
+  public chartOptions2: Partial<ChartOptions>;
   constructor() {
 
     this.chartOptions = {
@@ -35,11 +37,96 @@ export class CarLineChartBusinessJobsComponent implements OnInit {
           name: 'Jobs postulated ',
           data: [50, 40, 60, 51, 42, 109, 100,50, 40, 60, 51, 42],
         },
+        /*{
+          name: 'Jobs shared ',
+          data: [30, 20, 50, 41, 32, 99, 90,40, 30, 50, 41, 62],
+          color: '#FF6555'
+        },
+        {
+          name: 'Jobs reported ',
+          data: [70, 10, 40, 21, 42, 89, 60, 30, 20, 10, 31, 100],
+          color: '#000'
+        },*/
+      ],
+      chart: {
+        height: 350,
+        type: 'area',
+        foreColor:'#000'
+      },
+      dataLabels: {
+        enabled: false,
+        style: {
+          fontSize: '25px',
+          colors: ['#fff'],
+        }
+      },
+
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+         categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ],
+      },
+    };
+    this.chartOptions1 = {
+      series: [
+
         {
           name: 'Jobs shared ',
           data: [30, 20, 50, 41, 32, 99, 90,40, 30, 50, 41, 62],
           color: '#FF6555'
         },
+
+      ],
+      chart: {
+        height: 350,
+        type: 'area',
+        foreColor:'#000'
+      },
+      dataLabels: {
+        enabled: false,
+        style: {
+          fontSize: '25px',
+          colors: ['#fff'],
+        }
+      },
+
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+         categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ],
+      },
+    };
+    this.chartOptions2 = {
+      series: [
+
         {
           name: 'Jobs reported ',
           data: [70, 10, 40, 21, 42, 89, 60, 30, 20, 10, 31, 100],
