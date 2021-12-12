@@ -29,6 +29,11 @@ import {CandidaciesComponent} from './views/admin/candidacies/candidacies.compon
 import {ContactListComponent} from './views/admin/contact-list/contact-list.component';
 import {BusinessComponent} from './layouts/business/business.component';
 import {BusinessDashboardComponent} from './views/business/business-dashboard/business-dashboard.component';
+import {JobsBusinessComponent} from "./views/business/jobs-business/jobs-business.component";
+import {BusinessCandidatesComponent} from "./views/business/business-candidates/business-candidates.component";
+import {BusinessReportsComponent} from "./views/business/business-reports/business-reports.component";
+import {ProfileBusinessComponent} from "./views/business/profile-business/profile-business.component";
+import {MessagesBusinessComponent} from "./views/business/messages-business/messages-business.component";
 
 
 const routes: Routes = [
@@ -38,7 +43,12 @@ const routes: Routes = [
     path : 'business',
     component: BusinessComponent,
     children : [
-      { path: 'dashboard', component: BusinessDashboardComponent}
+      { path: 'dashboard', component: BusinessDashboardComponent},
+      { path: 'jobs', component: JobsBusinessComponent},
+      { path: 'candidates', component: BusinessCandidatesComponent},
+      { path: 'reports', component: BusinessReportsComponent},
+      { path: 'profile', component: ProfileBusinessComponent},
+      { path: 'messages', component: MessagesBusinessComponent},
     ]
   },
 
@@ -49,7 +59,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'recruiters', component: SettingsComponent },
-      { path: 'maps', component: MapsComponent },
+      { path: 'particulars', component: MapsComponent },
       { path: 'jobs', component : JobsComponent },
       { path: 'candidacies', component : CandidaciesComponent},
       { path: 'services', component : ServicesComponent  },

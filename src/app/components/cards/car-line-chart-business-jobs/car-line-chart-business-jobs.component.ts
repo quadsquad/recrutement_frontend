@@ -1,55 +1,67 @@
+/* tslint:disable:use-lifecycle-interface */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
+  ChartComponent,
   ApexAxisChartSeries,
   ApexChart,
-  ChartComponent,
-  ApexDataLabels,
-  ApexPlotOptions,
-  ApexYAxis,
-  ApexTitleSubtitle,
   ApexXAxis,
-  ApexFill
+  ApexDataLabels,
+  ApexTooltip,
+  ApexStroke
 } from 'ng-apexcharts';
+
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
-  dataLabels: ApexDataLabels;
-  plotOptions: ApexPlotOptions;
-  yaxis: ApexYAxis;
   xaxis: ApexXAxis;
-  fill: ApexFill;
-  title: ApexTitleSubtitle;
+  stroke: ApexStroke;
+  tooltip: ApexTooltip;
+  dataLabels: ApexDataLabels;
 };
 @Component({
-  selector: 'app-card-bar-chart',
-  templateUrl: './card-bar-chart.component.html',
+  selector: 'app-car-line-chart-business-jobs',
+  templateUrl: './car-line-chart-business-jobs.component.html',
+  styleUrls: ['./car-line-chart-business-jobs.component.css']
 })
-export class CardBarChartComponent implements OnInit {
-@ViewChild('chart') chart: ChartComponent;
+export class CarLineChartBusinessJobsComponent implements OnInit {
+
+  @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   constructor() {
 
     this.chartOptions = {
       series: [
         {
-          name: 'Recruiters Nb ',
+          name: 'Jobs postulated ',
           data: [50, 40, 60, 51, 42, 109, 100,50, 40, 60, 51, 42],
-          color:'#dd504c'
         },
-
+        {
+          name: 'Jobs shared ',
+          data: [30, 20, 50, 41, 32, 99, 90,40, 30, 50, 41, 62],
+          color: '#FF6555'
+        },
+        {
+          name: 'Jobs reported ',
+          data: [70, 10, 40, 21, 42, 89, 60, 30, 20, 10, 31, 100],
+          color: '#000'
+        },
       ],
       chart: {
         height: 350,
         type: 'area',
+        foreColor:'#000'
       },
       dataLabels: {
         enabled: false,
         style: {
-          fontSize: '12px',
-          colors: ['#fff']
+          fontSize: '25px',
+          colors: ['#fff'],
         }
       },
 
+      stroke: {
+        curve: 'smooth'
+      },
       xaxis: {
          categories: [
           'Jan',
@@ -66,13 +78,7 @@ export class CardBarChartComponent implements OnInit {
           'Dec'
         ],
       },
-
     };
-
-  }
-
-  ngOnInit() {
-
   }
 
   public generateData(baseval, count, yrange) {
@@ -90,4 +96,9 @@ export class CardBarChartComponent implements OnInit {
     }
     return series;
   }
+
+
+  ngOnInit(): void {
+  }
+
 }
