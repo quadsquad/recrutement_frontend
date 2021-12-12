@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -80,6 +77,7 @@ import { BusinessSidebarComponent } from './components/business-sidebar/business
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
 import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,7 +132,8 @@ import { ExperienceUserComponent } from './views/experience-user/experience-user
     BusinessNavbarComponent,
     BusinessSidebarComponent,
     BusinessDashboardComponent,
-    ExperienceUserComponent
+    ExperienceUserComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -148,8 +147,7 @@ import { ExperienceUserComponent } from './views/experience-user/experience-user
     ToastrModule.forRoot(),
     OwlModule,
     Ng2SearchPipeModule,
-    NgApexchartsModule
-
+    NgApexchartsModule,
   ],
   providers: [
     {
