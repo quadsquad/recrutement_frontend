@@ -158,7 +158,6 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorServiceService, multi:true
-
     }
   ],
   bootstrap: [AppComponent],
