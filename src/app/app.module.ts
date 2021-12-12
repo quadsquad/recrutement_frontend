@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgApexchartsModule } from 'ng-apexcharts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -76,6 +77,14 @@ import { BusinessNavbarComponent } from './components/navbars/business-navbar/bu
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
 import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
+import { HeaderStatBusinessComponent } from './components/headers/header-stat-business/header-stat-business.component';
+import { CarLineChartBusinessJobsComponent } from './components/cards/car-line-chart-business-jobs/car-line-chart-business-jobs.component';
+import { JobsBusinessComponent } from './views/business/jobs-business/jobs-business.component';
+import { BusinessCandidatesComponent } from './views/business/business-candidates/business-candidates.component';
+import { BusinessReportsComponent } from './views/business/business-reports/business-reports.component';
+import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
+import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
+import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
 
 
 @NgModule({
@@ -133,7 +142,14 @@ import { ExperienceUserComponent } from './views/experience-user/experience-user
     BusinessSidebarComponent,
     BusinessDashboardComponent,
     ExperienceUserComponent,
-
+    HeaderStatBusinessComponent,
+    CarLineChartBusinessJobsComponent,
+    JobsBusinessComponent,
+    BusinessCandidatesComponent,
+    BusinessReportsComponent,
+    ProfileBusinessComponent,
+    MessagesBusinessComponent,
+    MessagesAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -148,6 +164,7 @@ import { ExperienceUserComponent } from './views/experience-user/experience-user
     OwlModule,
     Ng2SearchPipeModule,
     NgApexchartsModule,
+
   ],
   providers: [
     {

@@ -29,39 +29,29 @@ export class CardBarChartComponent implements OnInit {
   public chartOptions: Partial<ChartOptions>;
   constructor() {
 
-    // @ts-ignore
     this.chartOptions = {
       series: [
         {
-          name: 'Recruiter',
-          data: [12.0, 13.0, 14.0, 10.0, 14.0, 13.0, 13.0, 10.0, 10.0, 11.0, 15.0, 17.0]
-        }
+          name: 'Recruiters Nb ',
+          data: [50, 40, 60, 51, 42, 109, 100,50, 40, 60, 51, 42],
+          color:'#dd504c'
+        },
+
       ],
       chart: {
         height: 350,
-        type: 'bar'
-      },
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            position: 'top' // top, center, bottom
-          }
-        }
+        type: 'area',
       },
       dataLabels: {
-        enabled: true,
-        formatter(val) {
-          return val + '';
-        },
-        offsetY: -20,
+        enabled: false,
         style: {
           fontSize: '12px',
-          colors: ['#304758']
+          colors: ['#fff']
         }
       },
 
       xaxis: {
-        categories: [
+         categories: [
           'Jan',
           'Feb',
           'Mar',
@@ -75,74 +65,29 @@ export class CardBarChartComponent implements OnInit {
           'Nov',
           'Dec'
         ],
-        position: 'top',
-        labels: {
-          offsetY: -18
-        },
-        axisBorder: {
-          show: false
-        },
-        axisTicks: {
-          show: false
-        },
-        crosshairs: {
-          fill: {
-            type: 'gradient',
-            gradient: {
-              colorFrom: '#D8E3F0',
-              colorTo: '#BED1E6',
-              stops: [0, 100],
-              opacityFrom: 0.4,
-              opacityTo: 0.5
-            }
-          }
-        },
-        tooltip: {
-          enabled: true,
-          offsetY: -35
-        }
       },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shade: 'light',
-          type: 'horizontal',
-          shadeIntensity: 0.25,
-          gradientToColors: undefined,
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [50, 0, 100, 100]
-        }
-      },
-      yaxis: {
-        axisBorder: {
-          show: false
-        },
-        axisTicks: {
-          show: false
-        },
-        labels: {
-          show: false,
-          formatter(val) {
-            return val + '';
-          }
-        }
-      },
-      title: {
-        text: 'Total Recruiters',
 
-        offsetY: 320,
-        align: 'center',
-        style: {
-          color: '#444'
-        }
-      }
     };
 
   }
 
   ngOnInit() {
 
+  }
+
+  public generateData(baseval, count, yrange) {
+    let i = 0;
+    let series = [];
+    while (i < count) {
+      let x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;
+      let y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+      let z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+
+      series.push([x, y, z]);
+      baseval += 86400000;
+      i++;
+    }
+    return series;
   }
 }
