@@ -3,27 +3,31 @@
     <div class="w-full lg:w-4/12 px-4">
 
       <div
-        class="relative flex flex-col min-w-0 break-words "
+        class="relative flex-col min-w-0 break-words "
       >
-            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" 
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" class = "getBack"
             *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne !== '#FF8856'" (click) = "getBack()" style="cursor: pointer;">
-            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" 
+            <img src="assets/img/Artboard 32.png" width = "30px" height="30px" class = "getBackT"
             *ngIf = "thirdStepColorOne === '#FF8856'" (click) = "getBackThree()" style="cursor: pointer;">
             <img src="assets/img/Artboard 32.png" width = "30px" height="30px" *ngIf = "thirdStepColorOne !== '#FF8856' && secondStepColorOne !== '#FF8856'" (click) = "getBackToAuthenticate()"
-            style="cursor: pointer;" title="BACK TO MY WORLD SPACE">
+            style="cursor: pointer;" class = "backToMWS" title="BACK TO MY WORLD SPACE">
         <div class="rounded-t mb-0 px-6 py-6">
 
-        <div style="margin-top: -92px;">
+        <div style="margin-top: -150px;">
 
             <img src="assets/img/myworldjob_white.png" style="display: block;margin-left: auto; margin-right: auto" width="200" height="200" alt="MY_WORLD_JOB_LOGO"
             (click)="goToHomepage()">
 
         </div>
         </div>
+        <br>
         <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0" style="display: block; margin-right: auto;margin-left: auto">
           <div class="">
             <h1 style="letter-spacing: 5px;position: static;margin-right: auto; margin-left: auto" class="text-center text-white text-md font-semibold">REGISTER SPACE</h1>
             <br><br>
+          </div>
+          <div align = "center">
+            <loading *ngIf="isLoading">{{ isLoading }}</loading>
           </div>
 
           <div class="bs-stepper" [ngStyle]="applyStepStyles()" align="center">
@@ -32,7 +36,7 @@
     <div class="step" data-target="#logins-part" style="display: block;">
       <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger"
       style="pointer-events: none;">
-        <span class="bs-stepper-circle" 
+        <span class="bs-stepper-circle"
         style="background: linear-gradient(#FF8856,#FF6555); border:3px solid white; width: 22px; height: 22px;"></span>
         <span class="bs-stepper-label text-white"></span>
       </button>
@@ -72,8 +76,19 @@
               <div align =  "center">
               <label class = "plusSign" title = "Upload logo enterprise">
                 <i class = "fa fa-plus w-50 text-xl"></i>
-              <input type="file" class="plusFile"/></label><br><br><br>
+              <!--<input type="file" class="plusFile" (change)="fileBEvent($event)" accept="image/png"
+                     name="business_logo" formControlName="business_logo"/>-->
+
+              <ngx-uploadcare-widget
+  images-only="true" class="plusFile" tabs="file url facebook instagram"
+  (on-change)="OnChangeUploadB($event)" preview-step="true" (on-upload-complete)="uploadCompleted($event)"
+  public-key="3226601193ad7484e850" clearable="true" input-accept-types="image/png" [do-not-store]="doNotStore">
+</ngx-uploadcare-widget>
+
+              </label><br><br><br>
               <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Business'">BUSINESS LOGO</h5>
+              <br>
+                <img [src]="business_logo" style="width: 50px; height: 50px; border-radius: 15%" *ngIf="business_logo"/>
               </div>
               <style>
                 .plusFile {
@@ -89,25 +104,48 @@
               </style><br><br><br>
       <div class="container" style="display: inline-flex;width:100%; margin-bottom: 150px;">
                  <div class="w-6/12">
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                     <input type="text" name="business_name" required="" style="width: 320px;" formControlName="business_name">
-                    <label style="color: #ffffff">BUSINESS NAME</label>
+                    <label style="color: #ffffff">BUSINESS NAME</label><br>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('business_name').touched
+            && rb_form.get('business_name').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('business_name').touched
+            && rb_form.get('business_name').hasError('minlength')">AT LEAST 3 CHARACTERS</span>
                    </div>
                  </div>
                  <div>
-                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;" 
+                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;"
                    *ngIf = "secondStepColorOne !== '#ffffff'">
                     <input type="text" name="address" required="" style="width: 320px;" formControlName="address">
                     <label style="color: #ffffff">ADDRESS</label>
+                     <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('address').touched
+            && rb_form.get('address').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('address').touched
+            && rb_form.get('address').hasError('minlength')">AT LEAST 6 CHARACTERS</span>
                    </div>
                  </div>
                </div>
-               
+
 
                <style>
-                 .login-box .user-box select {
-    width: 100%;
+                 .login-box .user-box .allCountries {
+                  width: 319px;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box .citiesByCountry {
+    width: 319px;
     padding: 10px 0;
     font-size: 16px;
     margin-bottom: 30px;
@@ -121,51 +159,91 @@
 
                <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <!--<input type="text" name="" required="" style="width: 320px;">-->
                    <select name="country" (change)="select_country($event.target.value)" style="cursor: pointer;"
-                   formControlName="country">
+                   formControlName="country" class = "allCountries">
                     <option disabled selected value></option>
                     <option *ngFor="let country of allCountries" class = "allCountries"
-                    style="color: #fff; background-color: #FF8856;" [value]="country.name">{{country.name}}</option>
-                    
+                    style="color: #fff; background-color: #FF8856;" [value]="country.iso2">{{country.name}}</option>
+
                   </select>
-                  <label style="color: #ffffff" *ngIf = "selected === false">SELECT COUNTRY</label>
+                  <label style="color: #ffffff" *ngIf = "selected === false">SELECT COUNTRY</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('country').touched
+            && rb_form.get('country').hasError('required')">REQUIRED FIELD*</span>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="city" required="" style="width: 320px;" formControlName="city">
-                   <label style="color: #ffffff">CITY</label>
+                  <select name="city" (change)="select_city($event.target.value)" style="cursor: pointer;"
+                  formControlName="city" class = "citiesByCountry" [hidden]="selectCityHiddenB">
+
+                   <option *ngFor="let city of citiesToShow; let i = index" class = "allCities"
+                   style="color: #fff; background-color: #FF8856;" [value]="city">{{city}}</option>
+
+                 </select>
+                    <input type="text" name="city" required="" style="width: 320px;" formControlName="city"
+                           [hidden]="!selectCityHiddenB">
+                    <label style="color: #ffffff" *ngIf = "citiesToShow.length === 0">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "finalSelectCountry === false && inputHidden === true">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "countrySelected && !citySelectedVal">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "inputHidden === false">SELECT CITY</label>
+                    <br>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('city').touched
+            && rb_form.get('city').hasError('required')">REQUIRED FIELD*</span>
                   </div>
                 </div>
               </div>
 
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="text" name="email" required="" style="width: 320px;" formControlName="email">
-                   <label style="color: #ffffff">EMAIL</label>
+                   <label style="color: #ffffff">EMAIL</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('email').touched
+            && rb_form.get('email').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('email').touched
+            && rb_form.get('email').hasError('email')">INVALID EMAIL FORMAT</span>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="password" name="password" required="" style="width: 320px;" formControlName="password">
                    <label style="color: #ffffff">PASSWORD</label>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('password').touched
+            && rb_form.get('password').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('password').touched
+            && rb_form.get('password').hasError('minlength')">AT LEAST 6 CHARACTERS</span>
                   </div>
                 </div>
               </div>
 
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="password" name="confirmPassword" required="" style="width: 320px;" formControlName="confirmPassword">
-                   <label style="color: #ffffff">CONFIRM PASSWORD</label>
+                   <label style="color: #ffffff">CONFIRM PASSWORD</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('confirmPassword').touched
+            && rb_form.get('confirmPassword').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('confirmPassword').touched
+            && rb_form.get('confirmPassword').hasError('minlength')">AT LEAST 6 CHARACTERS</span>
+                   <span style="color: red; margin-top: 50px" *ngIf = "rb_form.get('confirmPassword').touched
+                && rb_form.get('confirmPassword').hasError('mustMatch')">
+                      PASSWORDS DO NOT MATCH
+                </span>
                   </div>
                 </div>
                 <div>
@@ -183,6 +261,7 @@
 
   .login-box .user-box input.phoneNumber::-webkit-input-placeholder {
     color: #fff;
+    opacity: 0.5;
   }
 
   input::-webkit-outer-spin-button,
@@ -191,30 +270,51 @@
     margin: 0;
 }
                   </style>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 70px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                  <input type="number" formControlName="phonenumber" name="phonenumber" required="" style="width: 320px;color: #fff" ng2TelInput title="PHONE NUMBER"
-                  class = "phoneNumber" [ng2TelInputOptions]="cell1TelInput"/>
-                  <!-- <label style="color: #ffffff">PHONE NUMBER</label> -->
+                  <input type="text" formControlName="phonenumber" name="phonenumber" required="" style="width: 320px;color: #fff" ng2TelInput title="PHONE NUMBER"
+                  class = "phoneNumber" [ng2TelInputOptions]="cell1TelInput" (hasError)="onError($event)"
+                  (countryChange)="onCountryChange($event)" pattern="[0-9]+"/><br><br>
+                  <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('phonenumber').touched
+            && rb_form.get('phonenumber').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('phonenumber').touched
+            && rb_form.get('phonenumber').hasError('pattern')">ONLY NUMBERS ARE ACCEPTED</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('phonenumber').touched
+            && !hasErr && !rb_form.get('phonenumber').hasError('required')
+            && !rb_form.get('phonenumber').hasError('pattern')">INVALID NUMBER</span>
                 </div>
                 </div>
               </div>
 
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 140px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 140px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" name="business_website" style="width: 320px;" formControlName = "business_website">
-                   <label style="color: #ffffff">BUSINESS WEBSITE</label>
+                   <input type="text" name="" required="" name="business_website"
+                          style="width: 320px;" formControlName = "business_website"
+                          (ngModelChange)="followInputUrl(rb_form.get('business_website'))">
+                   <label style="color: #ffffff">BUSINESS WEBSITE</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('business_website').touched
+            && rb_form.get('business_website').hasError('required')">REQUIRED FIELD*</span>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rb_form.get('business_website').touched
+            && rb_form.get('business_website').hasError('pattern')">INVALID FORMAT</span>
+                   <span style="color: red; margin-top: 50px"
+                   *ngIf = "!rb_form.get('business_website').hasError('required')
+            && !rb_form.get('business_website').hasError('pattern') && isValidWebsite === false">{{validWebsite}}</span>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 140px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 140px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                   <button
-                style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
+                [ngStyle]="btnCreateAccountStyle()"
                 class=" text-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1  ease-linear transition-all duration-150"
-                type="submit" [disabled]="rb_form.invalid"
+                type="submit" [disabled]="rb_form.invalid || btnRegisterB === true"
               >
                 <nobr>CREATE ACCOUNT</nobr>
               </button>
@@ -224,9 +324,8 @@
 
             </form>
 
-
-
-            <form class="login-box mt-48" *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne === '#ffffff' && role === 'Particular'">
+            <form class="login-box mt-48" [formGroup] = "rp_form" (ngSubmit) = "confirmRegisterP()"
+                  *ngIf = "secondStepColorOne === '#FF8856' && thirdStepColorOne === '#ffffff' && role === 'Particular'">
               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
               <div align =  "center">
               <label class = "plusSign" title = "Upload your picture">
@@ -245,58 +344,88 @@
                   background: #ffffff;
                   border-radius: 50%;
                 }
+                .login-box .user-box .countriesParticular {
+    width: 319px;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+                .login-box .user-box .citiesByCountryParticular {
+    width: 319px;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
               </style><br><br><br>
       <div class="container" style="display: inline-flex;width:100%; margin-bottom: 150px;">
                  <div class="w-6/12">
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                    <input type="text" name="" required="" style="width: 320px;">
+                    <input type="text" name="firstname" required="" style="width: 320px;" formControlName="firstname">
                     <label style="color: #ffffff">FIRST NAME</label>
                    </div>
                  </div>
                  <div>
-                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;" 
+                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;"
                    *ngIf = "secondStepColorOne !== '#ffffff'">
-                    <input type="text" name="" required="" style="width: 320px;">
+                    <input type="text" name="lastname" required="" style="width: 320px;" formControlName="lastname">
                     <label style="color: #ffffff">LAST NAME</label>
                    </div>
                  </div>
                </div>
-  
+
                <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                 <select name = "countries" (change)="select_country($event.target.value)" style="cursor: pointer;">
+                 <select name = "country" (change)="select_countryP($event.target.value)" class = "countriesParticular"
+                         style="cursor: pointer;" formControlName="country">
                   <option disabled selected value></option>
-                  <option *ngFor="let country of allCountries" class = "allCountries"
-                  style="color: #fff; background-color: #FF8856;" [value]="country.name">{{country.name}}</option>
-                  
+                  <option *ngFor="let country of allCountriesP" class = "allCountries"
+                  style="color: #fff; background-color: #FF8856;" [value]="country.iso2">{{country.name}}</option>
+
                 </select>
-                <label style="color: #ffffff" *ngIf = "selected === false">SELECT COUNTRY</label>
+                <label style="color: #ffffff" *ngIf = "selectedP === false">SELECT COUNTRY</label>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
-                   <label style="color: #ffffff">CITY</label>
+                   <select name="city" (change)="select_cityP($event.target.value)" style="cursor: pointer;"
+                  formControlName="city" class = "citiesByCountryParticular">
+                   <option disabled selected value></option>
+                   <option *ngIf="citiesToShowP.length === 0"
+                   style="color: #fff; background-color: #FF8856;">SELECT COUNTRY TO SHOW ITS CITIES</option>
+                   <option *ngFor="let city of citiesToShowP" class = "allCities"
+                   style="color: #fff; background-color: #FF8856;" [value]="city">{{city}}</option>
+                 </select>
+                 <label style="color: #ffffff" *ngIf = "selectedCityP === false">SELECT CITY</label>
                   </div>
                 </div>
               </div>
 
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="email" name="email" required="" style="width: 320px;" formControlName="email">
                    <label style="color: #ffffff">EMAIL</label>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;" 
+                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: 0px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="password" name="password" required="" style="width: 320px;" formControlName="password">
                    <label style="color: #ffffff">PASSWORD</label>
                   </div>
                 </div>
@@ -312,18 +441,18 @@
               </style>
               <div class="container" style="display: inline-flex;width:100%;">
                 <div class="w-6/12">
-                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;" 
+                 <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <input type="text" name="" required="" style="width: 320px;">
+                   <input type="password" name="confirmPassword" required="" style="width: 320px;" formControlName="confirmPassword">
                    <label style="color: #ffffff">CONFIRM PASSWORD</label>
                   </div>
                 </div>
                 <div>
-                  <div class="text-center user-box" align = "center" style="position: absolute; display: block; margin-left: 136px; margin-top: 70px;" 
+                  <div class="text-center user-box" align = "center" style="position: absolute; display: block; margin-left: 136px; margin-top: 70px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                    <button
                 class=" text-white text-sm font-bold uppercase rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all"
-                type="submit" (click) = "confirmRegisterP()" title="NEXT"
+                type="submit" title="NEXT"
               >
 
                 <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
@@ -333,7 +462,7 @@
                 </div>
               </div>
 
-              
+
 
             </form>
 
@@ -367,7 +496,7 @@
               <nobr>FINISH</nobr>
             </button>
               </div>
-              
+
             </form>
 
 

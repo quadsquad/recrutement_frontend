@@ -16,7 +16,8 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "serve"
         ],
         "accessToken": "ZjEwOGNhODUtMjlkNy00OWQxLWEwYzgtYmJiYmUwZTkwZTFmfHJlYWQtd3JpdGU="
       }

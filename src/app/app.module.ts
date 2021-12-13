@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2TelInputModule} from 'ng2-tel-input';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { AppComponent } from './app.component';
 
 
@@ -24,6 +25,7 @@ import { TablesComponent } from './views/admin/tables/tables.component';
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { LoadingComponent } from './views/auth/register/loading';
 
 // no layouts views
 import { IndexComponent } from './views/index/index.component';
@@ -109,6 +111,7 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     TablesComponent,
     LoginComponent,
     RegisterComponent,
+    LoadingComponent,
     IndexComponent,
     LandingComponent,
     ProfileComponent,
@@ -142,7 +145,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     Ng2TelInputModule,
     ToastrModule.forRoot(),
     OwlModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    UcWidgetModule
   ],
   providers: [
     {
