@@ -17,6 +17,7 @@ export class AuthRegisterComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem("role", null);
   }
 
 }
