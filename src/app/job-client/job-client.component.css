@@ -901,6 +901,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-right: 40px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -909,6 +910,10 @@
   position: absolute;
   background-color: #FF6555;
   min-width: 160px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 220px;
   z-index: 1;
    border-top-left-radius: 35px ;
   border-bottom-left-radius: 35px ;
@@ -931,4 +936,3 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #FF6555;}
-
