@@ -340,7 +340,7 @@
 }
 
 .message-body {
-  background-color: #fbfcff;
+  background-color: #ffffff;
 
   width: calc(100% - 305px);
   float: right;
@@ -451,7 +451,7 @@
 .chat-body {
   width: calc(100% + 17px);
   min-height: 290px;
-  background-color: #fbfcff;
+  background-color: #ffffff;
   margin-bottom: 30px;
   padding: 30px 5px 5px 5px;
   overflow-y: scroll;
