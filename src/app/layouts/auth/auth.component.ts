@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
         'background-position': 'center',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
-        'min-height': '150%',
+        'min-height': '155%',
         'overflow': 'hidden',
         'margin': '0'
       }

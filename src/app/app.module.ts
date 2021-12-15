@@ -77,6 +77,7 @@ import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
+import { ParticularCvRegisterComponent } from './views/auth/register/particular-cv-register/particular-cv-register.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { BusinessDashboardComponent } from './views/business/business-dashboard/
     BusinessComponent,
     BusinessNavbarComponent,
     BusinessSidebarComponent,
-    BusinessDashboardComponent
+    BusinessDashboardComponent,
+    ParticularCvRegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -42,8 +42,8 @@ ngTelInput: any;
       validator: RegisterComponent.MustMatch('password', 'confirmPassword')
     });
     this.rp_form = formBuilder.group({
-      firstname: ['', [Validators.required,Validators.min(3)]],
-      lastname: ['', [Validators.required,Validators.min(3)]],
+      firstname: ['', [Validators.required,Validators.minLength(3)]],
+      lastname: ['', [Validators.required,Validators.minLength(3)]],
       country: ['', Validators.required],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -116,6 +116,7 @@ hasErr: boolean;
   countrySelectedP;
 
   citySelectedVal;
+  citySelectedValP;
 
   citiesToShow: any = [];
 
@@ -146,6 +147,8 @@ hasErr: boolean;
 
   createAccBtnStyle: any;
 
+  btnNextPStyle: any;
+
   btnRegisterB: any = false;
 
   prefixPhoneB: any = '216';
@@ -155,6 +158,8 @@ hasErr: boolean;
   isValidWebsite: any;
 
   selectCityHiddenB: any;
+
+  selectCityHiddenP: any;
 
   cell1TelInput: any = {
     initialCountry: 'tn',
@@ -209,10 +214,10 @@ hasErr: boolean;
   }
 
   finalSelectCountry: any;
+  finalSelectCountryP: any;
 
   inputHidden: any;
-
-  reversedCitites: any = [];
+  inputHiddenP: any;
 
   select_country(deviceValue) {
     //console.log(deviceValue);
@@ -246,11 +251,27 @@ hasErr: boolean;
     //console.log(deviceValue);
     this.citiesToShowP = [];
     this.selectedP = true;
+    this.finalSelectCountryP = true;
     this.countrySelectedP = deviceValue;
     for (let i = 0; i<City.getAllCities().length; i++) {
       if (City.getAllCities()[i].countryCode === this.countrySelectedP) {
         this.citiesToShowP.push(City.getAllCities()[i].name);
       }
+    }
+    if (this.citiesToShowP.length === 0) {
+      this.selectCityHiddenP = true;
+      this.toastr.error('WE COULD NOT FIND CITIES OF THE SELECTED COUNTRY');
+      this.toastr.info('PLEASE WRITE YOUR CITY');
+      if (this.rp_form.controls['city']) {
+        this.rp_form.controls['city'].reset();
+        this.inputHiddenP = false;
+      }
+      this.finalSelectCountryP = false;
+    } else {
+      //this.reversedCitites = this.citiesToShow.reverse();
+      this.selectCityHiddenP = false;
+      this.finalSelectCountryP = true;
+      this.rp_form.controls['city'].reset();
     }
   }
 
@@ -262,7 +283,8 @@ hasErr: boolean;
 
   select_cityP(cityValue) {
     this.selectedCityP = true;
-    this.citySelectedVal = cityValue;
+    this.citySelectedValP = cityValue;
+    this.inputHiddenP = true;
   }
 
   applyStepStyles() {
@@ -324,6 +346,22 @@ hasErr: boolean;
       localStorage.setItem('role', null);
       window.scroll(0,0);
     })
+  }
+
+  btnNextParticularStyle() {
+    if (this.rp_form.invalid) {
+      this.btnNextPStyle = {
+        'cursor': 'default',
+        'pointer-events': 'none',
+        'opacity': '0.5'
+      }
+    } else {
+      this.btnNextPStyle = {
+        'cursor': 'pointer',
+        'opacity': '1'
+      }
+    }
+    return this.btnNextPStyle;
   }
 
   btnCreateAccountStyle() {
@@ -408,9 +446,8 @@ hasErr: boolean;
   }
 
   confirmRegisterP(): void {
-
-    window.scroll(0,0);
-
+    this.isLoading = true;
+    setTimeout( () => this.isLoading = false, 4500 );
     this.registerParticular = {
       role : 'Particular',
       firstname : this.rp_form.value.firstname,
@@ -427,12 +464,13 @@ hasErr: boolean;
     }
     this.registerService.validateEmail(this.registerParticular.email).subscribe(
       response => {
+        window.scroll(0,0);
         this.thirdStepColorOne = '#FF8856';
         this.thirdStepColorTwo = '#FF6555';
         localStorage.setItem('ParticularInfo', JSON.stringify(this.registerParticular));
-        this.toastr.success("The data you entered has been saved");
+        this.toastr.success("DATA HAS BEEN SAVED");
       },error => {
-          this.toastr.error("The email you entered is not valid");
+          this.toastr.error("EMAIL YOU ENTERED IS INVALID");
         }
     )
 
@@ -453,7 +491,7 @@ hasErr: boolean;
 
   registerB_Form(): void {
     this.isLoading = true;
-    setTimeout( () => this.isLoading = false, 2000 );
+    setTimeout( () => this.isLoading = false, 4500 );
     if (!this.prefixPhoneB) {
       this.prefixPhoneB = '216';
     }

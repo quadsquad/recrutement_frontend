@@ -15,6 +15,7 @@ import { SettingsComponent } from './views/admin/settings/settings.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import {AuthRegisterComponent} from './views/auth/auth-register/auth-register.component';
+import {ParticularCvRegisterComponent} from './views/auth/register/particular-cv-register/particular-cv-register.component';
 
 // no layouts views
 import { LandingComponent } from './views/landing/landing.component';
@@ -75,6 +76,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'myworldforjobs', component: JobClientComponent },
   { path: 'verified', component: VerifiedAccountComponent },
+  { path: 'particular-cv', component: ParticularCvRegisterComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' },
 
 ];
