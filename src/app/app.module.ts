@@ -82,6 +82,9 @@ import { BusinessReportsComponent } from './views/business/business-reports/busi
 import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
 import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
 import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -161,7 +164,9 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
     OwlModule,
     Ng2SearchPipeModule,
     NgApexchartsModule,
-    UcWidgetModule
+    UcWidgetModule,
+
+
   ],
   providers: [
     {

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // @ts-ignore
 import { Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 // @ts-ignore
 @Injectable({
@@ -24,24 +25,24 @@ export class RegisterService {
   httpStoreOption = {
       headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/vnd.uploadcare-v0.5+json',
-      'Authorization': 'Uploadcare.Simple 3226601193ad7484e850:e0e699ab65c7026f0c47'
+      Accept: 'application/vnd.uploadcare-v0.5+json',
+      Authorization: 'Uploadcare.Simple 3226601193ad7484e850:e0e699ab65c7026f0c47'
     })
   }
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>('https://authrecruitement.herokuapp.com/subscribe', userData, this.httpOptions);
+    return this.httpClient.post<any>(`${environment.authUrl}/subscribe`, userData, this.httpOptions);
   }
 
   validateEmail(email): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-email?email='+email, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-email?email=`+email, this.httpOptions);
   }
 
   validateUrl(url): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-url?businessWebsite='+url, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-url?businessWebsite=`+url, this.httpOptions);
   }
 
   validatePhone(phone): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-phone?phonenumber='+phone, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-phone?phonenumber=`+phone, this.httpOptions);
   }
 
   storeFile(uuid): Observable<any>{
@@ -53,7 +54,7 @@ export class RegisterService {
   }
 
   getAllUsers(): Observable<any>{
-    return this.httpClient.get<any>('https://authrecruitement.herokuapp.com/findallusers', this.httpOptions);
+    return this.httpClient.get<any>(`${environment.authUrl}/findallusers`, this.httpOptions);
   }
 
 }
