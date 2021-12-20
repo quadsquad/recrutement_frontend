@@ -33,6 +33,17 @@
 
       <form class="py-6 w-10/12 ">
         <div class="row ">
+            <div class="dropdown float-right">
+
+  <button class="dropbtn">
+        <i class="fa fa-bars text-2l"></i>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">Adresse <i class="fa fa-chevron-down"></i></a>
+    <a href="#">Salary <i class="fa fa-chevron-down"></i></a>
+    <a href="#"  [(ngModel)]="posttype">Post Type <i class="fa fa-chevron-down"></i></a>
+  </div>
+</div>
           <div class="">
             <input
               type="text" id="firstInput" name="firstInput" placeholder="Job title or key word"
@@ -44,8 +55,15 @@
               src="assets/img/recherche.png" width="80" height="80" alt=""></button>
           </div>
         </div>
+
       </form>
+      <div>
+
+      </div>
+            <h1 class="text-4xl font-bold text-lg text-center " style="color: #132A54"> Last Job Updated</h1>
+
     </div>
+
     <div class="container mx-auto px-4 ">
       <div class="container my-6">
         <div class="panel messages-panel ">
@@ -58,7 +76,7 @@
                     <li data-toggle="tab" data-target="#inbox-message-1 "
                         class="jobhover"
                         *ngFor="let job of dataJobs | filter: term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
-                      <img alt="" class="img-circle medium-image"
+                      <img alt={{job.category}} class="img-circle medium-image"
                            src={{job.logo_entreprise}}>
 
                       <div class="vcentered info-combo active ">

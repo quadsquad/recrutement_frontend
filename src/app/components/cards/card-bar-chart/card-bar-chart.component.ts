@@ -1,107 +1,93 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Chart } from 'chart.js';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ChartComponent,
+  ApexDataLabels,
+  ApexPlotOptions,
+  ApexYAxis,
+  ApexTitleSubtitle,
+  ApexXAxis,
+  ApexFill
+} from 'ng-apexcharts';
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  yaxis: ApexYAxis;
+  xaxis: ApexXAxis;
+  fill: ApexFill;
+  title: ApexTitleSubtitle;
+};
 @Component({
   selector: 'app-card-bar-chart',
   templateUrl: './card-bar-chart.component.html',
 })
 export class CardBarChartComponent implements OnInit {
+@ViewChild('chart') chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+  constructor() {
 
-  constructor() {}
+    this.chartOptions = {
+      series: [
+        {
+          name: 'Recruiters Nb ',
+          data: [50, 40, 60, 51, 42, 109, 100,50, 40, 60, 51, 42],
+          color:'#dd504c'
+        },
+
+      ],
+      chart: {
+        height: 350,
+        type: 'area',
+      },
+      dataLabels: {
+        enabled: false,
+        style: {
+          fontSize: '12px',
+          colors: ['#fff']
+        }
+      },
+
+      xaxis: {
+         categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ],
+      },
+
+    };
+
+  }
 
   ngOnInit() {
-    const config = {
-      type: 'bar-chart',
-      data: {
-        labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December'
-        ],
-        datasets: [
-          {
-            label: new Date().getFullYear(),
-            backgroundColor: '#132A54',
-            opacity:0.9,
-            borderColor: '#587EFF',
-            data: [30, 78, 56, 34, 100, 45, 13, 120, 50, 68 , 12, 55],
-            fill: true,
-            barThickness: 50,
-          },
-        ],
-      },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        title: {
-          display: false,
-          text: 'Orders Chart',
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false,
-        },
-        hover: {
-          mode: 'nearest',
-          intersect: true,
-        },
-        legend: {
-          labels: {
-            fontColor: 'rgba(0,0,0,.4)',
-          },
-          align: 'end',
-          position: 'bottom',
-        },
-        scales: {
-          xAxes: [
-            {
-              display: false,
-              scaleLabel: {
-                display: true,
-                labelString: 'Month',
-              },
-              gridLines: {
-                borderDash: [2],
-                borderDashOffset: [2],
-                color: 'rgba(33, 37, 41, 0.3)',
-                zeroLineColor: 'rgba(33, 37, 41, 0.3)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-          yAxes: [
-            {
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: 'Value',
-              },
-              gridLines: {
-                borderDash: [2],
-                drawBorder: false,
-                borderDashOffset: [2],
-                color: 'rgba(33, 37, 41, 0.2)',
-                zeroLineColor: 'rgba(33, 37, 41, 0.15)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-        },
-      },
-    };
-    let ctx: any = document.getElementById('bar-chart');
-    ctx = ctx.getContext('2d');
-    new Chart(ctx, config as any);
+
+  }
+
+  public generateData(baseval, count, yrange) {
+    let i = 0;
+    let series = [];
+    while (i < count) {
+      let x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;
+      let y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+      let z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+
+      series.push([x, y, z]);
+      baseval += 86400000;
+      i++;
+    }
+    return series;
   }
 }

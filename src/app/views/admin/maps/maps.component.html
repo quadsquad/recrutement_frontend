@@ -1,93 +1,160 @@
-<style>
-  .text-white-50 { color: rgba(255, 255, 255, .5); }
-.bg-blue { background-color:#00b5ec; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+<div class="container  mt-32" style="background-color: transparent">
 
-.itembusiness:hover{
-  border:1px solid #00aeef;
-  border-radius: 15px;
-  position: relative;
-}
-</style>
+  <input class="lg:w-3/12 mx-4 inputhover" type="text" placeholder="find your particular" style="height: 60px; border-radius: 5px;font-size: 16px">
+  <br><br><br>
+  <div class="flex flex-wrap">
+    <table align="left"  class="table mat-table-sticky md:w-6/12 ">
+      <thead>
+      <th>User  <hr></th>
+      <th>Name <hr></th>
+      <th>Email <hr></th>
+      <th>Country<hr></th>
+      <th>City<hr></th>
+      <th>Actions<hr></th>
 
+      </thead>
+      <br>
+      <tr>
+        <td>
+          <div align="center">
+            <img src="assets/img/avatar.png" height="50" width="50" alt="">
+          </div>
+        </td>
 
+        <td>
+          <div align="center">
+            Mohamed Amine Laribi
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            mohamedamine.laribi1@esprit.tn
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunisia
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunis
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <i class="fa fa-trash text-red-500 text-lg" title="move to trash"></i>
+            <i class="fa fa-briefcase text-blueGray-500 px-2 text-lg"  title="show skills"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="center">
+            <img src="assets/img/avatar.png" height="50" width="50" alt="">
+          </div>
+        </td>
 
-<div
-  class="relative flex flex-row min-w-0 break-words w-full mb-6 mt-32"
-  style="background-color: transparent;"
->
+        <td>
+          <div align="center">
+            Mohamed Amine Laribi
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            mohamedamine.laribi1@esprit.tn
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunisia
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunis
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <i class="fa fa-trash text-red-500 text-lg" title="move to trash"></i>
+            <i class="fa fa-briefcase text-blueGray-500 px-2 text-lg"  title="show skills"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="center">
+            <img src="assets/img/avatar.png" height="50" width="50" alt="">
+          </div>
+        </td>
 
-   <main role="main" class="container w-1/2">
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-blue rounded box-shadow">
+        <td>
+          <div align="center">
+            Mohamed Amine Laribi
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            mohamedamine.laribi1@esprit.tn
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunisia
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunis
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <i class="fa fa-trash text-red-500 text-lg" title="move to trash"></i>
+            <i class="fa fa-briefcase text-blueGray-500 px-2 text-lg"  title="show skills"></i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="center">
+            <img src="assets/img/avatar.png" height="50" width="50" alt="">
+          </div>
+        </td>
 
-    <div class="lh-100">
-      <h1 class="mb-0 text-white text-xl lh-100">Particulars List</h1>
-      <small class="text-white text-sm">view Particulars list ...</small>
+        <td>
+          <div align="center">
+            Mohamed Amine Laribi
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            mohamedamine.laribi1@esprit.tn
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunisia
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            Tunis
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <i class="fa fa-trash text-red-500 text-lg" title="move to trash"></i>
+            <i class="fa fa-briefcase text-blueGray-500 px-2 text-lg"  title="show skills"></i>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="px-12 mx-4 ml-3">
+          <app-particular-skills></app-particular-skills>
+
     </div>
   </div>
-
-  <div class="my-3 p-3 bg-white rounded box-shadow">
-    <div class="media text-muted pt-3 flex flex-wrap itembusiness">
-      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
-      <p class="media-body pb-3 mb-0 small lh-125  ">
-        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
-        <span>Particular Email</span> <br>
-        <span>Particular Country</span> <br>
-        <span>Particular City</span>
-        <br>
-              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
-              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
-
-      </p>
-
-    </div>
-    <br>
-    <hr>
-    <br>
-            <div class="media text-muted pt-3 flex flex-wrap itembusiness">
-      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
-      <p class="media-body pb-3 mb-0 small lh-125  ">
-        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
-        <span>Particular Email</span> <br>
-        <span>Particular Country</span> <br>
-        <span>Particular City</span>
-        <br>
-              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
-              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
-
-      </p>
-
-    </div>
-    <br>
-    <hr>
-    <br>
-            <div class="media text-muted pt-3 flex flex-wrap itembusiness">
-      <img src="assets/img/avatar.png" style="border-radius: 15px" alt="" class="mr-2 rounded" height="120" width="120">
-      <p class="media-body pb-3 mb-0 small lh-125  ">
-        <strong class="d-block text-gray-dark">Personal Name </strong> <br>
-        <span>Particular Email</span> <br>
-        <span>Particular Country</span> <br>
-        <span>Particular City</span>
-        <br>
-              <i class="fa fa-trash" style="background-position: right; color: #9a3323">delete</i>
-              <i class="fa fa-eye  px-6" style="background-position: right">View Skills</i>
-
-      </p>
-
-    </div>
-    <br>
-    <hr>
-
-    <small class="d-block text-right mt-3">
-      <a href="#" style="color: #1b2b59" class="font-bold">All particulars</a>
-    </small>
-  </div>
-
-</main>
-  <div class="px-3 h-500-px">
-     <app-particular-skills></app-particular-skills>
-  </div>
-
-
 </div>

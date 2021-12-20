@@ -4,6 +4,8 @@ import {JobServiceService} from '../../services/jobs/job-service.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.css']
+
 })
 export class LandingComponent implements OnInit {
   constructor(private js: JobServiceService) {}
@@ -38,6 +40,10 @@ export class LandingComponent implements OnInit {
       'assets/img/team-3-800x800.jpg',
       'assets/img/team-4-470x470.png',
   ];
+
+
+
+
 
   ngOnInit(): void {
     this.js.getAllJobs().subscribe((res : [])=>{

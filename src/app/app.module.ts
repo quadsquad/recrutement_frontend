@@ -2,26 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { AppComponent } from './app.component';
-
-
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
 import { AuthComponent } from './layouts/auth/auth.component';
-
 // admin views
 import { DashboardComponent } from './views/admin/dashboard/dashboard.component';
 import { MapsComponent } from './views/admin/maps/maps.component';
 import { SettingsComponent } from './views/admin/settings/settings.component';
 import { TablesComponent } from './views/admin/tables/tables.component';
-
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
@@ -31,9 +26,7 @@ import { LoadingComponent } from './views/auth/register/loading';
 import { IndexComponent } from './views/index/index.component';
 import { LandingComponent } from './views/landing/landing.component';
 import { ProfileComponent } from './views/profile/profile.component';
-
 // components for views and layouts
-
 import { AdminNavbarComponent } from './components/navbars/admin-navbar/admin-navbar.component';
 import { AuthNavbarComponent } from './components/navbars/auth-navbar/auth-navbar.component';
 import { CardBarChartComponent } from './components/cards/card-bar-chart/card-bar-chart.component';
@@ -71,6 +64,7 @@ import { ParticularSkillsComponent } from './views/admin/particular-skills/parti
 import { ProfileAdminComponent } from './views/admin/profile-admin/profile-admin.component';
 import { CandidaciesComponent } from './views/admin/candidacies/candidacies.component';
 import { ContactListComponent } from './views/admin/contact-list/contact-list.component';
+
 import { VerifiedAccountComponent } from './views/auth/verified-account/verified-account.component';
 import {SkillsUserComponent} from './views/skills-user/skills-user.component';
 import { BusinessComponent } from './layouts/business/business.component';
@@ -78,7 +72,15 @@ import { BusinessNavbarComponent } from './components/navbars/business-navbar/bu
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
 import { ParticularCvRegisterComponent } from './views/auth/register/particular-cv-register/particular-cv-register.component';
-
+import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
+import { HeaderStatBusinessComponent } from './components/headers/header-stat-business/header-stat-business.component';
+import { CarLineChartBusinessJobsComponent } from './components/cards/car-line-chart-business-jobs/car-line-chart-business-jobs.component';
+import { JobsBusinessComponent } from './views/business/jobs-business/jobs-business.component';
+import { BusinessCandidatesComponent } from './views/business/business-candidates/business-candidates.component';
+import { BusinessReportsComponent } from './views/business/business-reports/business-reports.component';
+import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
+import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
+import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,7 +136,16 @@ import { ParticularCvRegisterComponent } from './views/auth/register/particular-
     BusinessNavbarComponent,
     BusinessSidebarComponent,
     BusinessDashboardComponent,
-    ParticularCvRegisterComponent
+    ParticularCvRegisterComponent,
+    ExperienceUserComponent,
+    HeaderStatBusinessComponent,
+    CarLineChartBusinessJobsComponent,
+    JobsBusinessComponent,
+    BusinessCandidatesComponent,
+    BusinessReportsComponent,
+    ProfileBusinessComponent,
+    MessagesBusinessComponent,
+    MessagesAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -148,12 +159,12 @@ import { ParticularCvRegisterComponent } from './views/auth/register/particular-
     ToastrModule.forRoot(),
     OwlModule,
     Ng2SearchPipeModule,
-    UcWidgetModule
+    UcWidgetModule,
+    NgApexchartsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorServiceService, multi:true
-
     }
   ],
   bootstrap: [AppComponent],

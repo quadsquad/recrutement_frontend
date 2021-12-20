@@ -331,7 +331,8 @@ hasErr: boolean;
   }
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
-      localStorage.removeItem("role");
+
+      localStorage.removeItem('role');
     })
   }
   getBack() {
@@ -349,6 +350,7 @@ hasErr: boolean;
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
+
       localStorage.setItem('role', null);
       window.scroll(0,0);
     })
@@ -592,7 +594,8 @@ hasErr: boolean;
             text: 'CHECK OUT YOUR MAIL BOX TO COMPLETE REGISTRATION'
           }).then(() => {
             this.router.navigateByUrl('/auth/login');
-            localStorage.removeItem("role");
+
+            localStorage.removeItem('role');
           });
           this.rb_form.reset();
           this.registerService.storeFile(this.uuidFileB).subscribe(

@@ -67,27 +67,7 @@
           </a>
         </li>
 
-        <li class="items-center">
-          <a
-            [routerLink]="['/business/maps']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminPersonals="routerLinkActive"
-            [ngClass]="
-              adminPersonals.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            "
-          >
-            <i
-              class="fas fa-users mr-1 text-sm"
-              [ngClass]="
-                adminPersonals.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Particulars
-          </a>
-        </li>
+
 
         <li class="items-center">
           <a
@@ -110,9 +90,9 @@
             Jobs
           </a>
         </li>
-                <li class="items-center">
+        <li class="items-center">
           <a
-            [routerLink]="['/business/candidacies']"
+            [routerLink]="['/business/candidates']"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
             #adminOppJobs="routerLinkActive"
@@ -128,7 +108,7 @@
                 adminOppJobs.isActive ? 'opacity-75' : 'text-blueGray-300'
               "
             ></i>
-            Applications
+            Candidates
           </a>
         </li>
           <li class="items-center">
@@ -151,26 +131,7 @@
             Reports
           </a>
         </li>
-        <li class="items-center">
-          <a
-            [routerLink]="['/business/feedback']"
-            class="text-xs uppercase py-3 font-bold block"
-            routerLinkActive
-            #adminContact="routerLinkActive"
-            [ngClass]="
-              adminContact.isActive
-                ? 'text-red-600 hover:text-red-700'
-                : 'text-blueGray-700 hover:text-blueGray-500'
-            ">
-            <i
-              class="fas fa-comment mr-1 text-sm"
-              [ngClass]="
-                adminContact.isActive ? 'opacity-75' : 'text-blueGray-300'
-              "
-            ></i>
-            Feedback
-          </a>
-        </li>
+
       </ul>
             <h6
         class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-6 pb-4 no-underline"
