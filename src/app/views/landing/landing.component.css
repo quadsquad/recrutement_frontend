@@ -2,7 +2,7 @@
   border-radius: 25px;
   width: 20%;
   border-spacing: 5px 1rem;
-  height: 300px;
+  height: auto;
   -webkit-column-width: 150px;
   -moz-column-width: 150px;
   column-width: 150px;
