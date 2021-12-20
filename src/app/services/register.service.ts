@@ -42,7 +42,7 @@ export class RegisterService {
   }
 
   validatePhone(phone): Observable<any>{
-    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-phone?phonenumber=`+phone, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.phoneUrl}/v1/?api_key=${environment.apiKeyPhone}&phone=`+phone, this.httpOptions);
   }
 
   storeFile(uuid): Observable<any>{

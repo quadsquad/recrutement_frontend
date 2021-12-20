@@ -330,8 +330,14 @@
               <div align =  "center">
               <label class = "plusSign" title = "Upload your picture">
                 <i class = "fa fa-plus w-50 text-xl"></i>
-              <input type="file" class="plusFile"/></label><br><br><br>
+              <ngx-uploadcare-widget
+  images-only="true" class="plusFile" tabs="file url facebook instagram"
+  (on-change)="onChangeUploadP($event)" preview-step="true" (on-upload-complete)="uploadCompletedP($event)"
+  public-key="3226601193ad7484e850" clearable="true" input-accept-types="image/png" [do-not-store]="doNotStoreP">
+</ngx-uploadcare-widget></label><br><br><br>
               <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">PICTURE</h5>
+              <br>
+                <img [src]="userPicture" style="width: 50px; height: 50px; border-radius: 15%" *ngIf="userPicture"/>
               </div>
               <style>
                 .plusFile {

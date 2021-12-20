@@ -58,9 +58,36 @@ ngTelInput: any;
 
   doNotStore: true;
 
+  doNotStoreP: true;
+
   uuidFileB: any = '';
 
+  uuidFileP: any = '';
+
   business_logo: any;
+
+  userPicture: any;
+
+  onChangeUploadP(e) {
+    console.log(e);
+  }
+
+  uploadCompletedP(e) {
+    if (this.uuidFileP !== '') {
+      this.registerService.deleteFile(this.uuidFileP).subscribe(
+      response => {
+        console.log('FILE DELETED');
+        console.log(this.uuidFileP);
+      },error => {
+          console.log('COULD NOT DELETE FILE');
+        }
+    )
+    }
+      this.userPicture = e.cdnUrl;
+    console.log(this.userPicture);
+    console.log(e);
+    this.uuidFileP = e.uuid;
+  }
 
   OnChangeUploadB(e) {
     console.log(e);
@@ -165,7 +192,11 @@ hasErr: boolean;
 
   allUsersP: any = [];
 
+  allUsers: any = [];
+
   counterRP: any = 0;
+
+  counterRB: any = 0;
 
   cell1TelInput: any = {
     initialCountry: 'tn',
@@ -369,6 +400,13 @@ hasErr: boolean;
         'opacity': '1'
       }
     }
+    if (!this.userPicture) {
+      this.btnNextPStyle = {
+        'cursor': 'default',
+        'pointer-events': 'none',
+        'opacity': '0.5'
+      }
+    }
     return this.btnNextPStyle;
   }
 
@@ -463,7 +501,8 @@ hasErr: boolean;
       country : this.rp_form.value.country,
       city : this.rp_form.value.city,
       email : this.rp_form.value.email,
-      password : this.rp_form.value.password
+      password : this.rp_form.value.password,
+      userPicture: this.userPicture
     }
     for (let i = 0; i<this.allCountriesP.length; i++) {
       if (this.registerParticular.country === this.allCountriesP[i].iso2) {
@@ -500,7 +539,14 @@ hasErr: boolean;
       console.log(err);
     });
 
+    this.registerService.getAllUsers().subscribe((res : [])=>{
+      this.allUsers=res
+    }, (err)=>{
+      console.log(err);
+    });
+
     this.counterRP = 0;
+    this.counterRB = 0;
 
   }
 
@@ -522,7 +568,7 @@ hasErr: boolean;
             }
           }
     if (this.counterRP === 1) {
-            this.toastr.error('USER ALREADY REGISTERED WITH THIS EMAIL: '+this.counterRP);
+            this.toastr.error('PARTICULAR ALREADY REGISTERED WITH THIS EMAIL');
           } else {
           this.registerService.register(this.registerParticular)
       .subscribe(
@@ -537,13 +583,13 @@ hasErr: boolean;
             localStorage.removeItem("role");
           });
           this.rp_form.reset();
-          /*this.registerService.storeFile(this.uuidFileB).subscribe(
+          this.registerService.storeFile(this.uuidFileP).subscribe(
             res => {
               console.log('IMAGE STORED SUCCESSFULLY');
             }, error => {
               console.log(error);
             }
-          )*/
+          )
           localStorage.removeItem('ParticularInfo');
 
         }, error => {
@@ -579,8 +625,20 @@ hasErr: boolean;
         this.registerBusiness.country = this.allCountries[i].name;
       }
     }
-
-    this.registerService.validateEmail(this.registerBusiness.email).subscribe(
+    for (let i = 0; i<this.allUsers.length; i++) {
+            if ((this.allUsers[i].email === this.registerBusiness.email && this.allUsers.length > 0) ||
+              (this.allUsers[i].business_name === this.registerBusiness.business_name && this.allUsers.length > 0) ||
+            (this.allUsers[i].business_website === this.registerBusiness.business_website && this.allUsers.length > 0)) {
+                this.counterRB = 1;
+            } else {
+              console.log('BUSINESS CAN REGISTER');
+              this.counterRB = 0;
+            }
+          }
+    if (this.counterRB === 1) {
+            this.toastr.error('THIS BUSINESS IS ALREADY REGISTERED');
+          } else {
+      this.registerService.validateEmail(this.registerBusiness.email).subscribe(
       response => {
         this.registerService.validatePhone(this.registerBusiness.phonenumber).subscribe(
           resphone => {
@@ -619,5 +677,6 @@ hasErr: boolean;
           this.btnRegisterB = false;
         }
     )
+    }
   }
 }
