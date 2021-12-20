@@ -52,4 +52,8 @@ export class RegisterService {
     return this.httpClient.delete<any>('https://api.uploadcare.com/files/'+uuid+'/', this.httpStoreOption);
   }
 
+  getAllUsers(): Observable<any>{
+    return this.httpClient.get<any>('http://localhost:8088/findallusers', this.httpOptions);
+  }
+
 }

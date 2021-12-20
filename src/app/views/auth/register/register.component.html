@@ -534,7 +534,7 @@
                 <button
               style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
               class=" text-white text-center text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
-              type="submit"
+              type="submit" [disabled]="finishBtn" (click)="registerP_Form()"
             >
               <nobr>FINISH</nobr>
             </button>

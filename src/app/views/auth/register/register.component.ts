@@ -161,6 +161,12 @@ hasErr: boolean;
 
   selectCityHiddenP: any;
 
+  finishBtn: any = false;
+
+  allUsersP: any = [];
+
+  counterRP: any = 0;
+
   cell1TelInput: any = {
     initialCountry: 'tn',
     autoPlaceholder: 'polite',
@@ -486,6 +492,64 @@ hasErr: boolean;
 
     localStorage.setItem("ParticularInfo", null);
 
+    this.registerService.getAllUsers().subscribe((res : [])=>{
+      this.allUsersP=res
+    }, (err)=>{
+      console.log(err);
+    });
+
+    this.counterRP = 0;
+
+  }
+
+  registerP_Form(): void {
+    this.isLoading = true;
+    setTimeout( () => this.isLoading = false, 4500 );
+    for (let i = 0; i<this.allCountriesP.length; i++) {
+      if (this.registerParticular.country === this.allCountriesP[i].iso2) {
+        this.registerParticular.country = this.allCountriesP[i].name;
+      }
+    }
+    for (let i = 0; i<this.allUsersP.length; i++) {
+            if (this.allUsersP[i].email === this.registerParticular.email && this.allUsersP.length > 0) {
+                this.counterRP = 1;
+                console.log(this.allUsersP[i].email);
+            } else {
+              console.log('PARTICULAR CAN REGISTER');
+              this.counterRP = 0;
+            }
+          }
+    if (this.counterRP === 1) {
+            this.toastr.error('USER ALREADY REGISTERED WITH THIS EMAIL: '+this.counterRP);
+          } else {
+          this.registerService.register(this.registerParticular)
+      .subscribe(
+        res => {
+            this.finishBtn = true;
+          Swal.fire({
+            icon: 'success',
+            title: 'SUCCESS',
+            text: 'CHECK OUT YOUR MAIL BOX TO COMPLETE REGISTRATION'
+          }).then(() => {
+            this.router.navigateByUrl('/auth/login');
+            localStorage.removeItem("role");
+          });
+          this.rp_form.reset();
+          /*this.registerService.storeFile(this.uuidFileB).subscribe(
+            res => {
+              console.log('IMAGE STORED SUCCESSFULLY');
+            }, error => {
+              console.log(error);
+            }
+          )*/
+          localStorage.removeItem('ParticularInfo');
+
+        }, error => {
+          console.log(error);
+          this.finishBtn = false;
+        }
+      )
+    }
   }
 
 
@@ -508,7 +572,7 @@ hasErr: boolean;
       business_logo: this.business_logo
     };
 
-    for (let i = 0; i<this.allCountriesP.length; i++) {
+    for (let i = 0; i<this.allCountries.length; i++) {
       if (this.registerBusiness.country === this.allCountries[i].iso2) {
         this.registerBusiness.country = this.allCountries[i].name;
       }
