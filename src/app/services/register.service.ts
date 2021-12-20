@@ -29,7 +29,7 @@ export class RegisterService {
     })
   }
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>('http://localhost:8088/subscribe', userData, this.httpOptions);
+    return this.httpClient.post<any>('https://authrecruitement.herokuapp.com/subscribe', userData, this.httpOptions);
   }
 
   validateEmail(email): Observable<any>{
@@ -53,7 +53,7 @@ export class RegisterService {
   }
 
   getAllUsers(): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8088/findallusers', this.httpOptions);
+    return this.httpClient.get<any>('https://authrecruitement.herokuapp.com/findallusers', this.httpOptions);
   }
 
 }
