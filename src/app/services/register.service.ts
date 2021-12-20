@@ -24,8 +24,8 @@ export class RegisterService {
   httpStoreOption = {
       headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/vnd.uploadcare-v0.5+json',
-      'Authorization': 'Uploadcare.Simple 3226601193ad7484e850:e0e699ab65c7026f0c47'
+      Accept: 'application/vnd.uploadcare-v0.5+json',
+      Authorization: 'Uploadcare.Simple 3226601193ad7484e850:e0e699ab65c7026f0c47'
     })
   }
   register(userData) : Observable<any>{

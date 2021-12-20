@@ -61,7 +61,7 @@
       <div>
 
       </div>
-            <h1 class="text-4xl font-bold text-lg text-center my-6" style="color: #132A54"> Last Job Updated</h1>
+            <h1 class="text-4xl font-bold text-lg text-center my-6 py-5 mt-6" style="color: #132A54"> Last Job Updated</h1>
 
     </div>
 
@@ -76,7 +76,7 @@
                   <ul class="list-unstyled contacts">
                     <li data-toggle="tab" data-target="#inbox-message-1 "
                         class="jobhover"
-                        *ngFor="let job of dataJobs | filter: term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+                        *ngFor="let job of dataJobs | filter:  term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
                       <img alt={{job.category}} class="img-circle medium-image"
                            src={{job.logo_entreprise}}>
 
