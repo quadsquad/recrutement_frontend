@@ -12,7 +12,7 @@ export class LandingComponent implements OnInit {
   dataJobs:any =[];
 
     slideOptions = {
-    nav: true,
+    nav: false,
     dots: true,
     loop: true,
     margin: 10,

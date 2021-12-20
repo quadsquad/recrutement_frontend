@@ -35,6 +35,7 @@ import {BusinessReportsComponent} from "./views/business/business-reports/busine
 import {ProfileBusinessComponent} from "./views/business/profile-business/profile-business.component";
 import {MessagesBusinessComponent} from "./views/business/messages-business/messages-business.component";
 import {MessagesAdminComponent} from "./views/admin/messages-admin/messages-admin.component";
+import {NotFoundComponent} from "./components/not-found/not-found.component";
 
 
 const routes: Routes = [
@@ -81,7 +82,6 @@ const routes: Routes = [
       { path: 'myworldspace', component: AuthRegisterComponent},
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' }
     ],
   },
   // no layout views
@@ -89,7 +89,8 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'myworldforjobs', component: JobClientComponent },
   { path: 'verified', component: VerifiedAccountComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '404', component : NotFoundComponent},
+  { path: '**', redirectTo: '/404', pathMatch: 'full' },
 
 ];
 
