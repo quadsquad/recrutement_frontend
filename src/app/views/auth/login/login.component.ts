@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router} from '@angular/router';
 
 import {first} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -17,24 +18,25 @@ export class LoginComponent implements OnInit {
   formLogin : FormGroup ;
   loginUser;
   user;
-  constructor(private authentic : AuthenticationServiceService , private formBuilder: FormBuilder,private router: Router) {
+  btnLogin: any;
+  isLoading = false;
+  constructor(private authentic : AuthenticationServiceService , private toastr: ToastrService,
+              private formBuilder: FormBuilder,private router: Router) {
       this.formLogin = formBuilder.group({
-          username : ['',[Validators.required]],
-          password : ['',[Validators.required,Validators.minLength(4)]]
+          email : ['',[Validators.required, Validators.email]],
+          password : ['',[Validators.required,Validators.minLength(6)]]
       });
 
   }
 
   goToHomepage() {
-    this.router.navigate(['/']).then(() => {
-      window.location.reload();
-    })
+    this.router.navigate(['/']);
+    this.formLogin.reset();
   }
 
   getBackToAuthenticate() {
-    this.router.navigate(['/auth/myworldspace']).then(() => {
-      window.location.reload();
-    })
+    this.router.navigate(['/auth/myworldspace']);
+    this.formLogin.reset();
   }
 
   ngOnInit(): void {
@@ -43,31 +45,49 @@ export class LoginComponent implements OnInit {
     window.onscroll=function(){window.scrollTo(x, y);};
   }
 
-  login() : void {
+  login() {
       this.loginUser = {
-           username : this.formLogin.value.username,
+           email : this.formLogin.value.email,
            password : this.formLogin.value.password
       };
-      this.authentic.authenticate(this.loginUser.username,this.loginUser.password).pipe(first())
+      this.isLoading = true;
+      setTimeout( () => this.isLoading = false, 2500 );
+      this.authentic.authenticate(this.loginUser.email,this.loginUser.password).pipe(first())
         .subscribe(
             response => {
-
-              if(response.r == 'admin'){
+              if(response.r === 'admin'){
                 this.router.navigateByUrl('/admin/dashboard');
-
-
-
-              } if(response.r =='stagiaire'){
+              } if(response.r ==='Business'){
                 this.router.navigateByUrl('')
-
-              }if (response.r == 'employee'){
+              }if (response.r === 'Particular'){
                 this.router.navigateByUrl('/profile');
+              }
+              if (!response.r) {
+                this.toastr.error('INCORRECT EMAIL/PASSWORD');
+                localStorage.removeItem('data');
+                localStorage.removeItem('token');
               }
 
             }, error => {
               console.log(error);
           }
         )
+  }
+
+  btnLoginStyle() {
+    if (this.formLogin.invalid) {
+      this.btnLogin = {
+        'cursor': 'default',
+        'pointer-events': 'none',
+        'opacity': '0.5'
+      }
+    } else {
+      this.btnLogin = {
+        'cursor': 'pointer',
+        'opacity': '1'
+      }
+    }
+    return this.btnLogin;
   }
 
 }

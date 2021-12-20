@@ -34,15 +34,15 @@ export class RegisterService {
   }
 
   validateEmail(email): Observable<any>{
-    return this.httpClient.get<any>(`${environment.authUrl}/verify-email?email=`+email, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-email?email=`+email, this.httpOptions);
   }
 
   validateUrl(url): Observable<any>{
-    return this.httpClient.get<any>(`${environment.authUrl}/verify-url?businessWebsite=`+url, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.nodeUrl}/verify-url?businessWebsite=`+url, this.httpOptions);
   }
 
   validatePhone(phone): Observable<any>{
-    return this.httpClient.get<any>(`${environment.authUrl}/verify-phone?phonenumber=`+phone, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.phoneUrl}/v1/?api_key=${environment.apiKeyPhone}&phone=`+phone, this.httpOptions);
   }
 
   storeFile(uuid): Observable<any>{

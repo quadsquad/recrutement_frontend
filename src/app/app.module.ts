@@ -83,9 +83,8 @@ import { BusinessReportsComponent } from './views/business/business-reports/busi
 import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
 import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
 import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
-
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {Ng2SmartTableModule} from "ng2-smart-table";
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
