@@ -372,14 +372,26 @@
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                     <input type="text" name="firstname" required="" style="width: 320px;" formControlName="firstname">
-                    <label style="color: #ffffff">FIRST NAME</label>
+                    <label style="color: #ffffff">FIRST NAME</label><br>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('firstname').touched
+            && rp_form.get('firstname').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('firstname').touched
+            && rp_form.get('firstname').hasError('minlength')">AT LEAST 3 CHARACTERS</span>
                    </div>
                  </div>
                  <div>
                    <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px;"
                    *ngIf = "secondStepColorOne !== '#ffffff'">
                     <input type="text" name="lastname" required="" style="width: 320px;" formControlName="lastname">
-                    <label style="color: #ffffff">LAST NAME</label>
+                    <label style="color: #ffffff">LAST NAME</label><br>
+                     <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('lastname').touched
+            && rp_form.get('lastname').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('lastname').touched
+            && rp_form.get('lastname').hasError('minlength')">AT LEAST 3 CHARACTERS</span>
                    </div>
                  </div>
                </div>
@@ -388,28 +400,40 @@
                 <div class="w-6/12">
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: -70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
-                 <select name = "country" (change)="select_countryP($event.target.value)" class = "countriesParticular"
-                         style="cursor: pointer;" formControlName="country">
-                  <option disabled selected value></option>
-                  <option *ngFor="let country of allCountriesP" class = "allCountries"
-                  style="color: #fff; background-color: #FF8856;" [value]="country.iso2">{{country.name}}</option>
+                   <select name="country" (change)="select_countryP($event.target.value)" style="cursor: pointer;"
+                   formControlName="country" class = "countriesParticular">
+                    <option disabled selected value></option>
+                    <option *ngFor="let country of allCountriesP" class = "allCountries"
+                    style="color: #fff; background-color: #FF8856;" [value]="country.iso2">{{country.name}}</option>
 
-                </select>
-                <label style="color: #ffffff" *ngIf = "selectedP === false">SELECT COUNTRY</label>
+                  </select>
+                  <label style="color: #ffffff" *ngIf = "selectedP === false">SELECT COUNTRY</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('country').touched
+            && rp_form.get('country').hasError('required')">REQUIRED FIELD*</span>
+
                   </div>
                 </div>
                 <div>
                   <div class="text-center user-box" style="position: absolute; display: block; margin-left: 50px; margin-top: -70px;"
                   *ngIf = "secondStepColorOne !== '#ffffff'">
-                   <select name="city" (change)="select_cityP($event.target.value)" style="cursor: pointer;"
-                  formControlName="city" class = "citiesByCountryParticular">
-                   <option disabled selected value></option>
-                   <option *ngIf="citiesToShowP.length === 0"
-                   style="color: #fff; background-color: #FF8856;">SELECT COUNTRY TO SHOW ITS CITIES</option>
-                   <option *ngFor="let city of citiesToShowP" class = "allCities"
+                    <select name="city" (change)="select_cityP($event.target.value)" style="cursor: pointer;"
+                  formControlName="city" class = "citiesByCountryParticular" [hidden]="selectCityHiddenP">
+
+                   <option *ngFor="let city of citiesToShowP; let i = index" class = "allCities"
                    style="color: #fff; background-color: #FF8856;" [value]="city">{{city}}</option>
+
                  </select>
-                 <label style="color: #ffffff" *ngIf = "selectedCityP === false">SELECT CITY</label>
+                    <input type="text" name="city" required="" style="width: 320px;" formControlName="city"
+                           [hidden]="!selectCityHiddenP">
+                    <label style="color: #ffffff" *ngIf = "citiesToShowP.length === 0">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "finalSelectCountryP === false && inputHiddenP === true">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "countrySelectedP && !citySelectedValP">SELECT CITY</label>
+                    <label style="color: #ffffff" *ngIf = "inputHiddenP === false">SELECT CITY</label>
+                    <br>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('city').touched
+            && rp_form.get('city').hasError('required')">REQUIRED FIELD*</span>
                   </div>
                 </div>
               </div>
@@ -419,7 +443,13 @@
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 0px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="email" name="email" required="" style="width: 320px;" formControlName="email">
-                   <label style="color: #ffffff">EMAIL</label>
+                   <label style="color: #ffffff">EMAIL</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('email').touched
+            && rp_form.get('email').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('email').touched
+            && rp_form.get('email').hasError('email')">INVALID EMAIL FORMAT</span>
                   </div>
                 </div>
                 <div>
@@ -427,6 +457,12 @@
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="password" name="password" required="" style="width: 320px;" formControlName="password">
                    <label style="color: #ffffff">PASSWORD</label>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('password').touched
+            && rp_form.get('password').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('password').touched
+            && rp_form.get('password').hasError('minlength')">AT LEAST 6 CHARACTERS</span>
                   </div>
                 </div>
               </div>
@@ -444,7 +480,17 @@
                  <div class="text-center user-box" style="position: absolute; display: block; margin-left: -200px; margin-top: 70px;"
                  *ngIf = "secondStepColorOne !== '#ffffff'">
                    <input type="password" name="confirmPassword" required="" style="width: 320px;" formControlName="confirmPassword">
-                   <label style="color: #ffffff">CONFIRM PASSWORD</label>
+                   <label style="color: #ffffff">CONFIRM PASSWORD</label><br>
+                   <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('confirmPassword').touched
+            && rp_form.get('confirmPassword').hasError('required')">REQUIRED FIELD*</span>
+                    <span style="color: red; margin-top: 50px"
+                    *ngIf = "rp_form.get('confirmPassword').touched
+            && rp_form.get('confirmPassword').hasError('minlength')">AT LEAST 6 CHARACTERS</span>
+                   <span style="color: red; margin-top: 50px" *ngIf = "rp_form.get('confirmPassword').touched
+                && rp_form.get('confirmPassword').hasError('mustMatch')">
+                      PASSWORDS DO NOT MATCH
+                </span>
                   </div>
                 </div>
                 <div>
@@ -452,7 +498,7 @@
                   *ngIf = "secondStepColorOne !== '#ffffff'">
                    <button
                 class=" text-white text-sm font-bold uppercase rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all"
-                type="submit" title="NEXT"
+                type="submit" title="NEXT" [disabled]="rp_form.invalid" [ngStyle]="btnNextParticularStyle()"
               >
 
                 <img align="center" style="margin-left: auto; margin-right: auto; display: block" src="assets/img/Artboard_31.png" width="60" height="60"/>
@@ -468,13 +514,10 @@
 
 
             <form class="login-box mt-48" *ngIf = "thirdStepColorOne === '#FF8856' && role === 'Particular'">
+              <br><br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br><br>
               <br><br><br><br><br>
-              <div align =  "center">
-              <label class = "plusSign">
-                <i class = "fa fa-plus w-50 text-xl"></i>
-              <input type="file" class="plusFile"/></label><br><br><br>
-              <h5 class="text-white text-center" style="letter-spacing: 6px;font-weight: bold; opacity: 0.8;" *ngIf = "secondStepColorOne === '#FF8856' && role === 'Particular'">UPLOAD YOUR CV (PDF)</h5>
-              </div>
+              <app-particular-cv-register></app-particular-cv-register>
               <style>
                 .plusFile {
                   display: none;
@@ -491,7 +534,7 @@
                 <button
               style="border-radius: 25px; border: 1px solid  #ffffff; letter-spacing: 5px"
               class=" text-white text-center text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
-              type="submit"
+              type="submit" [disabled]="finishBtn" (click)="registerP_Form()"
             >
               <nobr>FINISH</nobr>
             </button>

@@ -21,7 +21,6 @@ import { TablesComponent } from './views/admin/tables/tables.component';
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
-
 import { LoadingComponent } from './views/auth/register/loading';
 
 // no layouts views
@@ -73,6 +72,7 @@ import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
+import { ParticularCvRegisterComponent } from './views/auth/register/particular-cv-register/particular-cv-register.component';
 import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
 import { HeaderStatBusinessComponent } from './components/headers/header-stat-business/header-stat-business.component';
 import { CarLineChartBusinessJobsComponent } from './components/cards/car-line-chart-business-jobs/car-line-chart-business-jobs.component';
@@ -140,6 +140,7 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
     BusinessNavbarComponent,
     BusinessSidebarComponent,
     BusinessDashboardComponent,
+    ParticularCvRegisterComponent,
     ExperienceUserComponent,
     HeaderStatBusinessComponent,
     CarLineChartBusinessJobsComponent,

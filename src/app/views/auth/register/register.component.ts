@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { countries } from 'country-flags-svg';
 import { City }  from 'country-state-city';
-import * as ngTelInput from 'ng2-tel-input';
 import 'intl-tel-input';
 import 'intl-tel-input/build/js/utils';
 
@@ -36,8 +35,8 @@ export class RegisterComponent implements OnInit {
       validator: RegisterComponent.MustMatch('password', 'confirmPassword')
     });
     this.rp_form = formBuilder.group({
-      firstname: ['', [Validators.required,Validators.min(3)]],
-      lastname: ['', [Validators.required,Validators.min(3)]],
+      firstname: ['', [Validators.required,Validators.minLength(3)]],
+      lastname: ['', [Validators.required,Validators.minLength(3)]],
       country: ['', Validators.required],
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -76,6 +75,7 @@ hasErr: boolean;
   countrySelectedP;
 
   citySelectedVal;
+  citySelectedValP;
 
   citiesToShow: any = [];
 
@@ -106,6 +106,8 @@ hasErr: boolean;
 
   createAccBtnStyle: any;
 
+  btnNextPStyle: any;
+
   btnRegisterB: any = false;
 
   prefixPhoneB: any = '216';
@@ -115,6 +117,14 @@ hasErr: boolean;
   isValidWebsite: any;
 
   selectCityHiddenB: any;
+
+  selectCityHiddenP: any;
+
+  finishBtn: any = false;
+
+  allUsersP: any = [];
+
+  counterRP: any = 0;
 
   cell1TelInput: any = {
     initialCountry: 'tn',
@@ -130,6 +140,10 @@ hasErr: boolean;
   inputHidden: any;
 
   reversedCitites: any = [];
+
+  finalSelectCountryP: any;
+
+  inputHiddenP: any;
 
   static validUsername(fc: FormControl) {
     if (fc.value.toLowerCase() === 'abc123' || fc.value.toLowerCase() === '123abc') {
@@ -152,66 +166,6 @@ hasErr: boolean;
         matchingControl.setErrors(null);
       }
     }
-  }
-
-  OnChangeUploadB(e) {
-    console.log(e);
-  }
-  uploadCompleted(e) {
-    if (this.uuidFileB !== '') {
-      this.registerService.deleteFile(this.uuidFileB).subscribe(
-      response => {
-        console.log('FILE DELETED');
-        console.log(this.uuidFileB);
-      },error => {
-          console.log('COULD NOT DELETE FILE');
-        }
-    )
-    }
-      this.business_logo = e.cdnUrl;
-    console.log(this.business_logo);
-    console.log(e);
-    this.uuidFileB = e.uuid;
-  }
-
-  @HostListener('blur') onBlur() {
-    const isInputValid:boolean = this.isInputValid();
-    if (isInputValid) {
-        const telOutput = this.ngTelInput.intlTelInput('getNumber');
-        this.hasError.emit(isInputValid);
-        this.ng2TelOutput.emit(telOutput);
-    } else
-    {
-        this.hasError.emit(isInputValid);
-    }
-  }
-
-  isInputValid(): boolean {
-    return this.ngTelInput.intlTelInput('isValidNumber') ? true : false;
-}
- onError(obj) {
-        this.hasErr = obj;
-        console.log(this.hasErr);
-    }
-
-  followInputUrl(e) {
-    if (!e.hasError('pattern') && !e.hasError('required')) {
-      this.registerService.validateUrl(e.value).subscribe(
-      response => {
-        this.isValidWebsite = true;
-        this.validWebsite = '';
-      },error => {
-        this.validWebsite = 'URL YOU ENTERED IS INVALID';
-        this.isValidWebsite = false;
-        }
-    )
-    }
-  }
-
-  onCountryChange(event)
-  {
-    this.prefixPhoneB = event.dialCode;
-    console.log(event);
   }
 
   select_country(deviceValue) {
@@ -246,11 +200,27 @@ hasErr: boolean;
     // console.log(deviceValue);
     this.citiesToShowP = [];
     this.selectedP = true;
+    this.finalSelectCountryP = true;
     this.countrySelectedP = deviceValue;
     for (let i = 0; i<City.getAllCities().length; i++) {
       if (City.getAllCities()[i].countryCode === this.countrySelectedP) {
         this.citiesToShowP.push(City.getAllCities()[i].name);
       }
+    }
+    if (this.citiesToShowP.length === 0) {
+      this.selectCityHiddenP = true;
+      this.toastr.error('WE COULD NOT FIND CITIES OF THE SELECTED COUNTRY');
+      this.toastr.info('PLEASE WRITE YOUR CITY');
+      if (this.rp_form.controls.city) {
+        this.rp_form.controls.city.reset();
+        this.inputHiddenP = false;
+      }
+      this.finalSelectCountryP = false;
+    } else {
+      // this.reversedCitites = this.citiesToShow.reverse();
+      this.selectCityHiddenP = false;
+      this.finalSelectCountryP = true;
+      this.rp_form.controls.city.reset();
     }
   }
 
@@ -262,7 +232,8 @@ hasErr: boolean;
 
   select_cityP(cityValue) {
     this.selectedCityP = true;
-    this.citySelectedVal = cityValue;
+    this.citySelectedValP = cityValue;
+    this.inputHiddenP = true;
   }
 
   applyStepStyles() {
@@ -326,6 +297,22 @@ hasErr: boolean;
       localStorage.setItem('role', null);
       window.scroll(0,0);
     })
+  }
+
+  btnNextParticularStyle() {
+    if (this.rp_form.invalid) {
+      this.btnNextPStyle = {
+        cursor: 'default',
+        'pointer-events': 'none',
+        opacity: '0.5'
+      }
+    } else {
+      this.btnNextPStyle = {
+        cursor: 'pointer',
+        opacity: '1'
+      }
+    }
+    return this.btnNextPStyle;
   }
 
   btnCreateAccountStyle() {
@@ -410,9 +397,8 @@ hasErr: boolean;
   }
 
   confirmRegisterP(): void {
-
-    window.scroll(0,0);
-
+    this.isLoading = true;
+    setTimeout( () => this.isLoading = false, 4500 );
     this.registerParticular = {
       role : 'Particular',
       firstname : this.rp_form.value.firstname,
@@ -429,12 +415,14 @@ hasErr: boolean;
     }
     this.registerService.validateEmail(this.registerParticular.email).subscribe(
       response => {
+        window.scroll(0,0);
         this.thirdStepColorOne = '#FF8856';
         this.thirdStepColorTwo = '#FF6555';
         localStorage.setItem('ParticularInfo', JSON.stringify(this.registerParticular));
-        this.toastr.success('The data you entered has been saved');
+
+        this.toastr.success('DATA HAS BEEN SAVED');
       },error => {
-          this.toastr.error('The email you entered is not valid');
+          this.toastr.error('EMAIL YOU ENTERED IS INVALID');
         }
     )
 
@@ -450,12 +438,70 @@ hasErr: boolean;
 
     localStorage.setItem('ParticularInfo', null);
 
+    this.registerService.getAllUsers().subscribe((res : [])=>{
+      this.allUsersP=res
+    }, (err)=>{
+      console.log(err);
+    });
+
+    this.counterRP = 0;
+
+  }
+
+  registerP_Form(): void {
+    this.isLoading = true;
+    setTimeout( () => this.isLoading = false, 4500 );
+    for (let i = 0; i<this.allCountriesP.length; i++) {
+      if (this.registerParticular.country === this.allCountriesP[i].iso2) {
+        this.registerParticular.country = this.allCountriesP[i].name;
+      }
+    }
+    for (let i = 0; i<this.allUsersP.length; i++) {
+            if (this.allUsersP[i].email === this.registerParticular.email && this.allUsersP.length > 0) {
+                this.counterRP = 1;
+                console.log(this.allUsersP[i].email);
+            } else {
+              console.log('PARTICULAR CAN REGISTER');
+              this.counterRP = 0;
+            }
+          }
+    if (this.counterRP === 1) {
+            this.toastr.error('USER ALREADY REGISTERED WITH THIS EMAIL: '+this.counterRP);
+          } else {
+          this.registerService.register(this.registerParticular)
+      .subscribe(
+        res => {
+            this.finishBtn = true;
+          Swal.fire({
+            icon: 'success',
+            title: 'SUCCESS',
+            text: 'CHECK OUT YOUR MAIL BOX TO COMPLETE REGISTRATION'
+          }).then(() => {
+            this.router.navigateByUrl('/auth/login');
+            localStorage.removeItem('role');
+          });
+          this.rp_form.reset();
+          /*this.registerService.storeFile(this.uuidFileB).subscribe(
+            res => {
+              console.log('IMAGE STORED SUCCESSFULLY');
+            }, error => {
+              console.log(error);
+            }
+          )*/
+          localStorage.removeItem('ParticularInfo');
+
+        }, error => {
+          console.log(error);
+          this.finishBtn = false;
+        }
+      )
+    }
   }
 
 
   registerB_Form(): void {
     this.isLoading = true;
-    setTimeout( () => this.isLoading = false, 2000 );
+    setTimeout( () => this.isLoading = false, 4500 );
     if (!this.prefixPhoneB) {
       this.prefixPhoneB = '216';
     }
@@ -472,7 +518,7 @@ hasErr: boolean;
       business_logo: this.business_logo
     };
 
-    for (let i = 0; i<this.allCountriesP.length; i++) {
+    for (let i = 0; i<this.allCountries.length; i++) {
       if (this.registerBusiness.country === this.allCountries[i].iso2) {
         this.registerBusiness.country = this.allCountries[i].name;
       }
@@ -497,6 +543,7 @@ hasErr: boolean;
           });
           this.rb_form.reset();
           this.registerService.storeFile(this.uuidFileB).subscribe(
+            // tslint:disable-next-line:no-shadowed-variable
             res => {
               console.log('IMAGE STORED SUCCESSFULLY');
             }, error => {

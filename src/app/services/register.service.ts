@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // @ts-ignore
 import { Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 // @ts-ignore
 @Injectable({
@@ -29,19 +30,19 @@ export class RegisterService {
     })
   }
   register(userData) : Observable<any>{
-    return this.httpClient.post<any>('http://localhost:8088/subscribe', userData, this.httpOptions);
+    return this.httpClient.post<any>(`${environment.authUrl}/subscribe`, userData, this.httpOptions);
   }
 
   validateEmail(email): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-email?email='+email, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.authUrl}/verify-email?email=`+email, this.httpOptions);
   }
 
   validateUrl(url): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-url?businessWebsite='+url, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.authUrl}/verify-url?businessWebsite=`+url, this.httpOptions);
   }
 
   validatePhone(phone): Observable<any>{
-    return this.httpClient.get<any>('http://localhost:8097/verify-phone?phonenumber='+phone, this.httpOptions);
+    return this.httpClient.get<any>(`${environment.authUrl}/verify-phone?phonenumber=`+phone, this.httpOptions);
   }
 
   storeFile(uuid): Observable<any>{
@@ -50,6 +51,10 @@ export class RegisterService {
 
   deleteFile(uuid): Observable<any>{
     return this.httpClient.delete<any>('https://api.uploadcare.com/files/'+uuid+'/', this.httpStoreOption);
+  }
+
+  getAllUsers(): Observable<any>{
+    return this.httpClient.get<any>(`${environment.authUrl}/findallusers`, this.httpOptions);
   }
 
 }

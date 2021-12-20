@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:9090/',
-  jobUrlapi: 'https://jobrecruitement.herokuapp.com/'
+  jobUrlapi: 'https://jobrecruitement.herokuapp.com/',
+  authUrl : 'https://authrecruitement.herokuapp.com'
 
 };
 
