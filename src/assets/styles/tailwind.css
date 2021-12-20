@@ -541,6 +541,12 @@ video {
   margin-top: -110px;
 }
 
+.backToMWSL {
+  height: auto;
+  position: fixed;
+  margin-top: -112px;
+}
+
 .getBackT {
   height: auto;
   position: fixed;

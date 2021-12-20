@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 // @ts-ignore
 import { map } from 'rxjs/operators';
 import {environment} from '../../environments/environment';
+import {Observable} from 'rxjs';
 
 
 // @ts-ignore
@@ -28,13 +29,12 @@ export class AuthenticationServiceService {
       Authorization: sessionStorage.getItem('token')
     })
   };
-  authenticate(username,password){
-    return this.httpClient
-      .post<any>('https://authrecruitement.herokuapp.com/auth',{username,password},this.httpOptions)
+  authenticate(email,password): Observable<any>{
+    return this.httpClient.post<any>('https://authrecruitement.herokuapp.com/auth',{email,password},this.httpOptions)
       .pipe(
          map(userData => {
-            sessionStorage.setItem('data',JSON.stringify(userData));
-            sessionStorage.setItem('token', JSON.stringify(userData.response));
+            localStorage.setItem('data',JSON.stringify(userData.user));
+            localStorage.setItem('token', JSON.stringify(userData.response));
             return userData;
          })
       );
