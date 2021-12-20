@@ -1,13 +1,14 @@
 <app-auth-navbar></app-auth-navbar>
 <main>
-  <div class="items-center flex flex-wrap min-h-screen">
+  <div class="items-center
+   flex content-center flex-wrap min-h-screen">
     <div
-      class="  w-full bg-center"
+      class="bg-cover  w-full bg-center absolute top-0 h-full"
       style="
         background-image: url('../../assets/img/JobsCon.png');
         background-size: contain;
         background-repeat: no-repeat;
-        height: 100%;">
+        ">
       <div
         class="static flex content-center items-center  min-h-screen">
         <div class="container relative mx-auto my-6 ">
@@ -60,7 +61,7 @@
       <div>
 
       </div>
-            <h1 class="text-4xl font-bold text-lg text-center " style="color: #132A54"> Last Job Updated</h1>
+            <h1 class="text-4xl font-bold text-lg text-center my-6 py-5 mt-6" style="color: #132A54"> Last Job Updated</h1>
 
     </div>
 
@@ -75,7 +76,7 @@
                   <ul class="list-unstyled contacts">
                     <li data-toggle="tab" data-target="#inbox-message-1 "
                         class="jobhover"
-                        *ngFor="let job of dataJobs | filter: term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
+                        *ngFor="let job of dataJobs | filter:  term | filter: city" [class.selected]="job === selectedJob" (click)="onSelect(job)">
                       <img alt={{job.category}} class="img-circle medium-image"
                            src={{job.logo_entreprise}}>
 

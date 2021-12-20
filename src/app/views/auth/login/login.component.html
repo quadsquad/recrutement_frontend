@@ -20,12 +20,13 @@
             box-shadow: 0 0 3px white;
           }
         </style>
-        <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0" style="display: block; margin-right: auto;
+        <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 mt-48" style="display: block; margin-right: auto;
         margin-left: auto">
           <div class="">
-            <h1 style="letter-spacing: 5px" class="text-center text-white text-md font-semibold">LOGIN SPACE</h1>
             <br><br>
-          <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-box mt-48" style="margin-top: 130px;">
+          <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-box mt-32">
+                      <h1 style="letter-spacing: 5px" class="text-center text-white text-md font-semibold">LOGIN SPACE</h1>
+            <br><br><br>
             <div class="user-box">
       <input type="text" name="" required="">
       <label style="color: #ffffff">USERNAME</label>
@@ -42,7 +43,7 @@
                 type="submit"
               >
 
-                <img align="center" style="margin-left: auto; margin-right: auto; display: block" 
+                <img align="center" style="margin-left: auto; margin-right: auto; display: block"
                 src="assets/img/Artboard_31.png" width="60" height="60" title="LOGIN"/>
 
               </button>

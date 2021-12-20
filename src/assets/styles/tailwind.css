@@ -535,6 +535,24 @@ video {
   height: auto;
 }
 
+.backToMWS {
+  height: auto;
+  position: fixed;
+  margin-top: -110px;
+}
+
+.getBackT {
+  height: auto;
+  position: fixed;
+  margin-top: -110px;
+}
+
+.getBack {
+  height: auto;
+  position: fixed;
+  margin-top: -110px;
+}
+
 
       [type='text'],
       [type='email'],

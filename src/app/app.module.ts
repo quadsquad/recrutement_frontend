@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2TelInputModule} from 'ng2-tel-input';
+
 import { AgGridModule } from 'ag-grid-angular';
+// @ts-ignore
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 import { AppComponent } from './app.component';
 // layouts
@@ -21,6 +24,8 @@ import { TablesComponent } from './views/admin/tables/tables.component';
 // auth views
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { LoadingComponent } from './views/auth/register/loading';
+
 // no layouts views
 import { IndexComponent } from './views/index/index.component';
 import { LandingComponent } from './views/landing/landing.component';
@@ -70,6 +75,7 @@ import { BusinessComponent } from './layouts/business/business.component';
 import { BusinessNavbarComponent } from './components/navbars/business-navbar/business-navbar.component';
 import { BusinessSidebarComponent } from './components/business-sidebar/business-sidebar.component';
 import { BusinessDashboardComponent } from './views/business/business-dashboard/business-dashboard.component';
+import { ParticularCvRegisterComponent } from './views/auth/register/particular-cv-register/particular-cv-register.component';
 import { ExperienceUserComponent } from './views/experience-user/experience-user.component';
 import { HeaderStatBusinessComponent } from './components/headers/header-stat-business/header-stat-business.component';
 import { CarLineChartBusinessJobsComponent } from './components/cards/car-line-chart-business-jobs/car-line-chart-business-jobs.component';
@@ -79,9 +85,10 @@ import { BusinessReportsComponent } from './views/business/business-reports/busi
 import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
 import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
 import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
+
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {Ng2TableModule} from "ng2-table";
 import {Ng2SmartTableModule} from "ng2-smart-table";
+
 
 @NgModule({
   declarations: [
@@ -116,6 +123,7 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
     TablesComponent,
     LoginComponent,
     RegisterComponent,
+    LoadingComponent,
     IndexComponent,
     LandingComponent,
     ProfileComponent,
@@ -137,6 +145,7 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
     BusinessNavbarComponent,
     BusinessSidebarComponent,
     BusinessDashboardComponent,
+    ParticularCvRegisterComponent,
     ExperienceUserComponent,
     HeaderStatBusinessComponent,
     CarLineChartBusinessJobsComponent,
@@ -162,8 +171,8 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
     Ng2SearchPipeModule,
     NgApexchartsModule,
     AgGridModule.withComponents([]),
-    Ng2SmartTableModule
-
+    Ng2SmartTableModule,
+    UcWidgetModule,
   ],
   providers: [
     {

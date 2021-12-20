@@ -22,14 +22,25 @@ export class AuthComponent implements OnInit {
   }
 
   applyBgStyle() {
-    if (localStorage.getItem("role") !== "null") {
+    if (localStorage.getItem("role") === "Particular") {
       this.bgStyles = {
         'background-image': 'url(assets/img/Artboard 29.png)',
         'background-attachment': 'fixed',
         'background-position': 'center',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
-        'min-height': '150%',
+        'min-height': '155%',
+        'overflow': 'hidden',
+        'margin': '0'
+      }
+    } else if (localStorage.getItem("role") === "Business") {
+      this.bgStyles = {
+        'background-image': "url(assets/img/Artboard 29.png')",
+        'background-attachment': 'fixed',
+        'background-position': 'center',
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat',
+        'min-height': '160%',
         'overflow': 'hidden',
         'margin': '0'
       }
