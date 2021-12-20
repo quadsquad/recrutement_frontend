@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2TelInputModule} from 'ng2-tel-input';
+// @ts-ignore
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { AppComponent } from './app.component';
 // layouts
@@ -159,8 +160,8 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
     ToastrModule.forRoot(),
     OwlModule,
     Ng2SearchPipeModule,
-    UcWidgetModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    UcWidgetModule
   ],
   providers: [
     {
