@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 // @ts-ignore
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { AgGridModule } from 'ag-grid-angular';
 import { AppComponent } from './app.component';
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -82,8 +83,8 @@ import { BusinessReportsComponent } from './views/business/business-reports/busi
 import { ProfileBusinessComponent } from './views/business/profile-business/profile-business.component';
 import { MessagesBusinessComponent } from './views/business/messages-business/messages-business.component';
 import { MessagesAdminComponent } from './views/admin/messages-admin/messages-admin.component';
-
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -149,7 +150,8 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
     BusinessReportsComponent,
     ProfileBusinessComponent,
     MessagesBusinessComponent,
-    MessagesAdminComponent
+    MessagesAdminComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -165,7 +167,8 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
     Ng2SearchPipeModule,
     NgApexchartsModule,
     UcWidgetModule,
-
+    AgGridModule.withComponents([]),
+    Ng2SmartTableModule
 
   ],
   providers: [
