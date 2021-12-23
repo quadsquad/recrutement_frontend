@@ -206,7 +206,8 @@
       <ul class="md:flex-col md:min-w-full flex flex-col list-none pt-6">
          <li class="items-center">
            <a
-            href="/auth/login"
+            (click)="adminLoggingOut()"
+            style="cursor: pointer"
             class="text-xs uppercase py-3 font-bold block"
             routerLinkActive
             #adminLogout="routerLinkActive"

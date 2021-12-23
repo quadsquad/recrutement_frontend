@@ -56,7 +56,9 @@ export class LoginComponent implements OnInit {
         .subscribe(
             response => {
               if(response.r === 'admin'){
-                this.router.navigateByUrl('/admin/dashboard');
+                this.router.navigateByUrl('/admin/dashboard').then(() => {
+                  window.location.reload();
+                });
               } if(response.r ==='Business'){
                 this.router.navigateByUrl('')
               }if (response.r === 'Particular'){

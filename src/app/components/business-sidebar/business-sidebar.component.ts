@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-business-sidebar',
@@ -8,11 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class BusinessSidebarComponent implements OnInit {
   collapseShow = 'hidden';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 toggleCollapseShow(classes) {
     this.collapseShow = classes;
+  }
+
+  businessLoggingOut() {
+    localStorage.setItem('data', 'null');
+    localStorage.setItem('token', 'null');
+    this.router.navigateByUrl('/auth/login').then(() => {
+      window.location.reload();
+    });
   }
 }
