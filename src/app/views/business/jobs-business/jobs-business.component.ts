@@ -29,72 +29,72 @@ export class JobsBusinessComponent implements OnInit {
 data = [
   {
     id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz"
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
   {
     id: 2,
-    name: "Ervin Howell",
-    username: "Antonette",
-    email: "Shanna@melissa.tv"
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv'
   },
 
   // ... list of items
 
   {
     id: 11,
-    name: "Nicholas DuBuque",
-    username: "Nicholas.Stanton",
-    email: "Rey.Padberg@rosamond.biz"
+    name: 'Nicholas DuBuque',
+    username: 'Nicholas.Stanton',
+    email: 'Rey.Padberg@rosamond.biz'
   },
   {
     id: 12,
-    name: "Nicholas DuBuque",
-    username: "Nicholas.Stanton",
-    email: "Rey.Padberg@rosamond.biz"
+    name: 'Nicholas DuBuque',
+    username: 'Nicholas.Stanton',
+    email: 'Rey.Padberg@rosamond.biz'
   },
   {
     id: 13,
-    name: "Nicholas DuBuque",
-    username: "Nicholas.Stanton",
-    email: "Rey.Padberg@rosamond.biz"
+    name: 'Nicholas DuBuque',
+    username: 'Nicholas.Stanton',
+    email: 'Rey.Padberg@rosamond.biz'
   },
   {
     id: 4,
-    name: "Nicholas DuBuque",
-    username: "Nicholas.Stanton",
-    email: "Rey.Padberg@rosamond.biz"
+    name: 'Nicholas DuBuque',
+    username: 'Nicholas.Stanton',
+    email: 'Rey.Padberg@rosamond.biz'
   }
 ];
 

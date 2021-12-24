@@ -1,18 +1,13 @@
-// @ts-ignore
 import { Injectable } from '@angular/core';
-// @ts-ignore
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-// @ts-ignore
 import {Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
 
-// @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
-export class JobServiceService {
-
-  constructor(private httpClient: HttpClient) { }
+export class CandidatureService {
+ constructor(private httpClient: HttpClient) { }
 
 
   httpOptions = {
@@ -22,7 +17,7 @@ export class JobServiceService {
     })
   };
 
-  getAllJobs(): Observable<any>{
-    return this.httpClient.get<[]>(`${environment.jobUrlapi}findAllEmplois`);
+  getAllCandidatures(): Observable<any>{
+    return this.httpClient.get<[]>(`${environment.candidaturesUrl}candidatures`);
   }
 }

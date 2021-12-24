@@ -9,8 +9,8 @@ export const environment = {
   authUrl : 'https://authrecruitement.herokuapp.com',
   nodeUrl: 'https://node-recrutement.herokuapp.com',
   phoneUrl: 'https://phonevalidation.abstractapi.com',
-  apiKeyPhone: '44571ae9a979475b90b68ec42224722b'
-
+  apiKeyPhone: '44571ae9a979475b90b68ec42224722b',
+  candidaturesUrl : 'http://localhost:8090/'
 };
 
 /*

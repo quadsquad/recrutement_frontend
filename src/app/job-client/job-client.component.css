@@ -61,7 +61,7 @@
 .messages-panel {
   width: 100%;
 
-  background-color: #fbfcff;
+  background-color: #ffffff;
   display: inline-block;
   border-top-left-radius: 5px;
   margin-bottom: 0;
@@ -78,7 +78,7 @@
 
 .contacts-list {
   background-color: #fff;
-  border-right: 1px solid #cfdbe2;
+  border-right: 1px solid #ffffff;
   width: 305px;
   height: 100%;
   border-top-left-radius: 5px;
@@ -748,7 +748,7 @@
   .message-body {
     width: 100%;
     margin: 20px 0;
-    border: 1px solid #dce2e9;
+    border: 1px solid #ffffff;
     background-color: #fff;
   }
 
@@ -910,15 +910,11 @@
   position: absolute;
   background-color: #FF6555;
   min-width: 160px;
-  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   width: 220px;
   z-index: 1;
-   border-top-left-radius: 35px ;
-  border-bottom-left-radius: 35px ;
-  border-bottom-right-radius: 35px ;
-
 }
 /* Links inside the dropdown */
 .dropdown-content a {
@@ -935,4 +931,8 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #FF6555;}
+.dropdown:hover .dropbtn {background-color: #FF6555;
+  border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
