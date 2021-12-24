@@ -12,6 +12,7 @@ import { AgGridModule } from 'ag-grid-angular';
 // @ts-ignore
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
+
 import { AppComponent } from './app.component';
 // layouts
 import { AdminComponent } from './layouts/admin/admin.component';
@@ -88,6 +89,7 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
+
 
 
 // @ts-ignore
@@ -173,7 +175,8 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
     NgApexchartsModule,
     AgGridModule.withComponents([]),
     Ng2SmartTableModule,
-    UcWidgetModule,
+
+    UcWidgetModule
   ],
   providers: [
     {

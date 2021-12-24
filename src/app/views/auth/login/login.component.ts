@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var x=window.scrollX;
-    var y=window.scrollY;
+    let x=window.scrollX;
+    let y=window.scrollY;
     window.onscroll=function(){window.scrollTo(x, y);};
   }
 
@@ -56,7 +56,9 @@ export class LoginComponent implements OnInit {
         .subscribe(
             response => {
               if(response.r === 'admin'){
-                this.router.navigateByUrl('/admin/dashboard');
+                this.router.navigateByUrl('/admin/dashboard').then(() => {
+                  window.location.reload();
+                });
               } if(response.r ==='Business'){
                 this.router.navigateByUrl('')
               }if (response.r === 'Particular'){
@@ -77,14 +79,14 @@ export class LoginComponent implements OnInit {
   btnLoginStyle() {
     if (this.formLogin.invalid) {
       this.btnLogin = {
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     } else {
       this.btnLogin = {
-        'cursor': 'pointer',
-        'opacity': '1'
+        cursor: 'pointer',
+        opacity: '1'
       }
     }
     return this.btnLogin;

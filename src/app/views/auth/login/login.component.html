@@ -20,16 +20,17 @@
             box-shadow: 0 0 3px white;
           }
         </style><br>
-        <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0"
-             style="display: block; margin-right: auto;
 
+        <div class="flex-auto px-4 lg:px-10 w-6/12 py-10 pt-0" style="display: block; margin-right: auto;
         margin-left: auto">
           <div class="">
+            <h1 style="letter-spacing: 5px" class="text-center text-white text-md font-semibold">LOGIN SPACE</h1>
             <br><br>
 
-          <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-box mt-32">
-                      <h1 style="letter-spacing: 5px" class="text-center text-white text-md font-semibold">LOGIN SPACE</h1>
-            <br><br><br>
+            <div align = "center">
+            <loading *ngIf="isLoading">{{ isLoading }}</loading>
+          </div>
+          <form [formGroup]="formLogin" (ngSubmit)="login()" class="login-box mt-48" style="margin-top: 130px;">
             <div class="user-box">
       <input type="text" name="email" required="" formControlName="email">
       <label style="color: #ffffff">EMAIL</label>

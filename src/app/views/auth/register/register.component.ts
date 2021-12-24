@@ -626,13 +626,14 @@ hasErr: boolean;
       }
     }
     for (let i = 0; i<this.allUsers.length; i++) {
-            if ((this.allUsers[i].email === this.registerBusiness.email && this.allUsers.length > 0) ||
-              (this.allUsers[i].business_name === this.registerBusiness.business_name && this.allUsers.length > 0) ||
-            (this.allUsers[i].business_website === this.registerBusiness.business_website && this.allUsers.length > 0)) {
+            if (this.allUsers[i].email === this.registerBusiness.email && this.allUsers.length > 0) {
                 this.counterRB = 1;
-            } else {
-              console.log('BUSINESS CAN REGISTER');
-              this.counterRB = 0;
+            }
+            if (this.allUsers[i].business_name === this.registerBusiness.business_name && this.allUsers.length > 0) {
+              this.counterRB = 1;
+            }
+            if (this.allUsers[i].business_website === this.registerBusiness.business_website && this.allUsers.length > 0) {
+              this.counterRB = 1;
             }
           }
     if (this.counterRB === 1) {
