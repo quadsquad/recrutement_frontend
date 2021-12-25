@@ -67,5 +67,14 @@ export class AuthComponent implements OnInit {
     if (this.router.url === '/auth/register') {
       localStorage.setItem('role', null);
     }
+    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'Business') {
+      window.location.href = '/business/dashboard'
+    }
+    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'admin') {
+      window.location.href = '/admin/dashboard'
+    }
+    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'Particular') {
+      window.location.href = '/'
+    }
   }
 }

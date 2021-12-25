@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParticularCvRegisterComponent implements OnInit {
 
+  firstname = '';
+  lastname = '';
+  email = '';
+  country = '';
+  city = '';
+
   constructor() { }
 
   handlePrint() {
@@ -14,6 +20,13 @@ export class ParticularCvRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('ParticularInfo') !== 'null') {
+      this.firstname = JSON.parse(localStorage.getItem('ParticularInfo')).firstname;
+      this.lastname = JSON.parse(localStorage.getItem('ParticularInfo')).lastname;
+      this.email = JSON.parse(localStorage.getItem('ParticularInfo')).email;
+      this.country = JSON.parse(localStorage.getItem('ParticularInfo')).country;
+      this.city = JSON.parse(localStorage.getItem('ParticularInfo')).city;
+    }
   }
 
 }
