@@ -561,14 +561,11 @@ hasErr: boolean;
     for (let i = 0; i<this.allUsersP.length; i++) {
             if (this.allUsersP[i].email === this.registerParticular.email && this.allUsersP.length > 0) {
                 this.counterRP = 1;
-                console.log(this.allUsersP[i].email);
-            } else {
-              console.log('PARTICULAR CAN REGISTER');
-              this.counterRP = 0;
             }
           }
     if (this.counterRP === 1) {
             this.toastr.error('PARTICULAR ALREADY REGISTERED WITH THIS EMAIL');
+            this.counterRP = 0;
           } else {
           this.registerService.register(this.registerParticular)
       .subscribe(
@@ -638,6 +635,7 @@ hasErr: boolean;
           }
     if (this.counterRB === 1) {
             this.toastr.error('THIS BUSINESS IS ALREADY REGISTERED');
+            this.counterRB = 0;
           } else {
       this.registerService.validateEmail(this.registerBusiness.email).subscribe(
       response => {

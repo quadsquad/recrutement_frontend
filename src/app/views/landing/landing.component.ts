@@ -8,6 +8,7 @@ import {JobServiceService} from '../../services/jobs/job-service.service';
 
 })
 export class LandingComponent implements OnInit {
+  blurStyle: any;
   constructor(private js: JobServiceService) {}
   dataJobs:any =[];
 
@@ -42,7 +43,16 @@ export class LandingComponent implements OnInit {
   ];
 
 
-
+  applyBlur() {
+    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'admin') {
+      this.blurStyle = {
+        'filter': 'blur(10px)'
+      }
+    } else {
+      this.blurStyle = null;
+    }
+    return this.blurStyle;
+  }
 
 
   ngOnInit(): void {
@@ -51,6 +61,9 @@ export class LandingComponent implements OnInit {
     }, (err)=>{
       console.log(err);
     });
+    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'admin') {
+      window.location.href = '/admin/dashboard';
+    }
   }
 
 
