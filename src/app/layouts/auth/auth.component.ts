@@ -13,7 +13,7 @@ export class AuthComponent implements OnInit {
   applyStyle() {
     if (this.router.url === '/auth/myworldspace') {
       this.styles = {
-        'overflow': 'hidden'
+        overflow: 'hidden'
       };
     } else {
       this.styles = null;
@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
   }
 
   applyBgStyle() {
-    if (localStorage.getItem("role") === "Particular") {
+    if (localStorage.getItem('role') === 'Particular') {
       this.bgStyles = {
         'background-image': 'url(assets/img/Artboard 29.png)',
         'background-attachment': 'fixed',
@@ -30,30 +30,30 @@ export class AuthComponent implements OnInit {
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
         'min-height': '155%',
-        'overflow': 'hidden',
-        'margin': '0'
+        overflow: 'hidden',
+        margin: '0'
       }
-    } else if (localStorage.getItem("role") === "Business") {
+    } else if (localStorage.getItem('role') === 'Business') {
       this.bgStyles = {
-        'background-image': "url(assets/img/Artboard 29.png')",
+        'background-image': 'url(assets/img/Artboard 29.png\')',
         'background-attachment': 'fixed',
         'background-position': 'center',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
         'min-height': '160%',
-        'overflow': 'hidden',
-        'margin': '0'
+        overflow: 'hidden',
+        margin: '0'
       }
     } else {
       this.bgStyles = {
-        'background-image': "url(assets/img/Artboard 29.png')",
+        'background-image': 'url(assets/img/Artboard 29.png\')',
         'background-attachment': 'fixed',
         'background-position': 'center',
         'background-size': 'cover',
         'background-repeat': 'no-repeat',
         'min-height': '100%',
-        'overflow': 'hidden',
-        'margin': '0'
+        overflow: 'hidden',
+        margin: '0'
       }
     }
     return this.bgStyles;
@@ -65,7 +65,7 @@ export class AuthComponent implements OnInit {
     this.applyStyle();
     this.applyBgStyle();
     if (this.router.url === '/auth/register') {
-      localStorage.setItem("role", null);
+      localStorage.setItem('role', null);
     }
   }
 }
