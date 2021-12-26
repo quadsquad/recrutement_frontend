@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   goToHomepage() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
     this.formLogin.reset();
   }
 
@@ -60,9 +62,13 @@ export class LoginComponent implements OnInit {
                   window.location.reload();
                 });
               } if(response.r ==='Business'){
-                this.router.navigateByUrl('')
+                this.router.navigateByUrl('').then(() => {
+                  window.location.reload();
+                });
               }if (response.r === 'Particular'){
-                this.router.navigateByUrl('/profile');
+                this.router.navigateByUrl('/profile').then(() => {
+                  window.location.reload();
+                });
               }
               if (!response.r) {
                 this.toastr.error('INCORRECT EMAIL/PASSWORD');

@@ -362,7 +362,7 @@ hasErr: boolean;
   }
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
-
+      window.location.reload();
       localStorage.removeItem('role');
     })
   }
