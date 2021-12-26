@@ -33,8 +33,6 @@ export class ServiceServiceService {
     return this.httpClient.put<any>(`http://localhost:8084`+ '/' + id , service , this.httpOptions);
   }
   servicedelete(id : number): Observable<any>{
-
-
     const url = `http://localhost:8084/` + 'services/delete/' + `${id}`;
     console.log(url);
 

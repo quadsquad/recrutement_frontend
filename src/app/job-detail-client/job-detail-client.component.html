@@ -7,16 +7,15 @@
           <span class="title-left font-seminormal text-4xl my-3 ">{{job.category}}</span>
             <i class="fa fa-flag float-right text-center text-grey mx-4 py-2 text-2xl" style="margin-right: 20px"></i>
           <i class="fa fa-share float-right text-center text-grey py-2 text-2xl" ></i>
+            <a [routerLink]=" [ '/applyforjob/' , job.id ] " >
           <button
             style=" width:100px;"
             class="mx-4 mr-4  border-2 font-seminormal rounded-full text-white text-center bg-orangem-500
              text-xl py-1 rounded ease-linear transition-all duration-150 float-right"
           >Apply
-          </button>
+          </button></a>
 
         </div>
-<!-- This example requires Tailwind CSS v2.0+ -->
-
         <h2 class="w-90 my-4">
           <span>{{job.nom_entreprise}}</span>
           <i class="fa fa-building ml-3"></i> {{job.adresse}}

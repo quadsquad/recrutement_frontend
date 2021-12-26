@@ -89,6 +89,7 @@ import { MessagesAdminComponent } from './views/admin/messages-admin/messages-ad
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
+import { ApplyforjobComponent } from './applyforjob/applyforjob.component';
 
 
 
@@ -158,7 +159,8 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
     ProfileBusinessComponent,
     MessagesBusinessComponent,
     MessagesAdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ApplyforjobComponent,
   ],
   imports: [
     BrowserModule,

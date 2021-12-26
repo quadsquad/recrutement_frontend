@@ -18,12 +18,6 @@ import 'intl-tel-input/build/js/utils';
 })
 export class RegisterComponent implements OnInit {
 
-  @Input('ng2TelInputOptions') ng2TelInputOptions: any;
-@Output('hasError') hasError: EventEmitter<boolean> = new EventEmitter();
-@Output('ng2TelOutput') ng2TelOutput: EventEmitter<any> = new EventEmitter();
-@Output('intlTelInputObject') intlTelInputObject: EventEmitter<any> = new EventEmitter();
-ngTelInput: any;
-
   constructor(private registerService : RegisterService ,private formBuilder: FormBuilder,
               private router: Router, private toastr: ToastrService
   ) {
@@ -36,7 +30,7 @@ ngTelInput: any;
       email:['',[Validators.required,Validators.email]],
       password : ['',[Validators.required,Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required,Validators.minLength(6)]],
-      phonenumber: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      phonenumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       business_website: ['', [Validators.required, Validators.pattern(reg)]]
     }, {
       validator: RegisterComponent.MustMatch('password', 'confirmPassword')
@@ -54,6 +48,12 @@ ngTelInput: any;
     })
   }
 
+  @Input('ng2TelInputOptions') ng2TelInputOptions: any;
+@Output('hasError') hasError: EventEmitter<boolean> = new EventEmitter();
+@Output('ng2TelOutput') ng2TelOutput: EventEmitter<any> = new EventEmitter();
+@Output('intlTelInputObject') intlTelInputObject: EventEmitter<any> = new EventEmitter();
+ngTelInput: any;
+
   filedataB: any;
 
   doNotStore: true;
@@ -68,68 +68,7 @@ ngTelInput: any;
 
   userPicture: any;
 
-  onChangeUploadP(e) {
-    console.log(e);
-  }
-
-  uploadCompletedP(e) {
-    if (this.uuidFileP !== '') {
-      this.registerService.deleteFile(this.uuidFileP).subscribe(
-      response => {
-        console.log('FILE DELETED');
-        console.log(this.uuidFileP);
-      },error => {
-          console.log('COULD NOT DELETE FILE');
-        }
-    )
-    }
-      this.userPicture = e.cdnUrl;
-    console.log(this.userPicture);
-    console.log(e);
-    this.uuidFileP = e.uuid;
-  }
-
-  OnChangeUploadB(e) {
-    console.log(e);
-  }
-  uploadCompleted(e) {
-    if (this.uuidFileB !== '') {
-      this.registerService.deleteFile(this.uuidFileB).subscribe(
-      response => {
-        console.log('FILE DELETED');
-        console.log(this.uuidFileB);
-      },error => {
-          console.log('COULD NOT DELETE FILE');
-        }
-    )
-    }
-      this.business_logo = e.cdnUrl;
-    console.log(this.business_logo);
-    console.log(e);
-    this.uuidFileB = e.uuid;
-  }
-
-  @HostListener('blur') onBlur() {
-    let isInputValid:boolean = this.isInputValid();
-    if (isInputValid) {
-        let telOutput = this.ngTelInput.intlTelInput("getNumber");
-        this.hasError.emit(isInputValid);
-        this.ng2TelOutput.emit(telOutput);
-    } else
-    {
-        this.hasError.emit(isInputValid);
-    }
-  }
-
-  isInputValid(): boolean {
-    return this.ngTelInput.intlTelInput('isValidNumber') ? true : false;
-}
-
 hasErr: boolean;
- onError(obj) {
-        this.hasErr = obj;
-        console.log(this.hasErr);
-    }
 
   rb_form: FormGroup;
   rp_form: FormGroup;
@@ -207,25 +146,11 @@ hasErr: boolean;
     }
   }
 
-  followInputUrl(e) {
-    if (!e.hasError('pattern') && !e.hasError('required')) {
-      this.registerService.validateUrl(e.value).subscribe(
-      response => {
-        this.isValidWebsite = true;
-        this.validWebsite = '';
-      },error => {
-        this.validWebsite = 'URL YOU ENTERED IS INVALID';
-        this.isValidWebsite = false;
-        }
-    )
-    }
-  }
+  finalSelectCountry: any;
+  finalSelectCountryP: any;
 
-  onCountryChange(event)
-  {
-    this.prefixPhoneB = event.dialCode;
-    console.log(event);
-  }
+  inputHidden: any;
+  inputHiddenP: any;
 
   static validUsername(fc: FormControl) {
     if (fc.value.toLowerCase() === 'abc123' || fc.value.toLowerCase() === '123abc') {
@@ -250,14 +175,89 @@ hasErr: boolean;
     }
   }
 
-  finalSelectCountry: any;
-  finalSelectCountryP: any;
+  onChangeUploadP(e) {
+    console.log(e);
+  }
 
-  inputHidden: any;
-  inputHiddenP: any;
+  uploadCompletedP(e) {
+    if (this.uuidFileP !== '') {
+      this.registerService.deleteFile(this.uuidFileP).subscribe(
+      response => {
+        console.log('FILE DELETED');
+        console.log(this.uuidFileP);
+      },error => {
+          console.log('COULD NOT DELETE FILE');
+        }
+    )
+    }
+      this.userPicture = e.cdnUrl;
+    console.log(this.userPicture);
+    console.log(e);
+    this.uuidFileP = e.uuid;
+  }
+
+  OnChangeUploadB(e) {
+    console.log(e);
+  }
+  uploadCompleted(e) {
+    if (this.uuidFileB !== '') {
+      this.registerService.deleteFile(this.uuidFileB).subscribe(
+      response => {
+        console.log('FILE DELETED');
+        console.log(this.uuidFileB);
+      },error => {
+          console.log('COULD NOT DELETE FILE');
+        }
+    )
+    }
+      this.business_logo = e.cdnUrl;
+    console.log(this.business_logo);
+    console.log(e);
+    this.uuidFileB = e.uuid;
+  }
+
+  @HostListener('blur') onBlur() {
+    const isInputValid:boolean = this.isInputValid();
+    if (isInputValid) {
+        const telOutput = this.ngTelInput.intlTelInput('getNumber');
+        this.hasError.emit(isInputValid);
+        this.ng2TelOutput.emit(telOutput);
+    } else
+    {
+        this.hasError.emit(isInputValid);
+    }
+  }
+
+  isInputValid(): boolean {
+    return this.ngTelInput.intlTelInput('isValidNumber') ? true : false;
+}
+ onError(obj) {
+        this.hasErr = obj;
+        console.log(this.hasErr);
+    }
+
+  followInputUrl(e) {
+    if (!e.hasError('pattern') && !e.hasError('required')) {
+      this.registerService.validateUrl(e.value).subscribe(
+      response => {
+        this.isValidWebsite = true;
+        this.validWebsite = '';
+      },error => {
+        this.validWebsite = 'URL YOU ENTERED IS INVALID';
+        this.isValidWebsite = false;
+        }
+    )
+    }
+  }
+
+  onCountryChange(event)
+  {
+    this.prefixPhoneB = event.dialCode;
+    console.log(event);
+  }
 
   select_country(deviceValue) {
-    //console.log(deviceValue);
+    // console.log(deviceValue);
     this.citiesToShow = [];
     this.selected = true;
     this.finalSelectCountry = true;
@@ -271,21 +271,21 @@ hasErr: boolean;
       this.selectCityHiddenB = true;
       this.toastr.error('WE COULD NOT FIND CITIES OF THE SELECTED COUNTRY');
       this.toastr.info('PLEASE WRITE YOUR CITY');
-      if (this.rb_form.controls['city']) {
-        this.rb_form.controls['city'].reset();
+      if (this.rb_form.controls.city) {
+        this.rb_form.controls.city.reset();
         this.inputHidden = false;
       }
       this.finalSelectCountry = false;
     } else {
-      //this.reversedCitites = this.citiesToShow.reverse();
+      // this.reversedCitites = this.citiesToShow.reverse();
       this.selectCityHiddenB = false;
       this.finalSelectCountry = true;
-      this.rb_form.controls['city'].reset();
+      this.rb_form.controls.city.reset();
     }
   }
 
   select_countryP(deviceValue) {
-    //console.log(deviceValue);
+    // console.log(deviceValue);
     this.citiesToShowP = [];
     this.selectedP = true;
     this.finalSelectCountryP = true;
@@ -299,16 +299,16 @@ hasErr: boolean;
       this.selectCityHiddenP = true;
       this.toastr.error('WE COULD NOT FIND CITIES OF THE SELECTED COUNTRY');
       this.toastr.info('PLEASE WRITE YOUR CITY');
-      if (this.rp_form.controls['city']) {
-        this.rp_form.controls['city'].reset();
+      if (this.rp_form.controls.city) {
+        this.rp_form.controls.city.reset();
         this.inputHiddenP = false;
       }
       this.finalSelectCountryP = false;
     } else {
-      //this.reversedCitites = this.citiesToShow.reverse();
+      // this.reversedCitites = this.citiesToShow.reverse();
       this.selectCityHiddenP = false;
       this.finalSelectCountryP = true;
-      this.rp_form.controls['city'].reset();
+      this.rp_form.controls.city.reset();
     }
   }
 
@@ -390,21 +390,21 @@ hasErr: boolean;
   btnNextParticularStyle() {
     if (this.rp_form.invalid) {
       this.btnNextPStyle = {
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     } else {
       this.btnNextPStyle = {
-        'cursor': 'pointer',
-        'opacity': '1'
+        cursor: 'pointer',
+        opacity: '1'
       }
     }
     if (!this.userPicture) {
       this.btnNextPStyle = {
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     }
     return this.btnNextPStyle;
@@ -414,59 +414,59 @@ hasErr: boolean;
     if (this.rb_form.invalid) {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     } else {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'pointer'
+        cursor: 'pointer'
       }
     }
     if (this.btnRegisterB === true) {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     }
     if (!this.hasErr) {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     }
 
     if (this.isValidWebsite === false) {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     }
     if (!this.business_logo) {
       this.createAccBtnStyle = {
         'border-radius': '25px',
-        'border': '1px solid  #ffffff',
+        border: '1px solid  #ffffff',
         'letter-spacing': '5px',
-        'cursor': 'default',
+        cursor: 'default',
         'pointer-events': 'none',
-        'opacity': '0.5'
+        opacity: '0.5'
       }
     }
     return this.createAccBtnStyle;
@@ -515,9 +515,9 @@ hasErr: boolean;
         this.thirdStepColorOne = '#FF8856';
         this.thirdStepColorTwo = '#FF6555';
         localStorage.setItem('ParticularInfo', JSON.stringify(this.registerParticular));
-        this.toastr.success("DATA HAS BEEN SAVED");
+        this.toastr.success('DATA HAS BEEN SAVED');
       },error => {
-          this.toastr.error("EMAIL YOU ENTERED IS INVALID");
+          this.toastr.error('EMAIL YOU ENTERED IS INVALID');
         }
     )
 
@@ -531,7 +531,7 @@ hasErr: boolean;
       window.scrollTo(0,0);
     }
 
-    localStorage.setItem("ParticularInfo", null);
+    localStorage.setItem('ParticularInfo', null);
 
     this.registerService.getAllUsers().subscribe((res : [])=>{
       this.allUsersP=res
@@ -577,7 +577,7 @@ hasErr: boolean;
             text: 'CHECK OUT YOUR MAIL BOX TO COMPLETE REGISTRATION'
           }).then(() => {
             this.router.navigateByUrl('/auth/login');
-            localStorage.removeItem("role");
+            localStorage.removeItem('role');
           });
           this.rp_form.reset();
           this.registerService.storeFile(this.uuidFileP).subscribe(

@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {JobServiceService} from '../../services/jobs/job-service.service';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
-
 })
+
 export class LandingComponent implements OnInit {
   blurStyle: any;
-  constructor(private js: JobServiceService) {}
-  dataJobs:any =[];
+  constructor() {}
 
     slideOptions = {
     nav: false,
@@ -46,7 +44,7 @@ export class LandingComponent implements OnInit {
   applyBlur() {
     if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'admin') {
       this.blurStyle = {
-        'filter': 'blur(10px)'
+        filter: 'blur(10px)'
       }
     } else {
       this.blurStyle = null;
@@ -56,14 +54,7 @@ export class LandingComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.js.getAllJobs().subscribe((res : [])=>{
-      this.dataJobs=res
-    }, (err)=>{
-      console.log(err);
-    });
-    if (localStorage.getItem('data') !== 'null' && JSON.parse(localStorage.getItem('data')).role === 'admin') {
-      window.location.href = '/admin/dashboard';
-    }
+
   }
 
 

@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   applyBlur() {
     if (localStorage.getItem('data') && JSON.parse(localStorage.getItem('data')).role !== 'Particular') {
       this.blurStyle = {
-        'filter': 'blur(10px)'
+        filter: 'blur(10px)'
       }
     } else {
       this.blurStyle = null;

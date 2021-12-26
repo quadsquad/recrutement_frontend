@@ -39,6 +39,7 @@ import {MessagesBusinessComponent} from './views/business/messages-business/mess
 import {MessagesAdminComponent} from './views/admin/messages-admin/messages-admin.component';
 
 import {NotFoundComponent} from './components/not-found/not-found.component';
+import {ApplyforjobComponent} from './applyforjob/applyforjob.component';
 
 
 const routes: Routes = [
@@ -92,7 +93,7 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'myworldforjobs', component: JobClientComponent },
   { path: 'verified', component: VerifiedAccountComponent },
-
+  { path: 'applyforjob/:id', component: ApplyforjobComponent },
   { path: 'particular-cv', component: ParticularCvRegisterComponent},
   { path: '404', component : NotFoundComponent},
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
