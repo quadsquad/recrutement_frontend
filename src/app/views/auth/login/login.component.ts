@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   goToHomepage() {
-    this.router.navigate(['/']).then(() => {
-      window.location.reload();
-    });
+    this.router.navigate(['/']);
     this.formLogin.reset();
   }
 

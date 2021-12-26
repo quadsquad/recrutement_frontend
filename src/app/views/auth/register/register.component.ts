@@ -362,7 +362,7 @@ hasErr: boolean;
   }
   goToHomepage() {
     this.router.navigate(['/']).then(() => {
-      window.location.reload();
+      //window.location.reload();
       localStorage.removeItem('role');
     })
   }
@@ -381,9 +381,7 @@ hasErr: boolean;
   }
   getBackToAuthenticate() {
     this.router.navigate(['/auth/myworldspace']).then(() => {
-
       localStorage.setItem('role', null);
-      window.scroll(0,0);
     })
   }
 
