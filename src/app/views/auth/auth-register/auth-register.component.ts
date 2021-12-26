@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 export class AuthRegisterComponent implements OnInit {
 
   goToHomepage() {
-    this.router.navigate(['/']).then(() => {
-      window.location.reload();
-    })
+    this.router.navigate(['/']);
   }
 
   constructor(private router: Router) { }
