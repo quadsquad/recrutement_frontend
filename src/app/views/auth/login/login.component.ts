@@ -40,9 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let x=window.scrollX;
-    let y=window.scrollY;
-    window.onscroll=function(){window.scrollTo(x, y);};
   }
 
   login() {
