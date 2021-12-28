@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
               }if (response.r === 'Particular' && response.user.enabled === true){
                 this.router.navigateByUrl('/profile');
               }
-              if (response.user.enabled === false) {
+              if (response.user && response.user.enabled === false) {
                 this.toastr.error('YOUR ACCOUNT MUST BE VERIFIED');
                 localStorage.setItem('token', 'null');
               }

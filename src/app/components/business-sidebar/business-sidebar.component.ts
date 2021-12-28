@@ -20,8 +20,6 @@ toggleCollapseShow(classes) {
   businessLoggingOut() {
     localStorage.setItem('data', 'null');
     localStorage.setItem('token', 'null');
-    this.router.navigateByUrl('/auth/login').then(() => {
-      window.location.reload();
-    });
+    this.router.navigateByUrl('/auth/login');
   }
 }
