@@ -1,10 +1,10 @@
 <app-auth-navbar></app-auth-navbar>
 <main class=" mx-auto max-w-7xl  sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
- <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
     <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
          src="assets/img/JobsCon1.png" alt="">
   </div>
-  <section class="shadow-lg">
+  <section class="shadow-lg mb-8 ">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
         <div class="px-4 sm:px-0">
@@ -12,39 +12,32 @@
               style="color: #132A54">Apply for a job</h1>
         </div>
       </div>
-      <div class="mt-5 md:mt-0 md:col-span-2">
-        <form  #formApplication="ngForm">
+      <div class="mt-5 md:mt-0 md:col-span-2 text-center">
+        <form #formApplication="ngForm" >
           <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
               <div class="grid grid-cols-3 gap-6">
                 <div class="col-span-3 sm:col-span-2">
-                  <label  class="block text-xl font-medium text-blue">
+                  <label class="block mx-4 text-xl font-semibold text-blue ">
                     Your CV
                   </label>
-                  <div class="mt-1 flex rounded-md shadow-sm">
-
-                    <ngx-uploadcare-widget
-                     class="plusFile" tabs="file url dropbox gdrive onedrive box huddle evernote"
-                    (on-change)="OnChangeUploadCV($event)" preview-step="true"
-                    (on-upload-complete)="uploadCompletedCV($event)"
-                    public-key="3226601193ad7484e850" clearable="true" input-accept-types="application/pdf"
-                    [do-not-store]="doNotStore">
-                  </ngx-uploadcare-widget>
+        <div class="px-4 py-3 bg-gray-50 sm:px-6">
+    <button class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
+                     bg-blue text-xl py-1 rounded ease-linear transition-all duration-150 "
+                            type="button" id="CVpicker" (click)="openPicker()">Upload your CV</button>
                   </div>
                 </div>
               </div>
               <div>
-                <label class="block text-xl mt-4 font-medium text-blue">
+                <label class="block mx-4 text-xl mt-4 font-semibold text-blue ">
                   letter of assignment
                 </label>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <ngx-uploadcare-widget
-                     class="" tabs="file url dropbox gdrive onedrive box huddle evernote"
-                    (on-change)="uploadCompletedLA($event)" preview-step="true"
-                    (on-upload-complete)="OnChangeUploadLA($event)"
-                    public-key="3226601193ad7484e850" clearable="true" input-accept-types="application/pdf"
-                    [do-not-store]="doNotStore">
-                  </ngx-uploadcare-widget>
+        <div class="px-4 py-3 bg-gray-50 sm:px-6">
+                  <button
+
+                   class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
+                     bg-blue text-xl py-1 rounded ease-linear transition-all duration-150  "
+                    type="button" id="LApicker" (click)="openPicker()">Upload your CV</button>
                 </div>
               </div>
               <!--
@@ -87,13 +80,13 @@
                             </div>
                           </div>-->
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div class="px-4 py-3 bg-gray-50 text-center sm:px-6 mb-8">
               <button type="submit"
                       class="inline-flex justify-center py-2 px-4 text-2xl hover:shadow-lg
                        border border-transparent shadow-sm text-sm font-medium
                        rounded-md text-white bg-orangem-500 focus:outline-none focus:ring-2
                        focus:ring-offset-2 focus:ring-indigo-500"
-              [disabled]="formApplication.invalid " (click)="save()">
+                      [disabled]="formApplication.invalid " (click)="save()">
                 Save
               </button>
             </div>

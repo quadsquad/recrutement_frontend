@@ -3,6 +3,8 @@ import {CandidatureService} from '../services/candidatures/candidature.service';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import {FormGroup} from '@angular/forms';
+import * as filestack from 'filestack-js';
+
 
 @Component({
   selector: 'app-applyforjob',
@@ -10,7 +12,10 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./applyforjob.component.css']
 })
 export class ApplyforjobComponent implements OnInit {
-
+  client = filestack.init('AwkYSZCVuSQGXHs1JlR6yz');
+  options = {
+    fromSources: ['local_file_system', 'url', 'googledrive', 'dropbox']
+  };
   application;
   doNotStore: true;
   uuidFileCV: any = '';
@@ -18,6 +23,7 @@ export class ApplyforjobComponent implements OnInit {
   cvApply: any = '';
   formApplication: FormGroup;
   btnRegisterB: any = false;
+
   constructor(private cu: CandidatureService, private router: Router) {
   }
 
@@ -34,6 +40,10 @@ export class ApplyforjobComponent implements OnInit {
         this.router.navigateByUrl('/myworldforjobs');
       });
     }
+  }
+
+  openPicker(): void {
+    this.client.picker(this.options).open();
   }
 
 
@@ -57,6 +67,7 @@ export class ApplyforjobComponent implements OnInit {
     console.log(e);
     this.uuidFileCV = e.uuid;
   }
+
   OnChangeUploadLA(e) {
     console.log(e);
   }
@@ -77,16 +88,17 @@ export class ApplyforjobComponent implements OnInit {
     console.log(e);
     this.uuidFileCV = e.uuid;
   }
- save() {
+
+  save() {
     this.cu.applyCandidate(this.application, this.application.id).subscribe(result => {
-          this.cu.storeFile(this.uuidFileCV).subscribe(
-            res => {
-              console.log('CV STORED SUCCESSFULLY');
-            }, error => {
-              console.log(error);
-            }
-          ),
-             this.cu.storeFile(this.uuidFileLA).subscribe(
+        this.cu.storeFile(this.uuidFileCV).subscribe(
+          res => {
+            console.log('CV STORED SUCCESSFULLY');
+          }, error => {
+            console.log(error);
+          }
+        ),
+          this.cu.storeFile(this.uuidFileLA).subscribe(
             res => {
               console.log('L.A STORED SUCCESSFULLY');
             }, error => {
@@ -94,15 +106,15 @@ export class ApplyforjobComponent implements OnInit {
             }
           )
 
-     Swal.fire({
-            icon: 'success',
-            title: 'SUCCESS',
-            text: 'YOUR APPLICATION HAS BEEN SUCCESSFULLY SENDED!'
-          }).then(() => {
-            this.router.navigateByUrl('/myworldforjobs');
+        Swal.fire({
+          icon: 'success',
+          title: 'SUCCESS',
+          text: 'YOUR APPLICATION HAS BEEN SUCCESSFULLY SENDED!'
+        }).then(() => {
+          this.router.navigateByUrl('/myworldforjobs');
 
-          });
-    },
+        });
+      },
       (err) => {
         alert('erreur')
       }
