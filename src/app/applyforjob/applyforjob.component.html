@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2 text-center">
-        <form #formApplication="ngForm" >
+        <form [formGroup]="formApplication">
           <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
               <div class="grid grid-cols-3 gap-6">
@@ -21,23 +21,40 @@
                   <label class="block mx-4 text-xl font-semibold text-blue ">
                     Your CV
                   </label>
-        <div class="px-4 py-3 bg-gray-50 sm:px-6">
-    <button class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
+                  <div class="px-4 py-3 bg-gray-50 sm:px-6">
+                    <button class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
                      bg-blue text-xl py-1 rounded ease-linear transition-all duration-150 "
-                            type="button" id="CVpicker" (click)="openPicker()">Upload your CV</button>
+                            type="button" id="FileCV" (click)="openPicker()">Upload your CV
+                    </button>
                   </div>
+                  <div *ngIf="FileCV!=''">
+
+                    <pdf-viewer src={{FileCV}}
+                                style="width: 600px; height: 500px"
+                    ></pdf-viewer>
+                                      <input hidden formControlName="cv_cand" name="cv_cand" [value]="[FileCV]">
+
+                  </div>
+
                 </div>
               </div>
               <div>
                 <label class="block mx-4 text-xl mt-4 font-semibold text-blue ">
                   letter of assignment
                 </label>
-        <div class="px-4 py-3 bg-gray-50 sm:px-6">
+                <div class="px-4 py-3 bg-gray-50 sm:px-6">
                   <button
 
-                   class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
+                    class="pickerBtn border-2 font-seminormal rounded-full text-white text-center justify-center
                      bg-blue text-xl py-1 rounded ease-linear transition-all duration-150  "
-                    type="button" id="LApicker" (click)="openPicker()">Upload your CV</button>
+                    type="button" id="FileLA" (click)="openPicker1()">Upload your LA
+                  </button>
+                </div>
+                <div *ngIf="FileLA!=''" >
+                  <pdf-viewer src={{FileLA}}
+                              style="width: 600px; height: 500px"
+                  ></pdf-viewer>
+                  <input hidden formControlName="letter_aff_cand" name="letter_aff_cand" [value]="[FileLA]">
                 </div>
               </div>
               <!--
@@ -86,7 +103,7 @@
                        border border-transparent shadow-sm text-sm font-medium
                        rounded-md text-white bg-orangem-500 focus:outline-none focus:ring-2
                        focus:ring-offset-2 focus:ring-indigo-500"
-                      [disabled]="formApplication.invalid " (click)="save()">
+                      (click)="save()">
                 Save
               </button>
             </div>

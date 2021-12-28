@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CandidatureService} from '../services/candidatures/candidature.service';
 import Swal from 'sweetalert2';
-import {Router} from '@angular/router';
-import {FormGroup} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import * as filestack from 'filestack-js';
 
 
@@ -14,17 +14,32 @@ import * as filestack from 'filestack-js';
 export class ApplyforjobComponent implements OnInit {
   client = filestack.init('AwkYSZCVuSQGXHs1JlR6yz');
   options = {
+    onUploadDone: (res) => {
+      this.FileCV = res.filesUploaded[0].url;
+    },
+    fromSources: ['local_file_system', 'url', 'googledrive', 'dropbox']
+  };
+  options1 = {
+    onUploadDone: (res) => {
+      this.FileLA = res.filesUploaded[0].url;
+    },
     fromSources: ['local_file_system', 'url', 'googledrive', 'dropbox']
   };
   application;
   doNotStore: true;
-  uuidFileCV: any = '';
-  uuidFileLA: any = '';
+  FileCV = '';
+  FileLA = '';
   cvApply: any = '';
   formApplication: FormGroup;
   btnRegisterB: any = false;
-
-  constructor(private cu: CandidatureService, private router: Router) {
+  emploicand;
+  user;
+  constructor(private cu: CandidatureService, private formBuilder: FormBuilder,
+              private router: Router, private activatedRoute: ActivatedRoute) {
+    this.formApplication = formBuilder.group({
+      cv_cand: ['', Validators.required],
+      letter_aff_cand: ['', Validators.required],
+    })
   }
 
   ngOnInit(): void {
@@ -44,68 +59,44 @@ export class ApplyforjobComponent implements OnInit {
 
   openPicker(): void {
     this.client.picker(this.options).open();
+
   }
 
+  openPicker1(): void {
+    this.client.picker(this.options1).open();
 
-  OnChangeUploadCV(e) {
-    console.log(e);
   }
 
-  uploadCompletedCV(e) {
-    if (this.uuidFileCV !== '') {
-      this.cu.deleteFile(this.uuidFileCV).subscribe(
-        response => {
-          console.log('FILE DELETED');
-          console.log(this.uuidFileCV);
-        }, error => {
-          console.log('COULD NOT DELETE FILE');
-        }
-      )
-    }
-    this.cvApply = e.cdnUrl;
-    console.log(this.cvApply);
-    console.log(e);
-    this.uuidFileCV = e.uuid;
+  get cv_cand() {
+    return this.formApplication.get('cv_cand');
   }
 
-  OnChangeUploadLA(e) {
-    console.log(e);
+   get emploi_cand() {
+    return this.formApplication.get('emploi_cand');
+  }
+  get letter_aff_cand() {
+    return this.formApplication.get('letter_aff_cand');
   }
 
-  uploadCompletedLA(e) {
-    if (this.uuidFileCV !== '') {
-      this.cu.deleteFile(this.uuidFileCV).subscribe(
-        response => {
-          console.log('FILE DELETED');
-          console.log(this.uuidFileCV);
-        }, error => {
-          console.log('COULD NOT DELETE FILE');
-        }
-      )
-    }
-    this.cvApply = e.cdnUrl;
-    console.log(this.cvApply);
-    console.log(e);
-    this.uuidFileCV = e.uuid;
+  get f() {
+    return this.formApplication.controls;
   }
 
   save() {
-    this.cu.applyCandidate(this.application, this.application.id).subscribe(result => {
-        this.cu.storeFile(this.uuidFileCV).subscribe(
-          res => {
-            console.log('CV STORED SUCCESSFULLY');
-          }, error => {
-            console.log(error);
-          }
-        ),
-          this.cu.storeFile(this.uuidFileLA).subscribe(
-            res => {
-              console.log('L.A STORED SUCCESSFULLY');
-            }, error => {
-              console.log(error);
-            }
-          )
+      this.activatedRoute.queryParams.subscribe(params => {
+          this.emploicand = this.activatedRoute.snapshot.paramMap.get('id');
 
+    });
+       if (localStorage.getItem('data') && JSON.parse(localStorage.getItem('data')).role === 'Particular'){
+      this.user=localStorage.getItem('data');
+    }
+    this.application={
+      cv_cand: this.formApplication.value.cv_cand,
+      letter_aff_cand: this.formApplication.value.letter_aff_cand,
+      emploi_cand: this.emploicand,
+      user_model: localStorage.getItem('data')
+    }
+    this.cu.applyCandidate(this.application, this.emploicand).subscribe(result => {
         Swal.fire({
           icon: 'success',
           title: 'SUCCESS',

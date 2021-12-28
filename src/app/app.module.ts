@@ -91,6 +91,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import { ApplyforjobComponent } from './applyforjob/applyforjob.component';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 // @ts-ignore
@@ -178,7 +179,8 @@ import { ApplyforjobComponent } from './applyforjob/applyforjob.component';
     AgGridModule.withComponents([]),
     Ng2SmartTableModule,
 
-    UcWidgetModule
+    UcWidgetModule,
+    PdfViewerModule
   ],
   providers: [
     {

@@ -29,7 +29,7 @@ export class CandidatureService {
     return this.httpClient.get<[]>(`${environment.candidaturesUrl}candidatures`);
   }
 
-  applyCandidate(id: number, application) {
+  applyCandidate(application,id) {
     return this.httpClient.post<any>(`${environment.candidaturesUrl}postuler/` + id, application, this.httpOptions);
   }
 
