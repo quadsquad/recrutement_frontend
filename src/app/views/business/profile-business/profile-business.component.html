@@ -6,12 +6,15 @@
           <div class="account-settings">
             <div class="" style="border-radius: 70%; height: 150px; width: 150px">
               <div class="user-avatar">
-                <img [src]="business_logo" alt="">
+                <img [src]="business_logo" alt="business_logo" style="border-radius: 50%">
             <div class="file-input mt-4">
-              <input type="file" id="file" class="file">
-              <label for="file">
+              <label [style]="{'pointer-events': pointerEventsBLogo, 'opacity': opacityBLogo}">
                <i class="fa fa-upload"></i>&nbsp;&nbsp;  Select file
-                <p class="file-name"></p>
+                <ngx-uploadcare-widget
+  images-only="true" tabs="file url facebook instagram" class="file" style="cursor: pointer"
+  (on-change)="OnChangeUpload($event)" (on-upload-complete)="uploadCompleted($event)"
+  public-key="3226601193ad7484e850" input-accept-types="image/png">
+</ngx-uploadcare-widget>
               </label>
             </div>
               </div>
@@ -22,32 +25,60 @@
         </div>
       </div>
     </div>
+    <div align = "center">
+      <loading *ngIf="isLoading">{{ isLoading }}</loading>
+    </div>
     <div class="lg:w-9/12">
       <p class="text-3xl mx-4 text-justify font-seminormal">Business Information  </p>
-      <form action="">
+      <form (ngSubmit)="saveChanges($event)">
         <div class="flex flex-wrap w-full mx-4">
 
-            <label class="mt-4">Business Name</label>
-            <input type="text" [value]="business_name" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px"/>
+            <label class="mt-4 w-full">Business Name</label>
+            <input type="text" [value]="business_name" name="businessName" (change)="changeBusinessName($event)"
+                   class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px"/>
             <br>
-            <label class="mt-4">Business Email</label>
-            <input type="text" [value]="email" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
+          <label class="mt-4 w-full">Business Address</label>
+            <input type="text" [value]="address" name="businessAddress" (change)="changeAddress($event)"
+                   class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
+            <br>
+          <label class="mt-4 w-full">Business Country</label>
+          <select name="country" (change)="select_country($event.target.value)"
+                  class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px; cursor: pointer">
+                <option selected [value]="business_countryCode">{{business_country}}</option>
+                <option *ngFor="let country of allCountries" [value]="country.iso2">{{country.name}}</option>
+          </select>
+              <br>
+          <label class="mt-4 w-full">Business City</label>
+          <select name="city" (change)="select_city($event.target.value)" [hidden]="selectedCityHidden"
+                  class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px; cursor: pointer">
+                <option selected *ngIf="hideSelectedCountry === false">{{business_city}}</option>
+                <option *ngFor="let city of citiesToShow" [value]="city">{{city}}</option>
+          </select>
+          <input type="text" name="cityInput" (change)="changeCityInput($event)"
+                 [value]="inputCity" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px" [hidden]="inputHidden">
+              <br>
+            <label class="mt-4 w-full">Business Email</label>
+            <input type="text" name="businessEmail" [value]="email" (change)="changeEmail($event)"
+                   class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
               <br>
             <label class="mt-4 w-full">Business Contact</label>
-            <input type="text" [value]="phonenumber" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
+            <!--<input type="text" [value]="phonenumber" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">-->
+          <input type="text" name="phonenumber" required="" style="height: 50px; border-radius: 3px" ng2TelInput
+                 title="PHONE NUMBER" [value]="phonenumber"
+                  class="lg:w-4/12 inputaccount" [ng2TelInputOptions]="cell1TelInput" (hasError)="onError($event)"
+                  (countryChange)="onCountryChange($event)" pattern="[0-9]+"/>
           <br>
-            <label class="mt-4 w-full">Business Address</label>
-            <input type="text" [value]="address" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
-<br>
-          <label class="mt-4 w-full">Business website</label>
-          <input type="text" [value]="[business_website]" class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
+          <label class="mt-4 w-full">Business Website</label>
+          <input type="text" name="businessWebsite"
+                 [value]="[business_website]" (change)="changeBusinessWebsite($event)"
+                 class="lg:w-4/12 inputaccount" style="height: 50px; border-radius: 3px">
 <br>
           <div class="flex flex-row w-full">
-            <button class="w-full mt-4 btnsave"
-                  style="height: 50px;">save changes
+            <button class="w-full mt-4 btnsave" type="submit"
+                  [style]="{'height': '50px', 'pointer-events': pointerEvents, 'opacity': opacity}" [disabled]="scBtnState">save changes
           </button>
-            <button class="w-full mt-4 cancelbtn"
-                  style="height: 50px;">cancel changes
+            <button class="w-full mt-4 cancelbtn" (click)="cancelChanges()" type="button"
+                  [style]="{'height': '50px', 'pointer-events': pointerEvents, 'opacity': opacity}">cancel changes
           </button>
           </div>
 

@@ -198,6 +198,8 @@ hasErr: boolean;
 
   counterRB: any = 0;
 
+  countryIso: any;
+
   cell1TelInput: any = {
     initialCountry: 'tn',
     autoPlaceholder: 'polite',
@@ -225,6 +227,7 @@ hasErr: boolean;
   {
     this.prefixPhoneB = event.dialCode;
     console.log(event);
+    this.countryIso = event.iso2;
   }
 
   static validUsername(fc: FormControl) {
@@ -609,6 +612,8 @@ hasErr: boolean;
       email : this.rb_form.value.email,
       address : this.rb_form.value.address,
       country : this.rb_form.value.country,
+      codeCountry : this.countrySelected,
+      countryIso : this.countryIso,
       city : this.rb_form.value.city,
       phonenumber : this.prefixPhoneB+''+this.rb_form.value.phonenumber,
       password : this.rb_form.value.password,

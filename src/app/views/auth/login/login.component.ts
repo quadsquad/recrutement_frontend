@@ -52,17 +52,20 @@ export class LoginComponent implements OnInit {
       this.authentic.authenticate(this.loginUser.email,this.loginUser.password).pipe(first())
         .subscribe(
             response => {
-              if(response.r === 'admin'){
+              if(response.r === 'admin' && response.user.enabled === true){
                 this.router.navigateByUrl('/admin/dashboard');
-              } if(response.r ==='Business'){
+              } if(response.r ==='Business' && response.user.enabled === true){
                 this.router.navigateByUrl('');
-              }if (response.r === 'Particular'){
+              }if (response.r === 'Particular' && response.user.enabled === true){
                 this.router.navigateByUrl('/profile');
+              }
+              if (response.user.enabled === false) {
+                this.toastr.error('YOUR ACCOUNT MUST BE VERIFIED');
+                localStorage.setItem('token', 'null');
               }
               if (!response.r) {
                 this.toastr.error('INCORRECT EMAIL/PASSWORD');
-                localStorage.removeItem('data');
-                localStorage.removeItem('token');
+                localStorage.setItem('token', 'null');
               }
 
             }, error => {

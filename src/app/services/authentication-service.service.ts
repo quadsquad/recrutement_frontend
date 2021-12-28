@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
+import {ToastrService} from 'ngx-toastr';
 
 
 // @ts-ignore
@@ -15,7 +16,7 @@ import {Observable} from 'rxjs';
 export class AuthenticationServiceService {
 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private toastr: ToastrService) {
 
   }
   httpOptions = {
@@ -33,7 +34,7 @@ export class AuthenticationServiceService {
     return this.httpClient.post<any>('https://authrecruitement.herokuapp.com/auth',{email,password},this.httpOptions)
       .pipe(
          map(userData => {
-            localStorage.setItem('data',JSON.stringify(userData.user));
+             localStorage.setItem('data',JSON.stringify(userData.user));
             localStorage.setItem('token', JSON.stringify(userData.response));
             return userData;
          })
